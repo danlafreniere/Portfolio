@@ -70,10 +70,31 @@
         <div class="container"> 
             <h1>SETTING UP THE NETWORK</h1>
             
-            <p class="bodyText">So diving right in, we know that we have 3 classes of flowers and that we need to use a multilayer backpropagation network in order to properly classify them given our dataset.</p>
-                 
+            <p class="bodyText">So diving right in, we know that we have 3 classes of flowers and that we need to use a multilayer backpropagation network in order to properly classify them given our dataset. The first step is to determine how many layers we need and how many nodes we need in each subsequent layer. Backpropagation networks consist of an input layer, output layer, and one or more hidden layers.</p>
+            
+            <p class="bodyText"><b>Input Layer:</b> because we have 4 data attributes (discussed above) and these serve as our input parameters for the NN, you would think it would make sense to initialize the network with 4 input nodes. However, an additional 'bias' node is required bringing the total of input nodes up to 5. This bias node will always have an input of 1. If you're wondering why bias is important, <a href="http://stackoverflow.com/questions/2480650/role-of-bias-in-neural-networks">this post</a> does a solid job of explaining things in detail.</p>
+            <p class="bodyText"><b>Output Layer:</b> similarly, we have 3 output categories (based on the 3 bit encoding of the flowers) and therefore, we need 3 output nodes. Recall: </p>
+                <ul style="font-size: 12pt;">
+                    <li>Iris-Setosa = [1,0,0]</li>
+                    <li>Iris-Versicolour = [0,1,0]</li>
+                    <li>Iris-Virginica = [0,0,1]</li>
+                </ul>
+           
+            <p class="bodyText"><b>Hidden Layer:</b> we will focus on a single hidden layer for this illustration - typically one hidden layer will suffice for the majority of applications (including this one). The number of HN's to select is significantly more complicated. Usually this is determined based on trial and error using a general heuristic as a starting point. A good rule of thumb is to use the mean of the input and output nodes so we will start with a modest 4 hidden nodes and work around that number as we go if needed ((3 + 5) / 2 = 4). Sometimes clustering is used during preprocessing to determine an optimal number of HN's, other times pruning is used to reduce nodes until a good number is reached.</p>
+            
+            <p class="bodyText">In terms of structure, backpropagation networks are set up so that every input node (IN) is connected to every hidden node (HN) and every HN will be connected to every output node (ON). Each of these connections has a corresponding <b>weight</b>. Since this is a 5-4-3 network, there are a total of 32 weights ((5 * 4) + (4 * 3)). As our program progresses, the weights will be adjusted <b>after each iteration (iterative refinement)</b> until we either reduce error to an acceptable level or a threshold number of iterations is reached. Iterative refinement for update frequency seems to work better than batch processing (one batch = one cycle through each training sample). The network ends up looking like this (for now at least):</p>
+            
+            <p class="bodyText"><img class="img-responsive center-block" alt="A diagrame of a 5-4-3 neural network" src="images/5-4-3-NeuralNetwork.jpg"/></p>
+             
         </div>
         
+        
+        <div class="container"> 
+            <h1>SPLITTING UP THE DATASET</h1>
+            
+            <p class="bodyText"></p>
+            
+        </div>
         
         
         
