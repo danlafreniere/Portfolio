@@ -1,0 +1,91 @@
+<!doctype html>
+<html lan="en">
+    
+<!--    ADD CONTENT FOR ACCESSIBILITY-->
+	<head>
+    	<meta charset="UTF-8"/>
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+   	 	<title>Dan LaFreniere Portfolio</title>
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    	<link href='http://fonts.googleapis.com/css?family=Advent+Pro:100,200,300,400,500,600,700' rel='stylesheet' type='text/css'>     
+    	<link rel="stylesheet" href="css/bootstrap.css">
+    	<link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <link rel="icon" type="image/png" href="images/AshTree-Logo.png" sizes="32x32">
+
+    </head>
+    
+    <body>
+        <div id="header">
+            <div id="logo">
+				<a href="index.php"><img alt="My site logo - an ash tree" id="treeLogo" src="images/AshTree-Logo.png"/></a>
+				<a href="index.php"><img alt="Dan LaFreniere. Programmer. Designer. Researcher." id="nameLogo" src="images/LaFreniere-Logo.png"/></a>
+            </div>
+        
+            <nav id="menu">
+                <a class="primary-nav-trigger" href="#0"><span class="menu-text">Menu</span><span class="menu-icon"></span></a>
+            </nav>
+        
+   	    </div>
+        <nav>
+	  	   	<ul class="primary-nav">
+                <li id="firstItem"><a href="index.php#jumpto-About">About Me</a></li>
+           	    <li><a href="index.php#jumpto-Projects">Projects</a></li>
+                <li><a href="index.php#jumpto-Contact">Contact</a></li>
+           	    <li class="primary-nav-title"><strong>Follow Me</strong></li>
+           	    <li><a href="https://ca.linkedin.com/pub/daniel-lafreniere/72/403/469"><i class="social_linkedin_circle"></i></a>&nbsp;<a href="https://www.facebook.com/dan.lafreniere.56"><i class="social_facebook_circle"></i></a>&nbsp;<a href="https://twitter.com/JustLacksZazz"><i class="social_twitter_circle"></i></a>&nbsp;<a href="https://plus.google.com/+DanLaFreniere/posts"><i class="social_googleplus_circle"></i>
+</a>&nbsp;<a href="https://github.com/danlafreniere"><i style="font-size: 35px; margin-bottom: -5px;" class="fa fa-github"></i></a></li>
+	       </ul>
+   	    </nav>
+             
+        <a href="neuralNetwork.php">
+        <div id="blogHeader">
+
+            <p id="featuredBlog-title"><span>Backpropagation Neural Networks</span></p>
+            <h3 id="featuredBlog-subtitle">FEATURED TUTORIAL</h3>
+            <img id="featuredImage" src="images/Feature.png"/>
+
+        </div></a>
+        
+        
+        <div class="container topPadding"> 
+            <h1>TUTORIALS</h1>
+            <hr/>
+            <div class="col-xs-6 col-sm-4 blogPost">
+                <a href="#0"><figure><img class="img-responsive" src="images/Dijkstra.png"/></figure></a>
+                <p>Dijkstra's Algorithm</p>
+                <hr/>
+            </div>
+            <div class="col-xs-6 col-sm-4 blogPost">
+                <a href="#0"><figure><img class="img-responsive" src="images/BarnDoor.jpg"/></figure></a>
+                <p>Barn Door Star Tracking Mount</p>
+                <hr/>
+            </div>
+            <div class="col-xs-6 col-sm-4 blogPost">
+                <a href="neuralNetwork.php"><figure><img class="img-responsive" src="images/NeuralNetwork.jpg"/></figure></a>
+                <p>Backpropagation Neural Networks</p>
+                <hr/>
+            </div>  
+        </div>
+          <div class="container"> 
+            <div class="col-xs-6 col-sm-4 post">
+            </div>
+            <div class="col-xs-6 col-sm-4 post">
+            </div>
+            <div class="col-xs-6 col-sm-4 post">
+            </div>
+        </div>
+        <hr/>
+        
+
+        <script src="js/jquery-latest.js"></script>      <!-- http://code.jquery.com/jquery-latest.js-->
+        <script src="js/jquery-effects-core.js"></script>  <!-- http://jquery-ui.googlecode.com/svn/tags/latest/ui/jquery.effects.core.js-->
+        <script src="js/jquery-effects-slide.js"></script> <!--http://jquery-ui.googlecode.com/svn/tags/latest/ui/jquery.effects.slide.js -->
+        <script src="js/script.js"></script>
+    </body>
+    
+    <footer>
+    
+        <p id="footerText">&copy; Dan LaFreniere 2016</p>
+    </footer>
+</html>
