@@ -15,7 +15,10 @@ CSS TABLE OF CONTENTS:
 /* ---------->>> FONT ICONS <<<-----------*/
 /* ---------------------------------------*/
 
-/*Thank you to Elegant Icons! You guys rock. For more: https://www.elegantthemes.com/blog/resources/elegant-icon-font */
+/*
+Thank you to Elegant Icons! You guys rock. 
+For more: https://www.elegantthemes.com/blog/resources/elegant-icon-font 
+*/
 
 @font-face { 
 	font-family: 'ElegantIcons';
@@ -244,10 +247,12 @@ footer {
 	line-height:1.5em;
 	min-height:50px;
 	text-align: center;
-	
-    
 }
 
+.codeBlockSmall {
+    height: 300px;
+    width: 100%;
+}
 
 /* -------------------------------------------*/
 /* --------------->>> IMAGES <<<--------------*/
