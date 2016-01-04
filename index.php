@@ -121,9 +121,7 @@
 Filet mignon capicola picanha, corned beef brisket pork belly chicken shankle strip steak bacon. Leberkas kevin ham hock shoulder ball tip. Jerky ground round tongue meatloaf t-bone alcatra cupim tail brisket ham hock pork belly. Kevin pig ham hock, ground round sirloin ball tip venison porchetta beef ribs spare ribs.</p>
         </div>
 
-        <script src="js/jquery-latest.js"></script>      <!-- http://code.jquery.com/jquery-latest.js-->
-        <script src="js/jquery-effects-core.js"></script>  <!-- http://jquery-ui.googlecode.com/svn/tags/latest/ui/jquery.effects.core.js-->
-        <script src="js/jquery-effects-slide.js"></script> <!--http://jquery-ui.googlecode.com/svn/tags/latest/ui/jquery.effects.slide.js -->
+        <script src="js/jquery-2.1.4.min.js"></script>      <!--http://code.jquery.com/jquery-2.1.4.min.js-->
         <script src="js/script.js"></script>
     </body>
     
