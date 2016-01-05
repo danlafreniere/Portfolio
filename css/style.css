@@ -370,6 +370,13 @@ h1 {
     font-weight: 700;
 }
 
+h2 {
+    font-family: 'Advent Pro', sans-serif;
+    margin-left: 10px; 
+    font-weight: 600;
+    font-size: 20pt;
+}
+
 .bigFont {
     font-size: 24pt;
     font-weight: 300;

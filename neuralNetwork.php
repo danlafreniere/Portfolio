@@ -9,7 +9,7 @@
     	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     	<link href='http://fonts.googleapis.com/css?family=Advent+Pro:100,200,300,400,500,600,700' rel='stylesheet' type='text/css'>     
     	<link rel="stylesheet" href="css/bootstrap.css">
-        <link href="css/prism.css" rel="stylesheet" />
+        <link rel="stylesheet" href="css/prism.css"/>
     	<link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <link rel="icon" type="image/png" href="images/AshTree-Logo.png" sizes="32x32">
@@ -26,8 +26,8 @@
             <nav id="menu">
                 <a class="primary-nav-trigger" href="#0"><span class="menu-text">Menu</span><span class="menu-icon"></span></a>
             </nav>
-        
    	    </div>
+        
         <nav>
 	  	   	<ul class="primary-nav">
                 <li id="firstItem"><a href="index.php#jumpto-About">About Me</a></li>
@@ -45,7 +45,6 @@
             <img id="featuredImage" src="images/Feature.png"/>
 
         </div>
-        
         
         <div class="container topPadding"> 
             <h1>AN INTRODUCTION TO MULTILAYER NETWORKS</h1>
@@ -92,7 +91,6 @@
              
         </div>
         
-        
         <div class="container"> 
             <h1>SPLITTING UP THE DATASET</h1>
             
@@ -100,7 +98,7 @@
             
             <p class="bodyText">In order to set up the proper sets, I created a method called setTrainTestData within the Backpropagation class. I'd like to clean up this code because I wrote it without giving it much thought (this part just wasn't high priority for me). Currently, index numbers between 0 and the size of the total Iris dataset are chosen at random by a random number generator. If this index was not chosen previously, the corresponding data value from the total Iris set is added to the front of the training data set and the index is marked as chosen. In the case where an index value has been chosen previously, a new index is generated until the conflict is resolved. After the training set is filled, the test set is filled with the remaining values. As you can probably tell this is terribly inefficient and for large sets you don't want to use this code. However, since the Iris set only contains 150 data points, using this random-chance method doesn't impact performance noticeably. Here is the code:</p>
             
-            <pre class="language-java codeBlockSmall">
+            <pre class="codeBlockSmall">
                 <code class="language-java">
     public static void setTrainTestData(double[][] data, double[][] trainingData, double[][] testData){
         Random rand = new Random(); 
@@ -137,12 +135,6 @@
             
         </div>
         
-        
-        <div class="container"> 
-            <h1>ERROR CALCULATION AND GRADIENT DESCENT</h1>
-            <p class="bodyText"></p>
-        </div>
-        
         <div class="container"> 
             <h1>PSEUDOCODE</h1>
             <p class="bodyText">The general pseudocode for building a multi-layer backpropagation network is as follows:</p>
@@ -163,7 +155,207 @@
                 </ol>
             <p class="bodyText">This bit of pseudo will give us a nice framework for the rest of the tutorial.</p>
         </div>
-         
+        
+        <div class="container"> 
+            <h1>INITIALIZING THE WEIGHTS</h1>
+            <p class="bodyText">This part is nice and easy - a random number generator will set the weights to a number between 0.001 and 0.0001. Getting to these values took a little trial and error and some Googling around to find something that would work nicely. As a rule of thumb, small weight values are nice when coupled with a sigmoid function in order to avoid slow learning (this is a result of the sigmoid curve flattening when a &rarr; &plusmn;&infin;).</p>
+            
+            <pre class="codeBlockSmall">
+                <code class="language-java">
+    //weights are initialized to random values and stored in their respective arrays for later use
+	private void InitializeWeights(){
+
+		Random rand = new Random(); 
+		double min = 0.0001;							//min weight value
+		double max = 0.001;								//max weight value
+		this.ihWeights = new double[numHN][numIN+1]; 	//input-hidden weights: (numIN+1) is used to account for bias weights
+		this.hoWeights = new double[numON][numHN];		//hidden-output weights
+
+		//all weights are assigned initial random values:
+		for (int h=0; h&lt;(numHN); h++){
+			for (int i=0; i&lt;numIN+1; i++){
+				ihWeights[h][i] = min + (max - min) * rand.nextDouble(); 	
+			}
+		}
+		for (int j=0; j&lt;numON; j++){
+			for (int h=0; h&lt;numHN; h++){
+				hoWeights[j][h] = min + (max - min) * rand.nextDouble();
+			}
+		}
+	} //End InitializeWeights Method
+                </code>
+            </pre>
+            <p>&nbsp;</p>
+        </div>
+        
+        <div class="container"> 
+            <h1>While Loop</h1>
+            <h2>ERROR CALCULATION</h2>
+            <p class="bodyText">The goal of our network is to modify weights so that the output vector y<sub>p</sub> is as close as possible to the desired output vector d<sub>p</sub> where p is the given input vector for that iteration. Error can be calculated as e = (d<sub>p</sub> - y<sub>p</sub>) which is the desired output compared to the actual output for a particular input pattern p:</p>
+            
+            <pre>
+                <code class="language-java">
+        //obtained the desired output values from the last 3 values of the training data vectors
+		for (int j=4; j&lt;inputVectorLength; j++){
+			desiredOut[index] = trainingData[P][j]; 
+			index++; 
+		}
+		//error is (desired output - actual output) for each node
+		for (int j=0; j&lt;numON; j++){	
+			outputError[j] = desiredOut[j] - outputs[j]; 
+		}
+                </code>
+            </pre>
+                
+            <p class="bodyText">Therefore, total error is calculated by <b>sum squared error</b> and is: &sum;<sub>p</sub>(d<sub>p</sub> - y<sub>p</sub>)<sup>2</sup> &nbsp;&nbsp;This calculation is necessary for one of the stopping conditions of our network (along with an iteration threshold).</p> 
+            
+            <pre>
+                <code class="language-java">
+        for (int j=0; j&lt;outputError.length; j++){
+			sse += Math.pow(outputError[j],2);
+		}
+		sse = (1.0/2) * sse; 
+                </code>
+            </pre>
+                
+            <p class="bodyText">As for selecting the termination conditions of the while loop, I decided on a very small error value and a relatively high iteration value - these values should be altered with trial and error.</p>
+            
+            <pre>
+                <code class="language-java">
+            int maxEpoch = 500;
+            while ((thisEpoch &lt;= maxEpochs) &amp;&amp; (sse &gt; 0.001)){          
+                </code>
+            </pre>
+            
+            <h2>GRADIENT DESCIENT</h2>
+            <p class="bodyText"><b>Gradient descent</b> is the heart and soul of the backpropagation network. It refers to the direction of change for our weights and thus allows us to modify them accurately. In short, this is calculated as: &#916;w = -&#948;E/&#948;w &nbsp;&nbsp; Essentially we end up using a chain rule on these derivations to obtain the necessary weight changes. I will talk about this in more detail along with actual code below but you can read up on this beforehand: <a href="https://en.wikipedia.org/wiki/Delta_rule">"derivation of the delta rule"</a>.</p>
+        </div>
+        
+        <div class="container"> 
+            <h1>COMPUTING HIDDEN NODE INPUTS</h1>
+            <p class="bodyText"></p>
+        
+            <pre>
+                <code class="language-java">
+            //------------------ 1. Calculate net input to each node in hidden layer h ------------------
+            for (int h=0; h&lt;(numHN); h++){
+				for (int i=0; i&lt;numIN+1; i++){
+				    if (i &lt; 4){							//compute inputs to hidden nodes from the 4 data dimensions
+				        hiddenInputs[h] += (ihWeights[h][i] * trainingData[P][i]); 
+				    } else {							//compute the input to hidden node for bias value b=1
+				        hiddenInputs[h] += (ihWeights[h][i] * 1);
+				    }	
+				}
+            } //-----------------------------------------------------------------------------------------
+                </code>
+            </pre>
+            <p>&nbsp;</p>
+        </div>
+
+        
+        <div class="container"> 
+            <h1>COMPUTING HIDDEN NODE OUTPUTS</h1>
+            <p class="bodyText">WHAT IS M? - Make sure to specify</p>
+        
+            <pre>
+                <code class="language-java">
+            //-------------- 2. Calculate sigmoid output from each node in hidden layer h ---------------
+            for (int h=0; h&lt;(numHN); h++){
+				//hiddenOutput = Sigmoid(net) = 1/(1+e^(-m*net)) -> logistic function:
+				hiddenOutputs[h] = 1 / (1 + Math.exp(-hiddenInputs[h] * m));
+            } //-----------------------------------------------------------------------------------------
+
+                </code>
+            </pre>
+            <p>&nbsp;</p>
+        </div>
+        
+        <div class="container"> 
+            <h1>COMPUTING OUTPUT NODE INPUTS</h1>
+            <p class="bodyText"></p>
+        
+            <pre>
+                <code class="language-java">
+            //------------------ 3. Calculate net input to each node in output layer j ------------------
+            for (int j=0; j&lt;(numON); j++){
+				for (int h=0; h&lt;numHN; h++){
+				    valForON[j] += (hoWeights[j][h] * hiddenOutputs[h]);
+				}
+            } //-----------------------------------------------------------------------------------------
+
+                </code>
+            </pre>
+            <p>&nbsp;</p>
+        </div>
+        
+        <div class="container"> 
+            <h1>COMPUTING OUTPUTS</h1>
+            <p class="bodyText"></p>
+        
+            <pre>
+                <code class="language-java">
+            //-------------- 4. Calculate sigmoid output from each node in output layer j ---------------
+            for (int j=0; j&lt;(numON); j++){
+				outputs[j] = 1 / (1 + Math.exp(-valForON[j] * m));
+            } //----------------------------------------------------------------------------------------
+                </code>
+            </pre>
+            <p>&nbsp;</p>
+        </div>
+        
+        
+        <div class="container"> 
+            <h1>UPDATING WEIGHTS</h1>
+            <p class="bodyText"></p>
+        
+            <pre class="codeBlockSmall">
+                <code class="language-java">
+    //after errors have been calculated, we can now update each weight in our network
+	public void updateWeights(double learningRate, double momentum, int P, double[][] trainingData){
+
+		double deltaWeight = 0; 
+		double previousDelta = 0; 
+		double runningSum; 
+		double val;
+
+		//------------------------------------ 1. Update Hidden-Output Weights ------------------------------------
+		for (int j=0; j&lt;(numON); j++){
+			//outputGradient = (d - y) * y * (1 - y)
+			outputGradients[j] = outputError[j] * outputs[j] * (1-outputs[j]);
+			for (int h=0; h&lt;numHN; h++){
+				deltaWeight = learningRate * hiddenOutputs[h] * outputGradients[j];
+				//momentum is computed using stored value of previous deltaWeight (below)
+				deltaWeight += momentum * previousDelta; 
+				hoWeights[j][h] = hoWeights[j][h] + deltaWeight; 
+				previousDelta = deltaWeight; 
+			}
+		} 
+		//------------------------------------ 2. Update Input-Hidden Weights -------------------------------------
+		//hiddenGradients are calculated first in order to make the weight update calculations more straightforward:
+		for (int h=0; h&lt;numHN; h++) {
+			runningSum = 0;
+			for (int j=0; j&lt;numON; j++) {
+				val = outputGradients[j] * hoWeights[j][h];
+				runningSum += val;	
+			}
+			//hiddenGradient = SUMOF{ outputGradients[j] * hoWeights[j][h] } * (d - y) * y * (1 - y)
+			hiddenGradients[h] = runningSum * hiddenOutputs[h] * (1 - hiddenOutputs[h]);
+		}
+		//weights can now be updated now that we have the proper hidden gradients:
+		previousDelta = 0; 
+		for (int h=0; h&lt;(numHN); h++){
+			for (int i=0; i&lt;numIN+1; i++){
+				deltaWeight = learningRate * trainingData[P][i] * hiddenGradients[h];
+				deltaWeight += momentum * previousDelta;
+				ihWeights[h][i] = ihWeights[h][i] + deltaWeight; 
+				previousDelta = deltaWeight; 
+			}
+		}
+	}
+                </code>
+            </pre>
+        </div>
+        
         <hr/>
 
         <script src="js/jquery-2.1.4.min.js"></script>      <!--http://code.jquery.com/jquery-2.1.4.min.js-->
