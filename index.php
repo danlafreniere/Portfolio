@@ -30,7 +30,7 @@
 	  	   	<ul class="primary-nav">
                 <li id="firstItem"><a href="#jumpto-About">About Me</a></li>
            	    <li><a href="#jumpto-Projects">Projects</a></li>
-                <li><a href="blogHome.php">Blog</a></li>
+                <li><a href="#jumpto-Blog">Blog</a></li>
                 <li><a href="#jumpto-Contact">Contact</a></li>
            	    <li class="primary-nav-title"><strong>Follow Me</strong></li>
            	    <li><a href="https://ca.linkedin.com/pub/daniel-lafreniere/72/403/469"><i class="social_linkedin_circle"></i></a>&nbsp;<a href="https://www.facebook.com/dan.lafreniere.56"><i class="social_facebook_circle"></i></a>&nbsp;<a href="https://twitter.com/JustLacksZazz"><i class="social_twitter_circle"></i></a>&nbsp;<a href="https://plus.google.com/+DanLaFreniere/posts"><i class="social_googleplus_circle"></i>
@@ -56,18 +56,21 @@
             
                 <p class="bodyText">I'm a huge music fan and dig everything from death metal to dream pop. I'm told I'm a very nice fella so don't hesitate to <a href="#jumpto-Contact">drop me a line!</a></p>
             
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
         </div>
       
-        <hr/>
+        
+        <section class="tealBackground">
         
         <div class="container"> 
             <hr id="jumpto-Projects"/>
-            <h1 style="padding-bottom: 40px;">PROJECTS</h1>
+            <h1 class="topPadding whiteText bigBottom">PROJECTS</h1>
 
             <a href="#0">
             <div class="col-xs-6 col-sm-4 blogPost">
                 <figure><img class="img-responsive project_pic" src="images/Moon.jpg"/> </figure>
-                <p>Barn Door Star Tracking Mount</p>
+                <p>Medical Decision Support System<br/>&nbsp;</p>
 
                 
                 <hr/>
@@ -77,7 +80,7 @@
             
             <a href="#0">
             <div class="col-xs-6 col-sm-4 blogPost">
-                <figure><img class="img-responsive project_pic" src="images/Moon.jpg"/> </figure>
+                <figure><img class="img-responsive project_pic" src="images/CNTAS.jpg"/> </figure>
                 <p>Clinical Neuropsychology Test Administration System (CNTAS)</p>
 
                 
@@ -89,7 +92,17 @@
             <a href="#0">
             <div class="col-xs-6 col-sm-4 blogPost">
                 <figure><img class="img-responsive project_pic" src="images/Moon.jpg"/> </figure>
-                <p>Freelance Web Development</p>
+                <p>Queen's Department of Geography and Planning<br/>&nbsp;</p>
+
+                
+                <hr/>
+            </div>
+            </a>
+            
+             <a href="#0">
+            <div class="col-xs-6 col-sm-4 blogPost">
+                <figure><img class="img-responsive project_pic" src="images/Moon.jpg"/> </figure>
+                <p>Barn Door Star Tracking Mount<br/>&nbsp;</p>
 
                 
                 <hr/>
@@ -98,11 +111,10 @@
             <p>&nbsp;</p>
             <p>&nbsp;</p>
         </div>
-        
-        <hr style="margin-bottom: 0em;"/>
-        
+        </section>
+
         <a href="blogHome.php">
-        <div class="photoContainer">
+        <div class="photoContainer" id="jumpto-Blog">
             <div class="photoContainer_content">
                 <h1>MY BLOG</h1>
                 <h5>Check It Out</h5>
@@ -119,6 +131,8 @@
             <p class="bodyText">Bacon ipsum dolor amet kevin prosciutto sirloin, shank tongue porchetta bresaola spare ribs boudin meatloaf pork chop t-bone andouille. Strip steak ribeye meatball salami ham pork belly. Landjaeger cow pig pork belly ball tip sirloin pancetta strip steak pork loin bresaola cupim tenderloin. Ball tip jowl drumstick salami tail sausage ham landjaeger kielbasa shankle brisket.
 
 Filet mignon capicola picanha, corned beef brisket pork belly chicken shankle strip steak bacon. Leberkas kevin ham hock shoulder ball tip. Jerky ground round tongue meatloaf t-bone alcatra cupim tail brisket ham hock pork belly. Kevin pig ham hock, ground round sirloin ball tip venison porchetta beef ribs spare ribs.</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
         </div>
 
         <script src="js/jquery-2.1.4.min.js"></script>      <!--http://code.jquery.com/jquery-2.1.4.min.js-->

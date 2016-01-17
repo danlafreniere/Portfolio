@@ -30,9 +30,8 @@
         
         <nav>
 	  	   	<ul class="primary-nav">
-                <li id="firstItem"><a href="index.php#jumpto-About">About Me</a></li>
-           	    <li><a href="index.php#jumpto-Projects">Projects</a></li>
-                <li><a href="index.php#jumpto-Contact">Contact</a></li>
+                <li id="firstItem"><a href="index.php">Portfolio</a></li>
+           	    <li><a href="blogHome.php">Blog Home</a></li>
            	    <li class="primary-nav-title"><strong>Follow Me</strong></li>
            	    <li><a href="https://ca.linkedin.com/pub/daniel-lafreniere/72/403/469"><i class="social_linkedin_circle"></i></a>&nbsp;<a href="https://www.facebook.com/dan.lafreniere.56"><i class="social_facebook_circle"></i></a>&nbsp;<a href="https://twitter.com/JustLacksZazz"><i class="social_twitter_circle"></i></a>&nbsp;<a href="https://plus.google.com/+DanLaFreniere/posts"><i class="social_googleplus_circle"></i>
 </a>&nbsp;<a href="https://github.com/danlafreniere"><i style="font-size: 35px; margin-bottom: -5px;" class="fa fa-github"></i></a></li>
@@ -227,13 +226,14 @@
                 </code>
             </pre>
             
-            <h2>GRADIENT DESCIENT</h2>
-            <p class="bodyText"><b>Gradient descent</b> is the heart and soul of the backpropagation network. It refers to the direction of change for our weights and thus allows us to modify them accurately. In short, this is calculated as: &#916;w = -&#948;E/&#948;w &nbsp;&nbsp; Essentially we end up using a chain rule on these derivations to obtain the necessary weight changes. I will talk about this in more detail along with actual code below but you can read up on this beforehand: <a href="https://en.wikipedia.org/wiki/Delta_rule">"derivation of the delta rule"</a>.</p>
+          
         </div>
         
         <div class="container"> 
             <h1>COMPUTING HIDDEN NODE INPUTS</h1>
-            <p class="bodyText"></p>
+            <p class="bodyText">For each of the h hidden nodes, the input to that node is a<sup>1</sup><sub>h</sub> = &sum; w<sup>10</sup><sub>hi</sub>x<sub>i</sub> where x is the output from the input node, and w<sub>ih</sub> represents the weight on the connection from input node i and hidden node h. Here is a diagram to help with the visualization (which I will include for each step):</p>
+            
+            <img src="images/SimpleNetworkDiagram.png"/>
         
             <pre>
                 <code class="language-java">
@@ -255,8 +255,9 @@
         
         <div class="container"> 
             <h1>COMPUTING HIDDEN NODE OUTPUTS</h1>
-            <p class="bodyText">WHAT IS M? - Make sure to specify</p>
-        
+            <p class="bodyText">The hidden node output (y<sup>1</sup><sub>h</sub>) is simply a sigmoid function applied to the calculated hidden input: S(a<sup>1</sup><sub>h</sub>) where S = 1 / (1 + e<sup>(-m * net)</sup>), net = a<sup>1</sup><sub>h</sub>, e = Euler's number, and m = the slope of the sigmoid function. In order to keep things simple, I set m = 1.</p>
+            <img src="images/SimpleNetworkDiagram.png"/>
+            
             <pre>
                 <code class="language-java">
             //-------------- 2. Calculate sigmoid output from each node in hidden layer h ---------------
@@ -271,8 +272,11 @@
         </div>
         
         <div class="container"> 
-            <h1>COMPUTING OUTPUT NODE INPUTS</h1>
-            <p class="bodyText"></p>
+            <h1>COMPUTING OUTPUT NODE VALUES</h1>
+            <p class="bodyText">Calculating the inputs and outputs for the output nodes follows the same methods as the hidden node methods above.</p>
+            <img src="images/SimpleNetworkDiagram.png"/>
+            
+            <h2>INPUT</h2>
         
             <pre>
                 <code class="language-java">
@@ -285,13 +289,10 @@
 
                 </code>
             </pre>
+            
             <p>&nbsp;</p>
-        </div>
-        
-        <div class="container"> 
-            <h1>COMPUTING OUTPUTS</h1>
-            <p class="bodyText"></p>
-        
+            
+            <h2>OUTPUT</h2>
             <pre>
                 <code class="language-java">
             //-------------- 4. Calculate sigmoid output from each node in output layer j ---------------
@@ -306,8 +307,26 @@
         
         <div class="container"> 
             <h1>UPDATING WEIGHTS</h1>
-            <p class="bodyText"></p>
+              <h2>GRADIENT DESCIENT</h2>
+            <p class="bodyText"><b>Gradient descent</b> is the heart and soul of the backpropagation network. It refers to the direction of change for our weights and thus allows us to modify them accurately. In short, this is calculated as: &#916;w = -&#948;E/&#948;w &nbsp;&nbsp; Essentially we end up using a chain rule on these derivations to obtain the necessary weight changes. The final calculations acquired at the end of each chain rule is what we end up implementing. It's not really necessary to know the chain rule process in intense detail but if you really want to learn a bit more this resource will help: <a href="https://en.wikipedia.org/wiki/Delta_rule">"derivation of the delta rule"</a>.</p>
+           
+            <h2>HIDDEN-OUTPUT WEIGHT UPDATES</h2>
+            <p class="bodyText">First we need to calculate the output gradient for the particular ouput node o (as with all of these calculations, they were reached through the chain rule).<br/> 
+            &delta;<sup>o</sup><sub>h</sub> = (d<sub>o</sub> - y<sub>o</sub>) * y<sup>2</sup><sub>o</sub> * (1 - y<sup>2</sup><sub>o</sub>) where d is out desired output and y is the actual output for that particular node (these together = output error).</p>
+            
+            <p class="bodyText">Once we have the output gradient (&delta;<sup>o</sup><sub>h</sub>), we can calculate our delta weight value:<br/>
+            &Delta;w<sup>21</sup><sub>oh</sub> = c * &delta;<sup>o</sup><sub>h</sub> * x<sup>1</sup><sub>h</sub><br/>
+            Now we can update our weight value:<br/>
+            w<sup>21</sup><sub>oh</sub>  = &Delta;w<sup>21</sup><sub>oh</sub> + w<sup>21</sup><sub>oh</sub></p>
         
+            <h2>INPUT-HIDDEN WEIGHT UPDATES</h2>
+            <p class="bodyText">Updating the input-hidden weights follows a very similar method to the hidden-output updates. However, the output gradient is needed when we calculate the hidden gradient - remember that this network backpropagates error backwards? <b>This carry over of the gradient is how this happens</b>.</p>
+            
+            <p class="bodyText"><b>The calculations:</b><br/>
+            &delta;<sup>h</sup><sub>i</sub> = (&sum;(&delta;<sup>o</sup><sub>h</sub> * w<sup>21</sup><sub>oh</sub>)) * y<sup>1</sup><sub>h</sub> * (1 - y<sup>1</sup><sub>h</sub>)<br/>
+            &Delta;w<sup>10</sup><sub>hi</sub> = c * &delta;<sup>h</sup><sub>i</sub> * x<sup>0</sup><sub>i</sub><br/>
+            w<sup>10</sup><sub>hi</sub> = &Delta;w<sup>10</sup><sub>hi</sub> + w<sup>10</sup><sub>hi</sub></p>
+                        
             <pre class="codeBlockSmall">
                 <code class="language-java">
     //after errors have been calculated, we can now update each weight in our network
@@ -319,14 +338,14 @@
 		double val;
 
 		//------------------------------------ 1. Update Hidden-Output Weights ------------------------------------
-		for (int j=0; j&lt;(numON); j++){
+		for (int o=0; o&lt;(numON); o++){
 			//outputGradient = (d - y) * y * (1 - y)
-			outputGradients[j] = outputError[j] * outputs[j] * (1-outputs[j]);
+			outputGradients[o] = outputError[o] * outputs[o] * (1-outputs[o]);
 			for (int h=0; h&lt;numHN; h++){
-				deltaWeight = learningRate * hiddenOutputs[h] * outputGradients[j];
+				deltaWeight = learningRate * hiddenOutputs[h] * outputGradients[o];
 				//momentum is computed using stored value of previous deltaWeight (below)
 				deltaWeight += momentum * previousDelta; 
-				hoWeights[j][h] = hoWeights[j][h] + deltaWeight; 
+				hoWeights[o][h] = hoWeights[o][h] + deltaWeight; 
 				previousDelta = deltaWeight; 
 			}
 		} 
@@ -334,11 +353,11 @@
 		//hiddenGradients are calculated first in order to make the weight update calculations more straightforward:
 		for (int h=0; h&lt;numHN; h++) {
 			runningSum = 0;
-			for (int j=0; j&lt;numON; j++) {
-				val = outputGradients[j] * hoWeights[j][h];
+			for (int i=0; i&lt;numON; i++) {
+				val = outputGradients[i] * hoWeights[i][h];
 				runningSum += val;	
 			}
-			//hiddenGradient = SUMOF{ outputGradients[j] * hoWeights[j][h] } * (d - y) * y * (1 - y)
+			//hiddenGradient = SUMOF{ outputGradients[i] * hoWeights[i][h] } * (d - y) * y * (1 - y)
 			hiddenGradients[h] = runningSum * hiddenOutputs[h] * (1 - hiddenOutputs[h]);
 		}
 		//weights can now be updated now that we have the proper hidden gradients:
@@ -354,6 +373,11 @@
 	}
                 </code>
             </pre>
+        </div>
+        
+        <div class="container"> 
+            <h1>CONCLUSION</h1>
+            <p class="bodyText">That's how a neural network is made! <a href="https://www.youtube.com/watch?v=NmPhaG1ud38">...and there was much rejoicing.</a></p>
         </div>
         
         <hr/>
