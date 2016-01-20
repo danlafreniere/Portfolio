@@ -241,6 +241,20 @@ footer {
     margin-left: -82.5px; 
 }
 
+#resume {
+    width: 170px;
+    padding-left: 10px;
+    opacity: 0.8;
+}
+
+#resume:hover {
+    opacity: 1;
+    transition:all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+}
+
 .bodyText {
     padding: 10px; 
     font-size: 12pt; 
@@ -379,7 +393,6 @@ footer {
     filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 1 0\'/></filter></svg>#grayscale");
     filter:grayscale(0%); 
     -webkit-filter: grayscale(0%);
-
 }
 
 

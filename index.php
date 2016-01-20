@@ -46,77 +46,47 @@
             <img alt="Portrait of Dan LaFreniere" src="images/Dan.png" id="selfPortrait"/>
         </div>
 
-        <div class="container topPadding"> 
+        <div class="container topPadding bigBottom"> 
             <hr/ id="jumpto-About">
             <h1>ABOUT ME</h1>
        
             <p class="bodyText">I am currently a second-degree student in my third and final year of computing at Queen’s University. My first degree in psychology was obtained from the University of Alberta. I have recently completed a summer position at Queen's IT services where I worked with clients to build and maintain websites for their respective faculties. I built up strong rapport with many of these clients over the summer and am now freelancing during my studies with these awesome individuals along with some other great people that I've been recommended to.</p>
                 
-                <p class="bodyText">In the past, I spent a number of years in the field of clinical neuropsychology where I studied human cognition and abnormal brain structure in patients suffering from schizophrenia via patient testing and MRI acquisition. Though I loved the field, I found myself spending a lot of my free time coding and decided that I should follow my heart and pursue computer science. My passions lie in artificial intelligence, software development and app/web development but I love learning new skills and facing the rewarding challenges that computer science presents to me every day.</p>
+            <p class="bodyText">In the past, I spent a number of years in the field of clinical neuropsychology where I studied human cognition and abnormal brain structure in patients suffering from schizophrenia via patient testing and MRI acquisition. Though I loved the field, I found myself spending a lot of my free time coding and decided that I should follow my heart and pursue computer science. My passions lie in artificial intelligence, software development and app/web development but I love learning new skills and facing the rewarding challenges that computer science presents to me every day.</p>
             
-                <p class="bodyText">I'm a huge music fan and dig everything from death metal to dream pop. I'm told I'm a very nice fella so don't hesitate to <a href="#jumpto-Contact">drop me a line!</a></p>
-            
-                <p>&nbsp;</p>
-                <p>&nbsp;</p>
+            <p class="bodyText">I'm a huge music fan and dig everything from death metal to dream pop. I'm told I'm a very nice fella so don't hesitate to <a href="#jumpto-Contact">drop me a line!</a></p>
+
+            <a href="files/Daniel%20LaFreniere%20Resume.pdf"><img alt="Portrait of Dan LaFreniere" src="images/ResumeButton.png" id="resume"/></a>
+
         </div>
       
         
         <section class="tealBackground">
         
-        <div class="container"> 
-            <hr id="jumpto-Projects"/>
-            <h1 class="topPadding whiteText bigBottom">PROJECTS</h1>
-
-            <a href="#0">
-            <div class="col-xs-6 col-sm-4 blogPost">
-                <figure><img class="img-responsive project_pic" src="images/Moon.jpg"/> </figure>
-                <p>Medical Decision Support System<br/>&nbsp;</p>
-
-                
+         <div class="container topPadding bigBottom"> 
+            <h1 class="bigBottom whiteText">PROJECTS</h1>
+            <div class="col-xs-6 col-sm-6 col-md-4 blogPost">
+                <a href="#0"><figure><img class="img-responsive" src="images/BarnDoor.jpg"/></figure></a>
+                <p>Dijkstra's Algorithm</p>
                 <hr/>
             </div>
-            </a>
-
-            
-            <a href="#0">
-            <div class="col-xs-6 col-sm-4 blogPost">
-                <figure><img class="img-responsive project_pic" src="images/CNTAS.jpg"/> </figure>
-                <p>Clinical Neuropsychology Test Administration System (CNTAS)</p>
-
-                
+            <div class="col-xs-6 col-sm-6 col-md-4 blogPost">
+                <a href="#0"><figure><img class="img-responsive" src="images/BarnDoor.jpg"/></figure></a>
+                <p>Barn Door Star Tracking Mount</p>
                 <hr/>
             </div>
-            </a>
-            
-            
-            <a href="#0">
-            <div class="col-xs-6 col-sm-4 blogPost">
-                <figure><img class="img-responsive project_pic" src="images/Moon.jpg"/> </figure>
-                <p>Queen's Department of Geography and Planning<br/>&nbsp;</p>
-
-                
+            <div class="col-xs-6 col-sm-6 col-md-4 blogPost">
+                <a href="#0"><figure><img class="img-responsive" src="images/BarnDoor.jpg"/></figure></a>
+                <p>Backpropagation Neural Networks</p>
                 <hr/>
-            </div>
-            </a>
-            
-             <a href="#0">
-            <div class="col-xs-6 col-sm-4 blogPost">
-                <figure><img class="img-responsive project_pic" src="images/Moon.jpg"/> </figure>
-                <p>Barn Door Star Tracking Mount<br/>&nbsp;</p>
-
-                
-                <hr/>
-            </div>
-            </a>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
+            </div>  
         </div>
         </section>
 
         <a href="blogHome.php">
         <div class="photoContainer" id="jumpto-Blog">
             <div class="photoContainer_content">
-                <h1>MY BLOG</h1>
+                <h1 class="whiteText">MY BLOG</h1>
                 <h5>Check It Out</h5>
             </div> 
             <div style="background-image: url('images/backsplash_teal.jpg');" class="photoContainer_pic"></div>
@@ -125,12 +95,73 @@
         <hr style="margin-top:-0em;"/>
    
         
-        <div class="container" >
+        
+     
+<?php
+
+    
+function has_header_injection($str) {
+    return preg_match( "/[\r\n]/", $str);
+}
+
+if (isset ($_POST['contact_submit'])) {
+    $name = trim($_POST['name']);
+    $email = trim($_POST['email']);
+    $msg = $_POST['message'];
+    
+    if (has_header_injection($name) || has_header_injection($email)){
+        die();   
+    }
+    
+    if( !$name || !$email || !$msg ) {
+        echo '<h4 class="error">All fields are required.</h4>';
+        exit;
+    }
+    
+    
+    $to = "lafreniere.dj@gmail.com";
+    $subject = "$name sent an email from the portfolio website";
+    $message = "Name: $name\r\n";
+    $message .= "Email: $email\r\n";
+    $message .= "Message: \r\n$msg";
+    
+    $message = wordwrap($message, 80);
+    
+    $headers = "MIME-Version: 1.0\r\n";
+    $headers .= "Content-type: text/plain; charset=iso-8859-1\r\n";
+    $headers .= "From: $name <$email> \r\n";
+    $headers .= "X-Priority: 1\r\n";
+    $headers .= "X-MSMail-Priority: High\r\n\r\n";
+    
+    mail($to, $subject, $message, $headers); 
+
+}
+
+?>
+        
+        
+        <div class="container" id="contact" >
               <hr id="jumpto-Contact"/>
             <h1>CONTACT</h1>
-            <p class="bodyText">Bacon ipsum dolor amet kevin prosciutto sirloin, shank tongue porchetta bresaola spare ribs boudin meatloaf pork chop t-bone andouille. Strip steak ribeye meatball salami ham pork belly. Landjaeger cow pig pork belly ball tip sirloin pancetta strip steak pork loin bresaola cupim tenderloin. Ball tip jowl drumstick salami tail sausage ham landjaeger kielbasa shankle brisket.
+                <h2>Drop me a line!</h2>
+            
+          
+                
+                <form method="post" action="index.php#jumpto-Contact">
+                    <label for="name">YOUR NAME</label>
+                    <input type="text" id="name" name="name"></input>
+            
+                    <label for="email">YOUR EMAIL</label>
+                    <input type="email" id="email" name="email"></input>
+        
+                    <label for="message">YOUR MESSAGE</label>
+                    <textarea id="message" name="message"></textarea>  
+        
+                    <input type="submit" class="button next" value="SEND MESSAGE" name="contact_submit"></input>
+        
+        
+        </form>
 
-Filet mignon capicola picanha, corned beef brisket pork belly chicken shankle strip steak bacon. Leberkas kevin ham hock shoulder ball tip. Jerky ground round tongue meatloaf t-bone alcatra cupim tail brisket ham hock pork belly. Kevin pig ham hock, ground round sirloin ball tip venison porchetta beef ribs spare ribs.</p>
                 <p>&nbsp;</p>
                 <p>&nbsp;</p>
         </div>

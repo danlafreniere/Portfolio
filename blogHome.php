@@ -49,17 +49,17 @@
         <div class="container topPadding"> 
             <h1>TUTORIALS</h1>
             <hr/>
-            <div class="col-xs-6 col-sm-4 blogPost">
+            <div class="col-xs-6 col-sm-6 col-md-4 blogPost">
                 <a href="Dijkstra.php"><figure><img class="img-responsive" src="images/Dijkstra.png"/></figure></a>
                 <p>Dijkstra's Algorithm</p>
                 <hr/>
             </div>
-            <div class="col-xs-6 col-sm-4 blogPost">
+            <div class="col-xs-6 col-sm-6 col-md-4 blogPost">
                 <a href="#0"><figure><img class="img-responsive" src="images/BarnDoor.jpg"/></figure></a>
                 <p>Barn Door Star Tracking Mount</p>
                 <hr/>
             </div>
-            <div class="col-xs-6 col-sm-4 blogPost">
+            <div class="col-xs-6 col-sm-6 col-md-4 blogPost">
                 <a href="neuralNetwork.php"><figure><img class="img-responsive" src="images/NeuralNetwork.jpg"/></figure></a>
                 <p>Backpropagation Neural Networks</p>
                 <hr/>
