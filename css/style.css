@@ -568,6 +568,16 @@ h2 {
 /* ---------->>> FORMS <<<-----------*/
 /* ----------------------------------*/
 
+form {
+    margin: 20px auto 50px; 
+    padding-left: 30px;
+    
+}
+
+label {
+    display: block;
+    margin: auto;
+}
 
 
 

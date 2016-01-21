@@ -56,7 +56,9 @@
             
             <p class="bodyText">I'm a huge music fan and dig everything from death metal to dream pop. I'm told I'm a very nice fella so don't hesitate to <a href="#jumpto-Contact">drop me a line!</a></p>
 
-            <a href="files/Daniel%20LaFreniere%20Resume.pdf"><img alt="Portrait of Dan LaFreniere" src="images/ResumeButton.png" id="resume"/></a>
+            <p class="bodyText">Also feel free to download my resume, friend! (PDF, 73kB):</p>
+            
+            <a download href="files/Daniel_LaFreniere_Resume.pdf"><img alt="Button to Download my Resume (PDF Format)" src="images/ResumeButton.png" id="resume"/></a>
 
         </div>
       
@@ -94,74 +96,36 @@
         
         <hr style="margin-top:-0em;"/>
    
-        
-        
-     
-<?php
+        <?php
+                
+            session_start();
 
-    
-function has_header_injection($str) {
-    return preg_match( "/[\r\n]/", $str);
-}
+            require_once 'helpers/security.php';
+            $errors = isset($_SESSION['errors']) ? $_SESSION['errors'] : [];
+            $fields = isset($_SESSION['fields']) ? $_SESSION['fields'] : [];
 
-if (isset ($_POST['contact_submit'])) {
-    $name = trim($_POST['name']);
-    $email = trim($_POST['email']);
-    $msg = $_POST['message'];
-    
-    if (has_header_injection($name) || has_header_injection($email)){
-        die();   
-    }
-    
-    if( !$name || !$email || !$msg ) {
-        echo '<h4 class="error">All fields are required.</h4>';
-        exit;
-    }
-    
-    
-    $to = "lafreniere.dj@gmail.com";
-    $subject = "$name sent an email from the portfolio website";
-    $message = "Name: $name\r\n";
-    $message .= "Email: $email\r\n";
-    $message .= "Message: \r\n$msg";
-    
-    $message = wordwrap($message, 80);
-    
-    $headers = "MIME-Version: 1.0\r\n";
-    $headers .= "Content-type: text/plain; charset=iso-8859-1\r\n";
-    $headers .= "From: $name <$email> \r\n";
-    $headers .= "X-Priority: 1\r\n";
-    $headers .= "X-MSMail-Priority: High\r\n\r\n";
-    
-    mail($to, $subject, $message, $headers); 
-
-}
-
-?>
+        ?>
         
         
         <div class="container" id="contact" >
               <hr id="jumpto-Contact"/>
-            <h1>CONTACT</h1>
+                <h1>CONTACT</h1>
                 <h2>Drop me a line!</h2>
             
-          
-                
-                <form method="post" action="index.php#jumpto-Contact">
-                    <label for="name">YOUR NAME</label>
-                    <input type="text" id="name" name="name"></input>
+                <form method="post" action="contact.php">
+                    <label for="name"><font>YOUR NAME</font>
+                    <input type="text" id="name" name="name"<?php echo isset($fields['name']) ? 'value="' . e($fields['name']) . '"' : ''?>></input></label>
             
-                    <label for="email">YOUR EMAIL</label>
-                    <input type="email" id="email" name="email"></input>
+                    <label for="email">YOUR EMAIL
+                    <input type="email" id="email" name="email"<?php echo isset($fields['email']) ? 'value="' . e($fields['email']) . '"' : ''?>></input></label>
         
-                    <label for="message">YOUR MESSAGE</label>
-                    <textarea id="message" name="message"></textarea>  
+                    <label for="message">YOUR MESSAGE
+                    <textarea id="message" name="message"><?php echo isset($fields['message']) ? e($fields['message']) : ''?></textarea>  
         
-                    <input type="submit" class="button next" value="SEND MESSAGE" name="contact_submit"></input>
+                    <input type="submit" class="button next" value="SEND MESSAGE" name="contact_submit"></input></label>
         
         
-        </form>
-
+                </form>
                 <p>&nbsp;</p>
                 <p>&nbsp;</p>
         </div>
@@ -175,3 +139,9 @@ if (isset ($_POST['contact_submit'])) {
         <p id="footerText">&copy; Dan LaFreniere 2016</p>
     </footer>
 </html>
+
+<?php
+    unset($_SESSION['errors']);     
+    unset($_SESSION['fields']);            
+
+?>
