@@ -113,16 +113,16 @@
                 <h2>Drop me a line!</h2>
             
                 <form method="post" action="contact.php">
-                    <label for="name"><font>YOUR NAME</font>
-                    <input type="text" id="name" name="name"<?php echo isset($fields['name']) ? 'value="' . e($fields['name']) . '"' : ''?>></input></label>
+                    <label for="name"><span>YOUR NAME
+                    <input type="text" id="name" name="name"<?php echo isset($fields['name']) ? 'value="' . e($fields['name']) . '"' : ''?>></input></label></span>
             
-                    <label for="email">YOUR EMAIL
-                    <input type="email" id="email" name="email"<?php echo isset($fields['email']) ? 'value="' . e($fields['email']) . '"' : ''?>></input></label>
+                    <label for="email"><span>YOUR EMAIL
+                    <input type="email" id="email" name="email"<?php echo isset($fields['email']) ? 'value="' . e($fields['email']) . '"' : ''?>></input></label></span>
         
-                    <label for="message">YOUR MESSAGE
+                    <label for="message"><span>YOUR MESSAGE
                     <textarea id="message" name="message"><?php echo isset($fields['message']) ? e($fields['message']) : ''?></textarea>  
-        
-                    <input type="submit" class="button next" value="SEND MESSAGE" name="contact_submit"></input></label>
+                    </label></span>
+                    <input type="submit" class="button next" value="SEND MESSAGE" name="contact_submit"></input>
         
         
                 </form>

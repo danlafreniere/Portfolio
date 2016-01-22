@@ -571,10 +571,13 @@ h2 {
 form {
     margin: 20px auto 50px; 
     padding-left: 30px;
-    
 }
 
-label {
+form span {
+    display: block;   
+}
+
+form label {
     display: block;
     margin: auto;
 }
