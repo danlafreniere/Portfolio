@@ -113,19 +113,21 @@
                 <h2>Drop me a line!</h2>
             
                 <form method="post" action="contact.php">
-                    <label for="name"><span>YOUR NAME
-                    <input type="text" id="name" name="name"<?php echo isset($fields['name']) ? 'value="' . e($fields['name']) . '"' : ''?>></input></label></span>
+                    <label for="name">
+                        <span>YOUR NAME</span>
+                        <input type="text" class="name" name="name"<?php echo isset($fields['name']) ? 'value="' . e($fields['name']) . '"' : ''?>/></label>
             
-                    <label for="email"><span>YOUR EMAIL
-                    <input type="email" id="email" name="email"<?php echo isset($fields['email']) ? 'value="' . e($fields['email']) . '"' : ''?>></input></label></span>
+                    <label for="email">
+                        <span>YOUR EMAIL</span>
+                        <input type="email" class="email" name="email"<?php echo isset($fields['email']) ? 'value="' . e($fields['email']) . '"' : ''?>/></label>
         
-                    <label for="message"><span>YOUR MESSAGE
-                    <textarea id="message" name="message"><?php echo isset($fields['message']) ? e($fields['message']) : ''?></textarea>  
-                    </label></span>
+                    <label for="message">
+                        <span class="message">YOUR MESSAGE</span>
+                        <textarea id="message" name="message"><?php echo isset($fields['message']) ? e($fields['message']) : ''?></textarea>  
+                    </label>
                     <input type="submit" class="button next" value="SEND MESSAGE" name="contact_submit"></input>
-        
-        
                 </form>
+        
                 <p>&nbsp;</p>
                 <p>&nbsp;</p>
         </div>

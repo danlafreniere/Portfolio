@@ -569,17 +569,58 @@ h2 {
 /* ----------------------------------*/
 
 form {
-    margin: 20px auto 50px; 
-    padding-left: 30px;
-}
-
-form span {
-    display: block;   
+    float: left;
+    position: relative;
+    width: 480px;
+    margin-left: 10px;
 }
 
 form label {
     display: block;
-    margin: auto;
+    height: 36px;
+    margin: 0;
+    border-bottom: 1px solid black;
+}
+
+form span {
+    padding: 5px;   
+}
+
+form label span {
+    display: block;
+    float: left;
+}
+
+span.message {
+    display: block;
+}
+
+form input.name, form input.email {
+    float: right;
+    width: 380px;   
+    height: 35px;
+    border: none;
+    padding: 10px;
+}
+
+form input:focus, form textarea:focus  {
+    outline: none;  
+    background-color: #7accc8;
+}
+
+form textarea {
+    float: right;
+    width: 480px;
+    height: 120px;
+    border: none;
+    margin-bottom: 5px;
+    padding: 10px;
+    border-bottom: 1px solid black;
+}
+
+.button {
+    clear: both;
+    margin-top: 5px;
 }
 
 
