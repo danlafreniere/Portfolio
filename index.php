@@ -147,7 +147,7 @@
         <div class="photoContainer" id="jumpto-Blog">
             <div class="photoContainer_content">
                 <h1 class="whiteText">MY BLOG</h1>
-                <h5>Check It Out</h5>
+                <h5  class="whiteText">Check It Out</h5>
             </div> 
             <div style="background-image: url('images/backsplash_teal.jpg');" class="photoContainer_pic"></div>
         </div></a>
