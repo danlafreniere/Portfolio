@@ -286,6 +286,17 @@ footer {
     visibility: hidden;
 }
 
+
+.skillSet {
+    width: 800px; 
+    margin: auto;   
+}
+
+.skill {
+    float: left;  
+    padding: 10px 20px 10px 20px;
+}
+
 .thumb-title {
    margin-right: 15px;
   margin-left: 15px;
@@ -527,7 +538,6 @@ footer {
     filter:grayscale(0%); 
     -webkit-filter: grayscale(0%);
 }
-
 
 
 

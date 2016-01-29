@@ -59,9 +59,46 @@
             <p class="bodyText">Also feel free to download my resume, friend! (PDF, 73kB):</p>
             
             <a download href="files/Daniel_LaFreniere_Resume.pdf"><img alt="Button to Download my Resume (PDF Format)" src="images/ResumeButton.png" id="resume"/></a>
-
+            <p>&nbsp;</p>
         </div>
       
+        <section class="bigBottom">
+            <hr/>
+
+            <div class="container topPadding">
+                
+                <h1>SKILLS</h1>
+                <div class="skillSet">
+                    <div class="skill">
+                        <h4>Communication</h4>
+                        <img class="skillBar img-responsive" src="images/Skills/CommunicationBar.png">
+                    </div>
+                    <div class="skill">
+                        <h4>Organization</h4>
+                        <img class="skillBar img-responsive" src="images/Skills/OrganizationBar.png">
+                    </div>
+                    <div class="skill">    
+                        <h4>User Experience (UX)</h4>
+                        <img class="skillBar img-responsive" src="images/Skills/UXBar.png">
+                    </div>
+                    <div class="skill">
+                        <h4>Learning</h4>
+                        <img class="skillBar img-responsive" src="images/Skills/LearningBar.png">
+                    </div>
+                    <div class="skill">
+                        <h4>Programming</h4>
+                        <img class="skillBar img-responsive" src="images/Skills/ProgrammingBar.png">
+                    </div>
+                    <div class="skill"> 
+                        <h4>Team Work</h4>
+                        <img class="skillBar img-responsive" src="images/Skills/TeamWorkBar.png">
+                    </div>
+                </div>
+
+                <p>&nbsp;</p>
+            </div>
+        </section>
+        
         
         <section class="tealBackground topPadding bigBottom">
         
@@ -72,7 +109,7 @@
                  <a class="thumb" style="background-image: url(/images/Queens_Sites.png);">
                     <div class="thumb-overlay">
                         <strong class="thumb-text">Queen's University Faculty Websites</strong>
-                        <div class="thumb-description"></div>
+                        <div class="coming-soon"><strong>- Page Coming Soon -</strong></div>
                     </div>
                 </a>
                 
@@ -103,7 +140,7 @@
                 <a class="thumb" style="background-image: url(/images/CNTAS_Screen.png);">
                     <div class="thumb-overlay">
                         <strong class="thumb-text">Clinical Neuropsychology Test Administration System</strong>
-                        <div class="thumb-description"></div>
+                        <div class="coming-soon"><strong>- Page Coming Soon -</strong></div>
                     </div>
                 </a>
                 
