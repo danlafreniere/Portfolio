@@ -56,18 +56,8 @@
             
             <p class="bodyText">I'm a huge music fan and dig everything from death metal to dream pop. I'm told I'm a very nice fella so don't hesitate to <a href="#jumpto-Contact">drop me a line!</a></p>
 
-            <p class="bodyText">Also feel free to download my resume, friend! (PDF, 73kB):</p>
-            
-            <a download href="files/Daniel_LaFreniere_Resume.pdf"><img alt="Button to Download my Resume (PDF Format)" src="images/ResumeButton.png" id="resume"/></a>
-            <p>&nbsp;</p>
-        </div>
-      
-        <section class="bigBottom">
-            <hr/>
-
-            <div class="container topPadding">
-                
-                <h1>SKILLS</h1>
+           
+       
                 <div class="skillSet">
                     <div class="skill">
                         <h4>Communication</h4>
@@ -95,7 +85,11 @@
                     </div>
                 </div>
 
-                <p>&nbsp;</p>
+                <p class="bodyText topPadding" style="clear: both;">Also feel free to download my resume, friend! (PDF, 73kB):</p>
+            
+            <a download href="files/Daniel_LaFreniere_Resume.pdf"><img alt="Button to Download my Resume (PDF Format)" src="images/ResumeButton.png" id="resume"/></a>
+            <p>&nbsp;</p>
+      
             </div>
         </section>
         
