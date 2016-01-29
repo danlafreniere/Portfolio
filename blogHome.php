@@ -45,26 +45,39 @@
 
         </div></a>
         
+        <section class="topPadding bigBottom">
+
+       <div class="container"><h1 class="whiteText">PROJECTS</h1></div>
+         <div class="blog-container">
+            
+            <a class="blog-overlay" href="#0">
+                <div class="blogPost">
+                    <figure><img class="img-responsive" src="images/Dijkstra.png"/></figure>
+                    <p class="blogPost-banner">Dijkstra's Algorithm</p> 
+                </div>
+                <p class="blogText">Coming Soon</p>
+            </a>
         
-        <div class="container topPadding"> 
-            <h1>TUTORIALS</h1>
-            <hr/>
-            <div class="col-xs-6 col-sm-6 col-md-4 blogPost">
-                <a href="Dijkstra.php"><figure><img class="img-responsive" src="images/Dijkstra.png"/></figure></a>
-                <p>Dijkstra's Algorithm</p>
-                <hr/>
-            </div>
-            <div class="col-xs-6 col-sm-6 col-md-4 blogPost">
-                <a href="#0"><figure><img class="img-responsive" src="images/BarnDoor.jpg"/></figure></a>
-                <p>Barn Door Star Tracking Mount</p>
-                <hr/>
-            </div>
-            <div class="col-xs-6 col-sm-6 col-md-4 blogPost">
-                <a href="neuralNetwork.php"><figure><img class="img-responsive" src="images/NeuralNetwork.jpg"/></figure></a>
-                <p>Backpropagation Neural Networks</p>
-                <hr/>
-            </div>  
+            
+            <a class="blog-overlay" href="#0">
+                <div class="blogPost">
+                    <figure><img class="img-responsive" src="images/BarnDoor.jpg"/></figure>
+                    <p class="blogPost-banner">Barn Door Star Tracking Mount</p>
+                </div>
+                <p class="blogText">Coming Soon</p>
+            </a>
+            
+        
+            <a href="neuralNetwork.php" class="blogPost-static">
+                <div class="blogPost">
+                    <figure><img class="img-responsive" src="images/NeuralNetwork.jpg"/></figure>
+                    <p class="blogPost-banner">Backpropagation Neural Networks</p>
+                </div>
+            </a>
+          
         </div>
+        </div>
+        
           <div class="container"> 
             <div class="col-xs-6 col-sm-4 post">
             </div>
@@ -74,7 +87,7 @@
             </div>
         </div>
         <hr/>
-        
+    </section>
 
         <script src="js/jquery-2.1.4.min.js"></script>      <!--http://code.jquery.com/jquery-2.1.4.min.js-->
         <script src="js/script.js"></script>

@@ -63,26 +63,53 @@
         </div>
       
         
-        <section class="tealBackground">
+        <section class="tealBackground topPadding bigBottom">
         
-         <div class="container topPadding bigBottom"> 
-            <h1 class="bigBottom whiteText">PROJECTS</h1>
-            <div class="col-xs-6 col-sm-6 col-md-4 blogPost">
-                <a href="#0"><figure><img class="img-responsive" src="images/BarnDoor.jpg"/></figure></a>
-                <p>Dijkstra's Algorithm</p>
-                <hr/>
+            <div class="container"><h1 class="whiteText">PROJECTS</h1></div>
+            <div class="thumb-container">
+                
+                
+                 <a class="thumb" style="background-image: url(/images/Queens_Sites.png);">
+                    <div class="thumb-overlay">
+                        <strong class="thumb-text">Queen's University Faculty Websites</strong>
+                        <div class="thumb-description"></div>
+                    </div>
+                </a>
+                
+                <a class="thumb" style="background-image: url(/images/MDSS.jpg);">
+                    
+                    <div class="thumb-overlay">
+                        <strong class="thumb-text">Medical Decision Support System</strong>
+                        <div class="coming-soon"><strong>- Page Coming Soon -</strong></div>
+                    </div>
+                </a>
+            
+               
+                
+                <a class="thumb" style="background-image: url(/images/Moon.jpg);">
+                    <div class="thumb-overlay">
+                        <strong class="thumb-text">Automated Barn Door Star Tracker</strong>
+                        <div class="coming-soon"><strong>- Page Coming Soon -</strong></div>
+                    </div>
+                </a>
+                
+                <a class="thumb" style="background-image: url(/images/TechSupport.png);">
+                    <div class="thumb-overlay">
+                        <strong class="thumb-text">Tech Support <br/>(Android App)</strong>
+                        <div class="coming-soon"><strong>- Page Coming Soon -</strong></div>
+                    </div>
+                </a>
+                
+                <a class="thumb" style="background-image: url(/images/CNTAS_Screen.png);">
+                    <div class="thumb-overlay">
+                        <strong class="thumb-text">Clinical Neuropsychology Test Administration System</strong>
+                        <div class="thumb-description"></div>
+                    </div>
+                </a>
+                
             </div>
-            <div class="col-xs-6 col-sm-6 col-md-4 blogPost">
-                <a href="#0"><figure><img class="img-responsive" src="images/BarnDoor.jpg"/></figure></a>
-                <p>Barn Door Star Tracking Mount</p>
-                <hr/>
-            </div>
-            <div class="col-xs-6 col-sm-6 col-md-4 blogPost">
-                <a href="#0"><figure><img class="img-responsive" src="images/BarnDoor.jpg"/></figure></a>
-                <p>Backpropagation Neural Networks</p>
-                <hr/>
-            </div>  
-        </div>
+            
+            
         </section>
 
         <a href="blogHome.php">

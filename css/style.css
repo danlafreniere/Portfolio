@@ -263,7 +263,7 @@ footer {
 }
 
 
-.blogPost>p {
+.blogPost-banner {
     font-family: 'Advent Pro', sans-serif;
     padding: 10px; 
     font-size: 14pt; 
@@ -286,19 +286,161 @@ footer {
     visibility: hidden;
 }
 
+.thumb-title {
+   margin-right: 15px;
+  margin-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.thumb-container { 
+    max-width: 960px;
+    margin: 30px auto;
+    overflow: auto;         /* clearfix */
+}
+
+.thumb {
+    width: 33.33%;
+    height: 200px;
+    display: block;   /* anchor tags are normally display-inline */
+    float: left;
+    position: relative;
+    padding-top: 20%;
+    background-position: center center; 
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.thumb-overlay {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    bottom: null;
+    opacity: 0.8;
+    background-color: #3d3d3b;
+    height: 100%;
+    text-align: center; 
+    transition: top 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
+    -moz-transition: top 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
+    -webkit-transition: top 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
+    -o-transition: top 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
+}
+
+.thumb:hover .thumb-overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.8;
+    background-color: #3d3d3b;
+}
+
+.thumb-text {
+    font-family: 'Advent Pro', sans-serif;
+    display: block;
+    padding: 30px 10px 30px 10px;
+    color: #fff;
+    font-size: 18pt;
+    font-weight: 300;
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+
+.coming-soon {
+    font-family: 'Advent Pro', sans-serif;
+    display: block;
+    padding: 0 10px 0 10px;
+    color: #e36767;
+    font-size: 16pt;
+    font-weight: 300;
+}
+
+.blogPost {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 1;
+    height: 100%;
+    transition: top 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
+    -moz-transition: top 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
+    -webkit-transition: top 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
+    -o-transition: top 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
+    z-index: 1;
+}
+
+.blog-container { 
+    max-width: 960px;
+    margin: 30px auto;
+    overflow: auto;         /* clearfix */
+}
+
+.blog-overlay {
+    width: 33.33%;
+    height: 200px;
+    display: block;   /* anchor tags are normally display-inline */
+    float: left;
+    position: relative;
+    padding-top: 20%;
+    background-position: center center; 
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden; 
+    background-color: #3d3d3b;
+}
+
+.blog-overlay:hover {
+    cursor: default;
+}
+
+.blog-overlay:hover .blogPost{
+    position: absolute;
+    background-color: #3d3d3b;
+    top: 100%;
+    left: 0;
+    right: 0;
+    bottom: null;
+    opacity: 0.8;
+    background-color: #3d3d3b;
+}
+
+.blogText {
+    font-family: 'Advent Pro', sans-serif;
+    position: absolute;
+    z-index: 0;
+    color: #e36767;
+    font-size: 16pt;
+    font-weight: 300;
+    top: 45%;
+    left: 30%;
+
+}
+
+.blogPost-static {
+    width: 33.33%;
+    height: 200px;
+    display: block;   /* anchor tags are normally display-inline */
+    float: left;
+    position: relative;
+    padding-top: 20%;
+    background-position: center center; 
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden; 
+    background-color: #3d3d3b;
+}
+
 /* -------------------------------------------*/
 /* --------------->>> IMAGES <<<--------------*/
 /* -------------------------------------------*/
 
 
 .project_pic {
-    /*
-    filter: grayscale(100%);
-    -webkit-filter: grayscale(100%);
-    filter: gray; 
-    -webkit-transition: all .6s ease; 
-    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); 
-    */
+ 
     transition:all 0.5s ease;
     -webkit-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
@@ -306,16 +448,7 @@ footer {
     -webkit-backface-visibility: hidden;
 }
 
-.blogPost:hover .project_pic {
-/*
-    filter:grayscale(0%); 
-    -webkit-filter: grayscale(0%);
-    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 1 0\'/></filter></svg>#grayscale");
-*/
-    
-    
-    
-}
+
 
 .photoContainer{
     top: 0;
@@ -618,9 +751,17 @@ form textarea {
     border-bottom: 1px solid black;
 }
 
-.button {
+form .button {
+    font-family: 'Advent Pro', sans-serif;
+    font-size: 12pt;
+    padding: 6px;
     clear: both;
     margin-top: 5px;
+    margin-bottom: 50px;
+    background-color: #3d3d3b;
+    border: 2px solid #3d3d3b;
+    color: #fff;
+    border-radius: 5px;
 }
 
 
