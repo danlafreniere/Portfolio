@@ -140,11 +140,14 @@
                 
             </div>
             
-            
+            <p id="jumpto-Blog">&nbsp;</p>
         </section>
 
         <a href="blogHome.php">
-        <div class="photoContainer" id="jumpto-Blog">
+        <div class="photoContainer">
+            <img id="planet" src="images/Planet.png"/>
+            <img id="littleComet" src="images/Comet_Large.png"/>
+            <img id="bigComet" src="images/Comet_Small.png"/>
             <div class="photoContainer_content">
                 <h1 class="whiteText">MY BLOG</h1>
                 <h5  class="whiteText">Check It Out</h5>

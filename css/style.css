@@ -312,8 +312,7 @@ footer {
 
 .thumb {
     width: 25%;
-    height: 200px;
-    display: block;   /* anchor tags are normally display-inline */
+    display: block;     /* anchor tags are normally display-inline */
     float: left;
     position: relative;
     padding-top: 20%;
@@ -467,17 +466,23 @@ footer {
     height:300px;
     position: relative;
     overflow:hidden;  
-    background-color: #3d3d3b;
+    background-color: #262626;
+    background-image: url(/images/Space.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
 }
 
 .photoContainer_content h1 {
-    padding-top: 100px;
+    padding-top: 90px;
+    position: relative;
     font-family: 'Advent Pro', sans-serif;
     font-weight: 700;
     font-size: 30pt;
     float: left;
     text-align: center;
     width: 100%;
+    z-index: 999;
 }
 
 .photoContainer_content h5 {
@@ -491,11 +496,62 @@ footer {
     line-height: 0.5;
     text-align: center;
     width: 100%;
+    z-index: 998;
+}
+
+#planet {
+    float: left; 
+    position: absolute; 
+    height: 75%; 
+    overflow: hidden; 
+    left: 12%; 
+    top: 13%;
     z-index: 2;
+    
+}
+
+#bigComet {
+    float: left; 
+    position: absolute; 
+    size: 25%; 
+    height: 60px;
+    overflow: hidden; 
+    left: -5%; 
+    top: 150px;
+    z-index: 3;
+    -webkit-animation: moveclouds 15s linear infinite;
+	-moz-animation: moveclouds 15s linear infinite;
+	-o-animation: moveclouds 15s linear infinite;
+	animation: moveclouds 15s linear infinite;
+}
+
+#littleComet { 
+    float: left; 
+    position: absolute; 
+    height: 30px;
+    overflow: hidden; 
+    left: -5%; 
+    top: 50px;
+    z-index: 1;
+    -webkit-animation: moveclouds 25s linear infinite;
+	-moz-animation: moveclouds 25s linear infinite;
+	-o-animation: moveclouds 25s linear infinite;
+	animation: moveclouds 25s linear infinite;
 }
 
 
-
+@-webkit-keyframes moveclouds {
+	100% {margin-left: 105%;}
+	0% {margin-left: -5%;}
+}
+@-moz-keyframes moveclouds {
+	100% {margin-left: 105%;}
+	0% {margin-left: -5%;}
+}
+@-o-keyframes moveclouds {
+	100% {margin-left: 105%;}
+	0% {margin-left: -5%;}
+}
 
 /* -----------------------------------------------------*/
 /* ---------->>> HEADINGS AND TEXT STYLES <<<-----------*/
