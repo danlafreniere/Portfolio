@@ -513,10 +513,9 @@ footer {
 #bigComet {
     float: left; 
     position: absolute; 
-    size: 25%; 
-    height: 60px;
+    height: 80px;
     overflow: hidden; 
-    left: -5%; 
+    left: -20%;
     top: 150px;
     z-index: 3;
     -webkit-animation: moveclouds 15s linear infinite;
@@ -528,7 +527,7 @@ footer {
 #littleComet { 
     float: left; 
     position: absolute; 
-    height: 30px;
+    height: 25px;
     overflow: hidden; 
     left: -5%; 
     top: 50px;
@@ -541,16 +540,16 @@ footer {
 
 
 @-webkit-keyframes moveclouds {
-	100% {margin-left: 105%;}
-	0% {margin-left: -5%;}
+	100% {margin-left: 120%;}
+	0% {margin-left: -10%;}
 }
 @-moz-keyframes moveclouds {
-	100% {margin-left: 105%;}
-	0% {margin-left: -5%;}
+	100% {margin-left: 120%;}
+	0% {margin-left: -10%;}
 }
 @-o-keyframes moveclouds {
-	100% {margin-left: 105%;}
-	0% {margin-left: -5%;}
+	100% {margin-left: 120%;}
+	0% {margin-left: -10%;}
 }
 
 /* -----------------------------------------------------*/

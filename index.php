@@ -146,8 +146,8 @@
         <a href="blogHome.php">
         <div class="photoContainer">
             <img id="planet" src="images/Planet.png"/>
-            <img id="littleComet" src="images/Comet_Large.png"/>
-            <img id="bigComet" src="images/Comet_Small.png"/>
+            <img id="littleComet" src="images/Comet.gif"/>
+            <img id="bigComet" src="images/Comet.gif"/>
             <div class="photoContainer_content">
                 <h1 class="whiteText">MY BLOG</h1>
                 <h5  class="whiteText">Check It Out</h5>
