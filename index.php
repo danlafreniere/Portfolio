@@ -1,3 +1,14 @@
+<?php
+                
+            session_start();
+
+            require_once 'helpers/security.php';
+            $errors = isset($_SESSION['errors']) ? $_SESSION['errors'] : [];
+            $fields = isset($_SESSION['fields']) ? $_SESSION['fields'] : [];
+
+?>
+        
+
 <!doctype html>
 <html lan="en">
     
@@ -97,7 +108,7 @@
         <section class="tealBackground topPadding bigBottom">
         
             <div class="container"><h1 class="whiteText">PROJECTS</h1></div>
-            <div class="thumb-container">
+            <div class="container">
                 
                 
                  <a class="thumb" style="background-image: url(/images/Queens_Sites.png);">
@@ -157,15 +168,6 @@
         
         <hr style="margin-top:-0em;"/>
    
-        <?php
-                
-            session_start();
-
-            require_once 'helpers/security.php';
-            $errors = isset($_SESSION['errors']) ? $_SESSION['errors'] : [];
-            $fields = isset($_SESSION['fields']) ? $_SESSION['fields'] : [];
-
-        ?>
         
         
         <div class="container" id="contact" >

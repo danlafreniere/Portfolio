@@ -298,16 +298,10 @@ footer {
 }
 
 .thumb-title {
-   margin-right: 15px;
-  margin-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.thumb-container { 
-    max-width: 1170px;
-    margin: 30px auto;
-    overflow: auto;         /* clearfix */
+    margin-right: 15px;
+    margin-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .thumb {
@@ -351,9 +345,9 @@ footer {
 .thumb-text {
     font-family: 'Advent Pro', sans-serif;
     display: block;
-    padding: 30px 10px 30px 10px;
+    padding: 30px 10px 20px 10px;
     color: #fff;
-    font-size: 18pt;
+    font-size: 16pt;
     font-weight: 300;
     text-transform: uppercase;
     line-height: 1.2;
@@ -364,7 +358,7 @@ footer {
     display: block;
     padding: 0 10px 0 10px;
     color: #e36767;
-    font-size: 16pt;
+    font-size: 14pt;
     font-weight: 300;
 }
 
@@ -818,6 +812,13 @@ form .button {
     }
 }
 
+@media only screen and (max-width: 1000px) {
+    .thumb {
+        width: 33.333%;
+        height: 200px;
+    }
+}
+
 @media only screen and (max-width: 961px) {
     #treeLogo {
         float: left;    
@@ -899,6 +900,20 @@ form .button {
     #menu:hover {
         color: #e36767; 
     }
+    
+}
+
+
+@media (max-width: 700px) {
+    .thumb {
+        width: 300px;
+        height: 200px;
+        float: none;
+        margin: auto;
+        display: block;
+    }     
+    
+   
 }
 
 @media (max-width:481px) {
@@ -912,6 +927,7 @@ form .button {
      #nameLogo {
         display: none;
     }
+   
 }
 
 @media (max-width:340px) {
