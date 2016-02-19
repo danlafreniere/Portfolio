@@ -286,14 +286,10 @@ footer {
     visibility: hidden;
 }
 
-
-.skillSet {
-    width: 800px; 
-    margin: auto;   
-}
-
 .skill {
-    float: left;  
+    margin: auto;
+    display: block;
+    float: left;
     padding: 10px 20px 10px 20px;
 }
 
@@ -473,10 +469,11 @@ footer {
     font-family: 'Advent Pro', sans-serif;
     font-weight: 700;
     font-size: 30pt;
+    color: #fff;
     float: left;
     text-align: center;
     width: 100%;
-    z-index: 999;
+    z-index: 10;
 }
 
 .photoContainer_content h5 {
@@ -492,6 +489,56 @@ footer {
     width: 100%;
     z-index: 998;
 }
+
+.photoContainer:hover h1 {
+    color: #e36767;   
+}
+
+.photoContainer:hover h5 {
+    color: #e36767;
+}
+
+
+
+.sliding-underline {
+	display: inline-block;
+	position: relative;
+	padding-bottom: 2px;
+}
+.sliding-underline:after {
+	content: '';
+	display: block;
+	margin: auto;
+	height: 2px;
+	width: 0px;
+	background: transparent;
+	transition: width .5s ease, background-color .5s ease;
+}
+.photoContainer:hover .sliding-underline:after {
+	width: 120px;
+	background: #e36767;
+}
+
+.sliding-underline-blog {
+	display: inline-block;
+	position: relative;
+	padding-bottom: 2px;
+}
+.sliding-underline-blog:after {
+	content: '';
+	display: block;
+	margin: 10px auto;
+	height: 2px;
+	width: 0px;
+	background: transparent;
+	transition: width .5s ease, background-color .5s ease;   
+}
+
+#blogHeader:hover .sliding-underline-blog:after {
+	width: 380px;
+	background: #fff;
+}
+
 
 #planet {
     float: left; 
@@ -810,14 +857,30 @@ form .button {
     .topPadding {
         padding-top: 40px;  
     }
+   
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1200px) {
+    .skill {
+        width: 300px;   
+    }
+}
+
+@media only screen and (max-width: 1005px) {
     .thumb {
         width: 33.333%;
         height: 200px;
     }
+    
+    .skill {
+         width: 50%;
+        float: left;
+        margin: auto;
+    }
+    
 }
+
+
 
 @media only screen and (max-width: 961px) {
     #treeLogo {
@@ -882,7 +945,6 @@ form .button {
     .intro,  #featuredBlog {
         padding: 80px 32px 0; 
         font-size: 26pt; 
-        
     }
         
     .introKicker {
@@ -912,11 +974,11 @@ form .button {
         margin: auto;
         display: block;
     }     
-    
+   
    
 }
 
-@media (max-width:481px) {
+@media (max-width:490px) {
     #selfPortrait {
         position: absolute; 
         left: 50%; 
@@ -927,8 +989,42 @@ form .button {
      #nameLogo {
         display: none;
     }
-   
+    
+   form {
+        float: none;
+        width: 400px;
+        margin: 20px;
+        overflow: hidden;
+    } 
+     
+    label {
+        clear: both;  
+        float: none;
+    }
+
+    form input.name, form input.email {
+        margin-left: 20px;
+        border: 1px solid black;
+        padding-left: 10px;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+    }
+
+    
+    form textarea {
+        border: 1px solid black;
+        width: 100%;
+        margin-left: 20px;
+    }
+
+
+    
+
 }
+
+
+
 
 @media (max-width:340px) {
     #selfPortrait {
@@ -938,4 +1034,7 @@ form .button {
         margin-top: 34px;
         margin-left: -60px; 
     }  
+
+
+    
 }

@@ -20,12 +20,7 @@ $(document).ready(function() {
     //add event listener: 
     $(window).resize(checkWidth); 
     
-     $("#blogHeader").hover(function(){
-        $("#featuredBlog-title").css("text-decoration","underline");
-
-     }, function(){
-        $("#featuredBlog-title").css("text-decoration", "none"); 
-    });  
+     
     
     $(window).scroll(function() {
         currentScroll = $(this).scrollTop();

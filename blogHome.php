@@ -39,7 +39,7 @@
         <a href="neuralNetwork.php">
         <div id="blogHeader">
 
-            <p id="featuredBlog-title"><span>Backpropagation Neural Networks</span></p>
+            <p id="featuredBlog-title" class="sliding-underline-blog"><span>Backpropagation Neural Networks</span></p>
             <h3 id="featuredBlog-subtitle">FEATURED TUTORIAL</h3>
             <img id="featuredImage" src="images/Feature.png"/>
 
@@ -48,8 +48,10 @@
         <section class="topPadding bigBottom">
 
        <div class="container"><h1 class="whiteText">PROJECTS</h1></div>
-         <div class="blog-container">
             
+            
+         <div class="blog-container">
+            <p>Please note: blog posts are not yet responsive.</p>
             <a class="blog-overlay" href="#0">
                 <div class="blogPost">
                     <figure><img class="img-responsive" src="images/Dijkstra.png"/></figure>

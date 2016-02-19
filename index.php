@@ -69,30 +69,30 @@
 
            
        
-                <div class="skillSet">
+                <div class="container topPadding bigBottom">
                     <div class="skill">
                         <h4>Communication</h4>
-                        <img class="skillBar img-responsive" src="images/Skills/CommunicationBar.png">
+                        <img class="img-responsive" src="images/Skills/CommunicationBar.png">
                     </div>
                     <div class="skill">
                         <h4>Organization</h4>
-                        <img class="skillBar img-responsive" src="images/Skills/OrganizationBar.png">
+                        <img class="img-responsive" src="images/Skills/OrganizationBar.png">
                     </div>
                     <div class="skill">    
                         <h4>User Experience (UX)</h4>
-                        <img class="skillBar img-responsive" src="images/Skills/UXBar.png">
+                        <img class="img-responsive" src="images/Skills/UXBar.png">
                     </div>
                     <div class="skill">
                         <h4>Learning</h4>
-                        <img class="skillBar img-responsive" src="images/Skills/LearningBar.png">
+                        <img class="img-responsive" src="images/Skills/LearningBar.png">
                     </div>
                     <div class="skill">
                         <h4>Programming</h4>
-                        <img class="skillBar img-responsive" src="images/Skills/ProgrammingBar.png">
+                        <img class="img-responsive" src="images/Skills/ProgrammingBar.png">
                     </div>
                     <div class="skill"> 
                         <h4>Team Work</h4>
-                        <img class="skillBar img-responsive" src="images/Skills/TeamWorkBar.png">
+                        <img class="img-responsive" src="images/Skills/TeamWorkBar.png">
                     </div>
                 </div>
 
@@ -103,13 +103,13 @@
       
             </div>
         </section>
-        
+         
         
         <section class="tealBackground topPadding bigBottom">
-        
-            <div class="container"><h1 class="whiteText">PROJECTS</h1></div>
+            <p id="jumpto-Projects">&nbsp;</p>
+
+            <div class="container"><h1 class="whiteText">PROJECTS</h1><br/>&nbsp;</div>
             <div class="container">
-                
                 
                  <a class="thumb" style="background-image: url(/images/Queens_Sites.png);">
                     <div class="thumb-overlay">
@@ -156,12 +156,12 @@
 
         <a href="blogHome.php">
         <div class="photoContainer">
-            <img id="planet" src="images/Planet.png"/>
+            <img id="planet" src="images/Planet.gif"/>
             <img id="littleComet" src="images/Comet.gif"/>
             <img id="bigComet" src="images/Comet.gif"/>
             <div class="photoContainer_content">
-                <h1 class="whiteText">MY BLOG</h1>
-                <h5  class="whiteText">Check It Out</h5>
+                <h1 class="sliding-underline">MY BLOG</h1>
+                <h5>Check It Out</h5>
             </div> 
             <div style="background-image: url('images/backsplash_teal.jpg');" class="photoContainer_pic"></div>
         </div></a>
