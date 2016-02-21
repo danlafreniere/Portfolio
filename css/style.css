@@ -873,7 +873,7 @@ form .button {
     }
     
     .skill {
-         width: 50%;
+        width: 50%;
         float: left;
         margin: auto;
     }
@@ -1065,7 +1065,12 @@ form .button {
     }
 
 
-    
+    .skill {
+        width: 100%;
+        max-width: 300px;
+        float: left;
+        margin: auto;
+    }
 
 }
 
