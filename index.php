@@ -16,6 +16,12 @@
 	<head>
     	<meta charset="UTF-8"/>
     	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta property="og:site_name" content="Dan LaFreniere Portfolio"/>
+        <meta property="og:title" content="Dan LaFreniere's Portfolio"/>
+        <meta property="og:description" content="My portfolio outlining some of my work/side projects and some stuff about myself too!"/>
+        <meta property="og:image" content="images/AshTree-Logo.png">
+        <meta property="og:url" content="http://www.danlafreniere.com/">
+        <meta property="og:type" content="portfolio"/>
    	 	<title>Dan LaFreniere Portfolio</title>
     	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     	<link href='http://fonts.googleapis.com/css?family=Advent+Pro:100,200,300,400,500,600,700' rel='stylesheet' type='text/css'>     
