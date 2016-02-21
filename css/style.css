@@ -263,7 +263,7 @@ footer {
 }
 
 
-.blogPost-banner {
+.blog-banner {
     font-family: 'Advent Pro', sans-serif;
     padding: 10px; 
     font-size: 14pt; 
@@ -358,7 +358,7 @@ footer {
     font-weight: 300;
 }
 
-.blogPost {
+.blog-post {
     position: absolute;
     top: 0;
     left: 0;
@@ -397,7 +397,7 @@ footer {
     cursor: default;
 }
 
-.blog-overlay:hover .blogPost{
+.blog-overlay:hover .blog-post{
     position: absolute;
     background-color: #3d3d3b;
     top: 100%;
@@ -408,7 +408,7 @@ footer {
     background-color: #3d3d3b;
 }
 
-.blogText {
+.blog-text {
     font-family: 'Advent Pro', sans-serif;
     position: absolute;
     z-index: 0;
@@ -420,7 +420,7 @@ footer {
 
 }
 
-.blogPost-static {
+.blog-static {
     width: 33.33%;
     height: 200px;
     display: block;   /* anchor tags are normally display-inline */
@@ -880,6 +880,31 @@ form .button {
     
 }
 
+@media only screen and (max-width: 950px) {
+    
+     .blog-container { 
+         min-width: 736px;
+         width: 50%;
+         margin: 0 auto;
+    }
+    
+    .blog-post figure{
+        width: 100%;
+    }
+
+    .blog-overlay {
+        width: 50%;
+        height: 230px;
+        max-width: 368px;
+    }
+
+    .blog-static {
+        width: 50%;
+        height: 230px;
+        max-width: 368px;
+    }    
+}
+
 
 
 @media only screen and (max-width: 961px) {
@@ -962,6 +987,27 @@ form .button {
     #menu:hover {
         color: #e36767; 
     }
+    
+}
+
+
+@media (max-width: 736px) {
+   .blog-container { 
+         min-width: 368px;
+        
+    }
+
+    .blog-overlay {
+        width: 100%;
+        height: 230px;
+        max-width: 368px;
+    }
+
+    .blog-static {
+        width: 100%;
+        height: 230px;
+        max-width: 368px;
+    }  
     
 }
 

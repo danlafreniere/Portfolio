@@ -51,29 +51,28 @@
             
             
          <div class="blog-container">
-            <p>Please note: blog posts are not yet responsive.</p>
             <a class="blog-overlay" href="#0">
-                <div class="blogPost">
+                <div class="blog-post">
                     <figure><img class="img-responsive" src="images/Dijkstra.png"/></figure>
-                    <p class="blogPost-banner">Dijkstra's Algorithm</p> 
+                    <p class="blog-banner">Dijkstra's Algorithm</p> 
                 </div>
-                <p class="blogText">Coming Soon</p>
+                <p class="blog-text">Coming Soon</p>
             </a>
         
             
             <a class="blog-overlay" href="#0">
-                <div class="blogPost">
+                <div class="blog-post">
                     <figure><img class="img-responsive" src="images/BarnDoor.jpg"/></figure>
-                    <p class="blogPost-banner">Barn Door Star Tracking Mount</p>
+                    <p class="blog-banner">Barn Door Star Tracking Mount</p>
                 </div>
-                <p class="blogText">Coming Soon</p>
+                <p class="blog-text">Coming Soon</p>
             </a>
             
         
-            <a href="neuralNetwork.php" class="blogPost-static">
-                <div class="blogPost">
+            <a href="neuralNetwork.php" class="blog-static">
+                <div class="blog-post">
                     <figure><img class="img-responsive" src="images/NeuralNetwork.jpg"/></figure>
-                    <p class="blogPost-banner">Backpropagation Neural Networks</p>
+                    <p class="blog-banner">Backpropagation Neural Networks</p>
                 </div>
             </a>
           
