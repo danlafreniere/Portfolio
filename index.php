@@ -10,8 +10,8 @@
         
 
 <!doctype html>
-<html lan="en">
-    
+<html lan="en" prefix="og: http://ogp.me/ns#">
+
 <!--    ADD CONTENT FOR ACCESSIBILITY-->
 	<head>
     	<meta charset="UTF-8"/>
@@ -19,9 +19,9 @@
         <meta property="og:site_name" content="Dan LaFreniere Portfolio"/>
         <meta property="og:title" content="Dan LaFreniere's Portfolio"/>
         <meta property="og:description" content="My portfolio outlining some of my work/side projects and some stuff about myself too!"/>
-        <meta property="og:image" content="images/AshTree-Logo.png">
+        <meta property="og:image" content="http://www.danlafreniere.com/images/AshTree-Social.png">
         <meta property="og:url" content="http://www.danlafreniere.com/">
-        <meta property="og:type" content="portfolio"/>
+        <meta property="og:type" content="blog"/>
    	 	<title>Dan LaFreniere Portfolio</title>
     	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     	<link href='http://fonts.googleapis.com/css?family=Advent+Pro:100,200,300,400,500,600,700' rel='stylesheet' type='text/css'>     
@@ -102,9 +102,10 @@
                     </div>
                 </div>
 
-                <p class="bodyText topPadding" style="clear: both;">Also feel free to download my resume, friend! (PDF, 73kB):</p>
+                <p class="bodyText topPadding" style="clear: both;">Also feel free to download my resume (PDF, 68.4kB) or transcript (PDF, 6.6kB), friend!</p>
             
             <a download href="files/Daniel_LaFreniere_Resume.pdf"><img alt="Button to Download my Resume (PDF Format)" src="images/ResumeButton.png" id="resume"/></a>
+            <a download href="files/Daniel_LaFreniere_Transcript.pdf"><img alt="Button to Download my Transcript (PDF Format)" src="images/TranscriptButton.png" id="resume"/></a>
             <p>&nbsp;</p>
       
             </div>
@@ -117,14 +118,14 @@
             <div class="container"><h1 class="whiteText">PROJECTS</h1><br/>&nbsp;</div>
             <div class="container">
                 
-                 <a class="thumb" style="background-image: url(/images/Queens_Sites.png);">
+                 <a class="thumb" style="background-image: url(/images/Websites.png);">
                     <div class="thumb-overlay">
                         <strong class="thumb-text">Queen's University Faculty Websites</strong>
                         <div class="coming-soon"><strong>- Page Coming Soon -</strong></div>
                     </div>
                 </a>
                 
-                <a class="thumb" style="background-image: url(/images/MDSS.jpg);">
+                <a class="thumb" style="background-image: url(/images/MDSS.png);">
                     
                     <div class="thumb-overlay">
                         <strong class="thumb-text">Medical Decision Support System</strong>
@@ -134,7 +135,7 @@
             
                
                 
-                <a class="thumb" style="background-image: url(/images/Moon.jpg);">
+                <a class="thumb" style="background-image: url(/images/Moon.png);">
                     <div class="thumb-overlay">
                         <strong class="thumb-text">Automated Barn Door Star Tracker</strong>
                         <div class="coming-soon"><strong>- Page Coming Soon -</strong></div>
