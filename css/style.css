@@ -293,6 +293,26 @@ footer {
     padding: 10px 20px 10px 20px;
 }
 
+.work-section{
+    overflow-x: hidden;   
+}
+
+.work-container{
+    max-width: 900px; 
+    margin: 0px auto; 
+}
+
+.thumb-wrap, .work-wrap{
+    width: 50%;    
+    float: left; 
+}
+
+.work-slider{
+    width: 200%; 
+    position: relative; 
+    left: -100%;
+}
+
 .thumb-title {
     margin-right: 15px;
     margin-left: 15px;
@@ -438,6 +458,9 @@ footer {
 /* --------------->>> IMAGES <<<--------------*/
 /* -------------------------------------------*/
 
+img{
+    max-width: 100%;   
+}
 
 .project_pic {
  

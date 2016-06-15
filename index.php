@@ -112,13 +112,17 @@
         </section>
          
         
-        <section class="tealBackground topPadding bigBottom">
+        <section class="tealBackground topPadding bigBottom work-section">
             <p id="jumpto-Projects">&nbsp;</p>
 
+        <div class="work-slider">
+        <div class="thumb-wrap">
+
             <div class="container"><h1 class="whiteText">PROJECTS</h1><br/>&nbsp;</div>
+            
             <div class="container">
                 
-                 <a class="thumb" style="background-image: url(/images/Websites.png);">
+                <a class="thumb" style="background-image: url(/images/Websites.png);">
                     <div class="thumb-overlay">
                         <strong class="thumb-text">Queen's University Faculty Websites</strong>
                         <div class="coming-soon"><strong>- Page Coming Soon -</strong></div>
@@ -132,8 +136,6 @@
                         <div class="coming-soon"><strong>- Page Coming Soon -</strong></div>
                     </div>
                 </a>
-            
-               
                 
                 <a class="thumb" style="background-image: url(/images/Moon.png);">
                     <div class="thumb-overlay">
@@ -157,6 +159,24 @@
                 </a>
                 
             </div>
+            </div>
+            
+            <div class="work-wrap">
+            
+            <div class="container work-container">
+                Work
+                <div style="width: 500px; height: 500x; background: #ccc;"></div>
+                <p>Blah blah blah ha ha ha ha haaaa</p>
+                <div style="width: 500px; height: 500x; background: #ccc;"></div>
+                <p>Blah blah blah ha ha ha ha haaaa</p>
+                <div style="width: 500px; height: 500x; background: #ccc;"></div>
+                <p>Blah blah blah ha ha ha ha haaaa</p>
+                <div style="width: 500px; height: 500x; background: #ccc;"></div>
+                <p>Blah blah blah ha ha ha ha haaaa</p>
+            </div>
+                
+            </div>
+        </div>
             
             <p id="jumpto-Blog">&nbsp;</p>
         </section>
