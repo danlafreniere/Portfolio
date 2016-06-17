@@ -1,11 +1,12 @@
 var triggerHeight = 100;
 var currentScroll = 0; 
 
+
 $(document).ready(function() {
     $(this).scrollTop(0);
     var $window = $(window); 
     var counter = 0; 
-    
+    projectSlider(); 
     
     function checkWidth(){
         var windowSize = $window.width(); 
@@ -53,7 +54,17 @@ $(document).ready(function() {
     });  
     
     
-  
+  function projectSlider(){
+      $('.thumb').click(function() {
+            $('.work-slider').css('left', '-100%');
+            $('.work-container').show();
+      });
+      
+      $('.projectBack').click(function() {
+            $('.work-slider').css('left', '0%');
+            $('.work-container').hide();
+      });
+  }
     
     $('.primary-nav-trigger').on('click', function(){
 		$('.menu-icon').toggleClass('is-clicked'); 	

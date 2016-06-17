@@ -164,14 +164,15 @@
             <div class="work-wrap">
             
             <div class="container work-container">
-                Work
-                <div style="width: 500px; height: 500x; background: #ccc;"></div>
+                <h1 class="whiteText">PROJECT DETAILS</h1>
+                <a class="projectBack">Back To Project Index</a>
+                <div style="width: 500px; height: 500px; background: #ccc;"></div>
                 <p>Blah blah blah ha ha ha ha haaaa</p>
-                <div style="width: 500px; height: 500x; background: #ccc;"></div>
+                <div style="width: 500px; height: 500px; background: #ccc;"></div>
                 <p>Blah blah blah ha ha ha ha haaaa</p>
-                <div style="width: 500px; height: 500x; background: #ccc;"></div>
+                <div style="width: 500px; height: 500px; background: #ccc;"></div>
                 <p>Blah blah blah ha ha ha ha haaaa</p>
-                <div style="width: 500px; height: 500x; background: #ccc;"></div>
+                <div style="width: 500px; height: 500px; background: #ccc;"></div>
                 <p>Blah blah blah ha ha ha ha haaaa</p>
             </div>
                 

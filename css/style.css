@@ -300,6 +300,7 @@ footer {
 .work-container{
     max-width: 900px; 
     margin: 0px auto; 
+    display: none;
 }
 
 .thumb-wrap, .work-wrap{
@@ -310,7 +311,7 @@ footer {
 .work-slider{
     width: 200%; 
     position: relative; 
-    left: -100%;
+    left: 0%;
 }
 
 .thumb-title {
