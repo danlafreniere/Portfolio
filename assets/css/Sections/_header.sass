@@ -1,0 +1,87 @@
+#header
+    background-color: #3d3d3b
+    height: 150px
+    position: fixed
+    width: 100%
+    top: 0px
+    z-index: 99999999
+    overflow: hidden
+    -webkit-transition: height 0.1s
+    -moz-transition: height 0.1s
+    transition: height 0.1s
+    
+#header.shrink
+    height: 100px
+    
+#treeLogo
+    float: left
+    display: block
+    margin: 25px 0 0 3%
+
+#nameLogo
+    float: left
+    display: block
+    margin: 35px 0 0 10px
+    
+#treeLogo.grow 
+    -webkit-animation-name: tree-logo
+    -webkit-animation-duration: 0.4s
+    animation-name: tree-logo-grow
+    animation-duration: 0.4s
+
+#nameLogo.grow 
+    -webkit-animation-name: name-logo
+    -webkit-animation-duration: 0.4s
+    animation-name: name-logo-grow
+    animation-duration: 0.4s
+
+#treeLogo.shrink 
+    -webkit-animation-name: tree-logo
+    -webkit-animation-duration: 0.3s
+    animation-name: tree-logo-shrink
+    animation-duration: 0.3s
+    width: 75px
+    margin: 15px 0 0 2%
+
+#nameLogo.shrink 
+    -webkit-animation-name: name-logo
+    -webkit-animation-duration: 0.3s
+    animation-name: name-logo-shrink
+    animation-duration: 0.3s
+    opacity: 0
+
+@keyframes tree-logo-shrink 
+    0% 
+        width: 100px
+        margin: 25px 0 0 3%
+    100%
+        width: 75px
+        margin: 15px 0 0 2%
+
+@keyframes name-logo-shrink 
+    0% 
+        width: 268px
+        opacity: 1
+        margin: 35px 0 0 10px
+    100% 
+        width: 200px
+        opacity: 0
+        margin: 25px 0 0 9px
+
+@keyframes tree-logo-grow 
+    0%
+        width: 75px
+        margin: 15px 0 0 2%
+    100%
+        width: 100px
+        margin: 25px 0 0 3%
+
+@keyframes name-logo-grow 
+    0%
+        width: 200px
+        opacity: 0
+        margin: 25px 0 0 9px
+    100%
+        width: 268px
+        opacity: 1
+        margin: 35px 0 0 10px
