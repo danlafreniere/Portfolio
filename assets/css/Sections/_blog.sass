@@ -28,24 +28,24 @@
     > h3
         font-weight: 300
  
-.sliding-underline-blog:before
-    content: ""
-    position: absolute
-    margin-top: 30px
-    width: 415px
+.sliding-underline-blog
+    display: inline-block
+    position: relative
+    padding-bottom: 2px
+
+.sliding-underline-blog:after
+    content: ''
+    display: block
+    margin: 10px auto
     height: 2px
-    background-color: #fff
-    visibility: hidden
-    -webkit-transform: scaleX(0)
-    transform: scaleX(0)
-    -webkit-transition: all 0.3s ease-in-out 0s
-    transition: all 0.3s ease-in-out 0s
-    
-#blogHeader:hover > .sliding-underline-blog:before
-    visibility: visible
-    -webkit-transform: scaleX(1)
-    transform: scaleX(1)
-        
+    width: 0px
+    background: transparent
+    transition: width .5s ease, background-color .5s ease
+
+#blogHeader:hover > .sliding-underline-blog:after
+    width: 380px
+    background: #fff
+            
 #featuredImage
     padding: 20px 0 20px 60px
 
