@@ -72,7 +72,6 @@ $(document).ready(function(){
         $('html,body').animate({scrollTop:$(this.hash).offset().top}, 500);
 		$('#menu-icon').toggleClass('is-clicked'); 
         
-        
 		//in firefox transitions break when parent overflow is changed, so we need to wait for the end of the trasition to give the body an overflow hidden
 		if( $('#primary-nav').hasClass('is-visible') ) {
 			$('#primary-nav').removeClass('is-visible').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend',function(){
@@ -81,7 +80,6 @@ $(document).ready(function(){
 			$('#primary-nav').addClass('is-visible').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend',function(){
 			});	
 		}
-        
 	});
     
     $('a[href^=#]').on('click', function(event){     

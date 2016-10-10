@@ -1,3 +1,4 @@
+
 .blog-banner 
     font-family: 'Advent Pro', sans-serif
     padding: 10px
@@ -24,6 +25,26 @@
     > p
         padding-top: 100px
         font-size: 24pt
+    > h3
+        font-weight: 300
+ 
+.sliding-underline-blog:before
+    content: ""
+    position: absolute
+    margin-top: 30px
+    width: 415px
+    height: 2px
+    background-color: #fff
+    visibility: hidden
+    -webkit-transform: scaleX(0)
+    transform: scaleX(0)
+    -webkit-transition: all 0.3s ease-in-out 0s
+    transition: all 0.3s ease-in-out 0s
+    
+#blogHeader:hover > .sliding-underline-blog:before
+    visibility: visible
+    -webkit-transform: scaleX(1)
+    transform: scaleX(1)
         
 #featuredImage
     padding: 20px 0 20px 60px
@@ -48,7 +69,7 @@
 .blog-container
     max-width: 960px
     margin: 30px auto
-    overflow: auto        /* clearfix */
+    overflow: auto
 
 .blog-overlay
     width: 33.33%

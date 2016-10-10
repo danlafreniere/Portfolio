@@ -17,19 +17,35 @@
     background-position: center center
     background-size: cover
 
-.photoContainer_content h1
-    padding-top: 90px
-    position: relative
-    font-family: 'Advent Pro', sans-serif
-    font-weight: 700
-    font-size: 30pt
-    color: #fff
-    float: left
-    text-align: center
-    width: 100%
-    z-index: 10
+//.photoContainer_content p
+//    padding-top: 90px
+//    position: relative
+//    font-family: 'Advent Pro', sans-serif
+//    font-weight: 700
+//    font-size: 30pt
+//    color: #fff
+//    float: left
+//    text-align: center
+//    width: 100%
+//    z-index: 10
     
-.photoContainer_content h5
+    
+.photoContainer_content
+    font-family: 'Advent Pro', sans-serif
+    color: white
+    width: 100%
+    text-align: center
+    position: relative
+    
+.photoContainer_content
+    > h1
+        padding-top: 100px
+        font-size: 30pt
+        font-weight: 700
+        z-index: 10
+        
+    
+.photoContainer_content h3
     font-family: 'Advent Pro', sans-serif
     position: relative
     font-size: 16pt
@@ -45,7 +61,7 @@
 .photoContainer:hover h1
     color: #e36767
 
-.photoContainer:hover h5
+.photoContainer:hover h3
     color: #e36767
 
 .sliding-underline
@@ -65,24 +81,6 @@
 .photoContainer:hover .sliding-underline:after
     width: 120px
     background: #e36767
-    
-.sliding-underline-blog
-    display: inline-block
-    position: relative
-    padding-bottom: 2px
-    
-.sliding-underline-blog:after
-    content: ''
-    display: block
-    margin: 10px auto
-    height: 2px
-    width: 0px
-    background: transparent
-    transition: width .5s ease, background-color .5s ease
-    
-#blogHeader:hover .sliding-underline-blog:after
-    width: 380px
-    background: #fff
     
 #planet
     float: left
