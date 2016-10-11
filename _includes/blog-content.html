@@ -13,11 +13,11 @@
 
     <p class="bodyText">Start out by downloading the Iris data set from the <a href="https://archive.ics.uci.edu/ml/machine-learning-databases/iris/">UCI repository</a>. It's important to note that the last column of this set is reserved for a string indicating which flower the particular row of data belongs to; seen here: </p>
 
-    <p class="bodyText"><img class="img-responsive" src="assets/images/Post_NN/data-screen.png"/></p>
+    <p class="bodyText"><img class="img-responsive" src="../../assets/images/Post_NN/data-screen.png"/></p>
 
     <p class="bodyText">In order to make things a little easier on ourselves, I recommend converting these strings to a 3 bit encoded representation. In other words, Iris-Setosa=[1,0,0], Iris-Versicolour=[0,1,0], and Iris-Virginica=[0,0,1]. You can do that yourself and save it in <b>.csv format</b>, or just <a href="files/Iris_data.csv">download my version here</a> - either way it will look like this:</p>
 
-    <p class="bodyText"><img class="img-responsive" src="assets/images/Post_NN/data-screen-converted.jpg"/></p>
+    <p class="bodyText"><img class="img-responsive" src="../../assets/images/Post_NN/data-screen-converted.jpg"/></p>
 
 </div>
 
@@ -39,7 +39,7 @@
 
     <p class="bodyText"><b>Connections &amp; Weights:</b> in terms of structure, backpropagation networks are set up so that every input node (IN) is connected to every hidden node (HN) and every HN will be connected to every output node (ON). Each of these connections has a corresponding <b>weight</b>. Since this is a 5-4-3 network, there are a total of 32 weights ((5 * 4) + (4 * 3)). As our program progresses, the weights will be adjusted <b>after each iteration (iterative refinement)</b> until we either reduce error to an acceptable level or a threshold number of iterations is reached. Iterative refinement for update frequency seems to work better than batch processing (one batch = one cycle through each training sample). The network ends up looking like this (for now at least):</p>
 
-    <p class="bodyText"><img class="img-responsive center-block" alt="A diagrame of a 5-4-3 neural network" src="assets/images/Post_NN/5-4-3-NeuralNetwork.jpg"/></p>
+    <p class="bodyText"><img class="img-responsive center-block" alt="A diagrame of a 5-4-3 neural network" src="../../assets/images/Post_NN/5-4-3-NeuralNetwork.jpg"/></p>
 
 </div>
 
@@ -186,7 +186,7 @@ sse = (1.0/2) * sse;
     <h1>COMPUTING HIDDEN NODE INPUTS</h1>
     <p class="bodyText">For each of the h hidden nodes, the input to that node is a<sup>1</sup><sub>h</sub> = &sum; w<sup>10</sup><sub>hi</sub>x<sub>i</sub> where x is the output from the input node, and w<sub>ih</sub> represents the weight on the connection from input node i and hidden node h. Here is a diagram to help with the visualization (which I will include for each step):</p>
 
-    <img src="assets/images/Post_NN/SimpleNetworkDiagram.png"/>
+    <img src="../../assets/images/Post_NN/SimpleNetworkDiagram.png"/>
 
     <pre>
         <code class="language-java">
@@ -209,7 +209,7 @@ sse = (1.0/2) * sse;
 <div class="container floatClear"> 
     <h1>COMPUTING HIDDEN NODE OUTPUTS</h1>
     <p class="bodyText">The hidden node output (y<sup>1</sup><sub>h</sub>) is simply a sigmoid function applied to the calculated hidden input: S(a<sup>1</sup><sub>h</sub>) where S = 1 / (1 + e<sup>(-m * net)</sup>), net = a<sup>1</sup><sub>h</sub>, e = Euler's number, and m = the slope of the sigmoid function. In order to keep things simple, I set m = 1.</p>
-    <img src="assets/images/Post_NN/SimpleNetworkDiagram.png"/>
+    <img src="../../assets/images/Post_NN/SimpleNetworkDiagram.png"/>
 
     <pre>
         <code class="language-java">
@@ -227,7 +227,7 @@ sse = (1.0/2) * sse;
 <div class="container floatClear"> 
     <h1>COMPUTING OUTPUT NODE VALUES</h1>
     <p class="bodyText">Calculating the inputs and outputs for the output nodes follows the same methods as the hidden node methods above.</p>
-    <img src="assets/images/Post_NN/SimpleNetworkDiagram.png"/>
+    <img src="../../assets/images/Post_NN/SimpleNetworkDiagram.png"/>
 
     <h2>INPUT</h2>
 
