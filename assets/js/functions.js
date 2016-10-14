@@ -1,5 +1,3 @@
-//PLEASE NOTE: this document is full of general js commenting for learning purposes. 
-
 var currentScroll = 0; 
 var triggerHeight = 100; 
 var counter = 0; 
@@ -15,15 +13,54 @@ function checkWidth(){
     }
 }
 
+function projectSlider(){
+    $('.thumb').click(function(){
+        $('.project-slider').css('left','-100%');
+        $('.project-container').show();
+    });
+}
+
+
+function projectLoad(){
+    
+    //not a big deal if we are caching the few projects that currently exist on the site. 
+    //Will improve performance slightly.
+    $.ajaxSetup({ cache : true });
+           
+    $('.thumb').click(function() {
+        var $this = $(this);
+        var title = $this.find('.thumb-text').text();
+        var spinner = '<div class="loader">Loading...</div>'; 
+        var folder = $this.data('folder');
+        var newHTML = '/projects/' + folder + '.html';
+        $('.project-load').html(spinner).load(newHTML);
+        $('.project-title').text(title);
+    });
+}
+
+
 //code within this block will only execute when the DOM is ready
 $(document).ready(function(){
-    
     //jump to top of window on refresh
     $(this).scrollTop(0); 
     counter = 0; 
     checkWidth();
     //call the checkWidth function when the window gets resized
     $(window).resize(checkWidth);
+
+    projectSlider();
+    projectLoad();
+       
+    
+    /*
+    ---------------------------------------------
+    ---------------------------------------------
+    ------                                 ------
+    ------       HEADER FUNCTIONALITY      ------
+    ------                                 ------
+    ---------------------------------------------
+    ---------------------------------------------
+    */
     
     $(window).scroll(function() {
         currentScroll = $(this).scrollTop();
@@ -54,6 +91,17 @@ $(document).ready(function(){
             }
         }
     });  
+    
+     /*
+    ---------------------------------------------
+    ---------------------------------------------
+    ------                                 ------
+    ------         NAVIGATION BAR          ------
+    ------                                 ------
+    ---------------------------------------------
+    ---------------------------------------------
+    */
+     
     
     $('#primary-nav-trigger').on('click', function(){
 		$('#menu-icon').toggleClass('is-clicked'); 	
