@@ -17,9 +17,55 @@ function projectSlider(){
     $('.thumb').click(function(){
         $('.project-slider').css('left','-100%');
         $('.project-container').show();
+        $('#projects-head').css('font-size', '20');
+        $('#projects-head').text("BACK TO PROJECTS");
+        $('#projects-head').wrap(function() {
+            return "<a href='#jumpto-Projects'/>";
+        });
+        $('#project-return').show();
+    });
+    $('#project-return').click(function(){
+        $('.project-slider').css('left','0%');
+        $('.project-container').hide();
+        $('#projects-head').css('font-size', '30');
+        $('#projects-head').text("PROJECTS");
+        $("#projects-head").unwrap();
+        $('#project-return').hide();
+        $('#projects-head').css('opacity', '1');
+    });
+    $('#projects-head').click(function() {
+        if ($('#projects-head').text() == "BACK TO PROJECTS") {
+            $('.project-slider').css('left','0%');
+            $('.project-container').hide();
+            $('#projects-head').css('font-size', '30');
+            $('#projects-head').text("PROJECTS");
+            $("#projects-head").unwrap();
+            $('#project-return').hide();
+            $('#projects-head').css('opacity', '1');
+        }
+    });
+    
+    $('#projects-head').hover(function(){
+        if ($('#projects-head').text() == "BACK TO PROJECTS") {
+            $('#projects-head').animate({opacity: 0.5}, { duration: 200});
+            $('#project-return').animate({opacity: 0.5}, { duration: 200, queue: false });
+            
+        }
+    }, function(){
+        if ($('#projects-head').text() == "BACK TO PROJECTS") {
+            $('#projects-head').animate({opacity: 1}, { duration: 200 });
+            $('#project-return').animate({opacity: 1}, { duration: 200, queue: false });
+        }
+    });   
+    
+    $('#project-return').hover(function(){
+        $('#projects-head').animate({opacity: 0.5}, { duration: 200});
+        $('#project-return').animate({opacity: 0.5}, { duration: 200, queue: false });
+    }, function(){
+        $('#projects-head').animate({opacity: 1}, { duration: 200 });
+        $('#project-return').animate({opacity: 1}, { duration: 200, queue: false });
     });
 }
-
 
 function projectLoad(){
     
