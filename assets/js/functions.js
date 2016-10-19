@@ -6,7 +6,6 @@ function checkWidth(){
     var windowSize = $(window).width();
 
     if (windowSize < 961){
-        console.log("test");
         counter = 0; 
         $('#treeLogo').removeClass('grow');
         $('#nameLogo').removeClass('grow'); 
