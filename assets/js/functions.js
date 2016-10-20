@@ -23,47 +23,25 @@ function projectSlider(){
         });
         $('#project-return').show();
     });
-    $('#project-return').click(function(){
+    $('#return').click(function(){
         $('.project-slider').css('left','0%');
         $('.project-container').hide();
         $('#projects-head').css('font-size', '30');
         $('#projects-head').text("PROJECTS");
         $("#projects-head").unwrap();
         $('#project-return').hide();
-        $('#projects-head').css('opacity', '1');
-    });
-    $('#projects-head').click(function() {
-        if ($('#projects-head').text() == "BACK TO PROJECTS") {
-            $('.project-slider').css('left','0%');
-            $('.project-container').hide();
-            $('#projects-head').css('font-size', '30');
-            $('#projects-head').text("PROJECTS");
-            $("#projects-head").unwrap();
-            $('#project-return').hide();
-            $('#projects-head').css('opacity', '1');
-        }
+        $('#return').css('opacity', '1');
     });
     
-    $('#projects-head').hover(function(){
+    $('#return').hover(function(){
         if ($('#projects-head').text() == "BACK TO PROJECTS") {
-            $('#projects-head').animate({opacity: 0.5}, { duration: 200});
-            $('#project-return').animate({opacity: 0.5}, { duration: 200, queue: false });
-            
+            $('#return').animate({opacity: 0.5}, { duration: 200, queue: false});
         }
     }, function(){
         if ($('#projects-head').text() == "BACK TO PROJECTS") {
-            $('#projects-head').animate({opacity: 1}, { duration: 200 });
-            $('#project-return').animate({opacity: 1}, { duration: 200, queue: false });
+            $('#return').animate({opacity: 1}, { duration: 200, queue: false});
         }
     });   
-    
-    $('#project-return').hover(function(){
-        $('#projects-head').animate({opacity: 0.5}, { duration: 200});
-        $('#project-return').animate({opacity: 0.5}, { duration: 200, queue: false });
-    }, function(){
-        $('#projects-head').animate({opacity: 1}, { duration: 200 });
-        $('#project-return').animate({opacity: 1}, { duration: 200, queue: false });
-    });
 }
 
 function projectLoad(){
@@ -77,7 +55,7 @@ function projectLoad(){
         var title = $this.find('.thumb-text').text();
         var spinner = '<div class="loader">Loading...</div>'; 
         var folder = $this.data('folder');
-        var newHTML = '/projects/' + folder + '.html';
+        var newHTML = './projects/' + folder + '.html';
         $('.project-load').html(spinner).load(newHTML);
         $('.project-title').text(title);
     });
