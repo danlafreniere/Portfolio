@@ -154,6 +154,16 @@
         float: none
         margin: auto
         display: block
+        
+    form
+        max-width: 430px
+        margin: auto
+    
+    form input.name, form input.email
+        max-width: 330px
+
+    form textarea
+        max-width: 430px
 
 @media (max-width:490px)
     #selfPortrait
@@ -165,29 +175,35 @@
         
     #nameLogo
         display: none
-    
-    form
-        float: none
-        width: 400px
-        margin: 20px
-        overflow: hidden
-    
+        
     label
         clear: both
         float: none
+        
+    form
+        max-width: 400px
     
     form input.name, form input.email
-        margin-left: 20px
-        border: 1px solid black
-        padding-left: 10px
-        overflow: hidden
-        position: relative
-        width: 100%
+        max-width: 300px
 
     form textarea
-        border: 1px solid black
+        max-width: 400px
+
+    .skill
         width: 100%
-        margin-left: 20px
+        max-width: 300px
+        float: left
+        margin: auto
+        
+@media (max-width: 450px)
+    form
+        max-width: 350px
+    
+    form input.name, form input.email
+        max-width: 250px
+
+    form textarea
+        max-width: 350px
 
     .skill
         width: 100%

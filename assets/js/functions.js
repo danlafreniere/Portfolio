@@ -32,7 +32,6 @@ function projectSlider(){
         $('#project-return').hide();
         $('#return').css('opacity', '1');
     });
-    
     $('#return').hover(function(){
         if ($('#projects-head').text() == "BACK TO PROJECTS") {
             $('#return').animate({opacity: 0.5}, { duration: 200, queue: false});
@@ -41,7 +40,7 @@ function projectSlider(){
         if ($('#projects-head').text() == "BACK TO PROJECTS") {
             $('#return').animate({opacity: 1}, { duration: 200, queue: false});
         }
-    });   
+    });
 }
 
 function projectLoad(){
@@ -61,7 +60,6 @@ function projectLoad(){
     });
 }
 
-
 //code within this block will only execute when the DOM is ready
 $(document).ready(function(){
     //jump to top of window on refresh
@@ -74,7 +72,6 @@ $(document).ready(function(){
     projectSlider();
     projectLoad();
        
-    
     /*
     ---------------------------------------------
     ---------------------------------------------
