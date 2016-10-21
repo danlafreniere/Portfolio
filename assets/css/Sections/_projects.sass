@@ -70,8 +70,7 @@
     margin-right: auto
     margin-left: auto
 
-.thumb
-    width: 25%
+.thumb, .thumb-50
     display: block     /* anchor tags are normally display-inline */
     float: left
     position: relative
@@ -80,6 +79,14 @@
     background-repeat: no-repeat
     background-size: cover
     overflow: hidden
+    
+.thumb
+    width: 33.33%
+    height: 300px
+    
+.thumb-50
+    width: 50%
+    height: 400px
 
 .thumb-overlay
     position: absolute
@@ -96,10 +103,13 @@
     -webkit-transition: top 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94)
     -o-transition: top 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94)
     
+.thumb-text
+    margin-top: 10%
+    
 .thumb
     cursor: pointer
 
-.thumb:hover .thumb-overlay
+.thumb:hover .thumb-overlay, .thumb-50:hover .thumb-overlay
     position: absolute
     top: 0
     left: 0
