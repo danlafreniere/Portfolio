@@ -10,10 +10,25 @@ function checkWidth(){
         $('#treeLogo').removeClass('grow');
         $('#nameLogo').removeClass('grow'); 
     }
+    
+    $('.arrow-box-right').height($('.block-left').height());
+    $('.arrow-box-left').height($('.block-right').height());
 }
+
+
 
 function projectSlider(){
     $('.thumb').click(function(){
+        $('.project-slider').css('left','-100%');
+        $('.project-container').show();
+        $('#projects-head').css('font-size', '20');
+        $('#projects-head').text("BACK TO PROJECTS");
+        $('#projects-head').wrap(function() {
+            return "<a href='#jumpto-Projects'/>";
+        });
+        $('#project-return').show();
+    });
+    $('.thumb-50').click(function(){
         $('.project-slider').css('left','-100%');
         $('.project-container').show();
         $('#projects-head').css('font-size', '20');
@@ -45,6 +60,8 @@ function projectSlider(){
 
 function projectLoad(){
     
+    
+    
     //not a big deal if we are caching the few projects that currently exist on the site. 
     //Will improve performance slightly.
     $.ajaxSetup({ cache : true });
@@ -58,10 +75,31 @@ function projectLoad(){
         $('.project-load').html(spinner).load(newHTML);
         $('.project-title').text(title);
     });
+    
+    $('.thumb-50').click(function() {
+        var $this = $(this);
+        var title = $this.find('.thumb-text').text();
+        var spinner = '<div class="loader">Loading...</div>'; 
+        var folder = $this.data('folder');
+        var newHTML = './projects/' + folder + '.html';
+        $('.project-load').html(spinner).load(newHTML);
+        $('.project-title').text(title);
+    });
 }
 
+
+$(window).load(function(){
+    $('.arrow-box-right').height($('.block-left').height());
+    $('.arrow-box-left').height($('.block-right').height());
+});
+
+
+
 //code within this block will only execute when the DOM is ready
+
 $(document).ready(function(){
+    
+
     //jump to top of window on refresh
     $(this).scrollTop(0); 
     counter = 0; 

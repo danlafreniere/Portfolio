@@ -1,24 +1,40 @@
-#blogPosts
-    border-style: solid
-    border-width: 0 0 1px 0
-    border-color: white
-
-#blogPosts h1
-    font-size: 24pt
-
-.blog-banner 
-    font-family: 'Advent Pro', sans-serif
-    padding: 10px
-    font-size: 14pt
-    text-align: justify
-    color: #fff
-    background: #3d3d3b
-    border: 1px solid #3d3d3b
-    padding: 8px
-    line-height: 1.5em
-    min-height: 50px
-    text-align: center
+#blog-wrapper
+    border-top: 4px solid #bce6dc
+    border-right: 4px solid #bce6dc
+    border-left: 4px solid #bce6dc
+    
+.blog-container
     margin: 0
+    overflow: auto
+
+.block-left
+    float: left
+    width: 50%
+    margin: 0
+    
+.block-right
+    float: right
+    width: 50%
+    margin: 0
+
+.blog-container h2
+    font-size: 34
+    line-height: 1
+    margin: 0 5% 0 5%
+    font-weight: 600
+    letter-spacing: 1.3
+    
+.blog-container h3
+    text-transform: uppercase
+    margin: 7% 5% 0 5%
+    font-weight: 400
+    
+.blog-container p
+    margin: 4% 5%
+    font-size: 18
+
+.blog-container img
+    width: 100%
 
 #blogHeader
     font-family: 'Advent Pro', sans-serif
@@ -30,9 +46,11 @@
     position: relative
     
 #blogHeader
-    > p
+    > h1
         padding-top: 100px
         font-size: 24pt
+        font-weight: 500
+        text-transform: uppercase
     > h3
         font-weight: 300
  
@@ -60,57 +78,6 @@
 #DijkstraFeature
     padding-top: 20px
 
-.blog-post
-    position: absolute
-    top: 0
-    left: 0
-    right: 0
-    bottom: 0
-    opacity: 1
-    height: 100%
-    transition: top 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94)
-    -moz-transition: top 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94)
-    -webkit-transition: top 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94)
-    -o-transition: top 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94)
-    z-index: 1
-    border-style: solid
-    border-width: 1px
-    border-color: white
-    
-.blog-post > figure
-    margin: 0
-
-.blog-container
-    max-width: 960px
-    margin: 30px auto
-    overflow: auto
-
-.blog-overlay
-    width: 33.33%
-    height: 200px
-    display: block   /* anchor tags are normally display-inline */
-    float: left
-    position: relative
-    padding-top: 20%
-    background-position: center center
-    background-repeat: no-repeat
-    background-size: cover
-    overflow: hidden
-    background-color: #3d3d3b
-
-.blog-overlay:hover
-    cursor: default
-
-.blog-overlay:hover .blog-post
-    position: absolute
-    background-color: #3d3d3b
-    top: 100%
-    left: 0
-    right: 0
-    bottom: null
-    opacity: 0.8
-    background-color: #3d3d3b
-
 .blog-text
     font-family: 'Advent Pro', sans-serif
     position: absolute
@@ -118,18 +85,78 @@
     color: #e36767
     font-size: 16pt
     font-weight: 300
-    top: 45%
-    left: 30%
-
-.blog-static 
-    width: 33.33%
-    height: 200px
-    display: block   /* anchor tags are normally display-inline */
-    float: left
+    top: 30%
+    left: 35%
+    
+.arrow-box-left, .arrow-box-right
     position: relative
-    padding-top: 20%
-    background-position: center center
-    background-repeat: no-repeat
-    background-size: cover
-    overflow: hidden
-    background-color: #3d3d3b
+    background: #ffffff
+    width: 50%
+    height: auto
+    margin: 0
+    
+.arrow-box-left
+    float: right
+    border-left: 4px solid #bce6dc
+    
+.arrow-box-right
+    float: left
+    border-right: 4px solid #bce6dc
+    
+.arrow-box-left:after, .arrow-box-left:before, .arrow-box-right:after, .arrow-box-right:before
+    top: 40%
+    border: solid transparent
+    content: " "
+    height: 0
+    width: 0
+    position: absolute
+    pointer-events: none
+    
+.arrow-box-left:after, .arrow-box-left:before
+    right: 100%
+    
+.arrow-box-right:after, .arrow-box-right:before
+    left: 100%
+
+.arrow-box-left:after, .arrow-box-right:after
+    border-color: rgba(255, 255, 255, 0)
+    border-width: 30px
+    margin-top: -30px
+
+.arrow-box-left:before, .arrow-box-right:before
+    border-color: rgba(176, 245, 224, 0)
+    border-width: 36px
+    margin-top: -36px
+    
+.arrow-box-left:after
+    border-right-color: #ffffff
+    
+.arrow-box-left:before
+    border-right-color: #bce6dc
+    
+.arrow-box-right:after
+    border-left-color: #ffffff
+    
+.arrow-box-right:before
+    border-left-color: #bce6dc
+    
+.blog-clicker, .blog-coming-soon
+    display: table
+    border-radius: 50%
+    height: 100px
+    width: 100px
+    margin: 7% 5%
+
+.blog-clicker
+    background-color: #7accc8
+    
+.blog-coming-soon
+    background-color: #e36767
+    
+.blog-clicker span, .blog-coming-soon span
+    display: table-cell
+    vertical-align: middle
+    text-align: center
+    height: 80px
+    width: 80px
+    color: white
