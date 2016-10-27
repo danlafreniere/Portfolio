@@ -6,16 +6,13 @@ function checkWidth(){
     var windowSize = $(window).width();
 
     if (windowSize < 961){
-        counter = 0; 
+        counter = 0;
         $('#treeLogo').removeClass('grow');
         $('#nameLogo').removeClass('grow'); 
-    }
-    
+    }    
     $('.arrow-box-right').height($('.block-left').height());
     $('.arrow-box-left').height($('.block-right').height());
 }
-
-
 
 function projectSlider(){
     $('.thumb').click(function(){
@@ -60,12 +57,8 @@ function projectSlider(){
 
 function projectLoad(){
     
-    
-    
-    //not a big deal if we are caching the few projects that currently exist on the site. 
-    //Will improve performance slightly.
+    //Not a big deal if we are caching the few projects that currently exist on the site. 
     $.ajaxSetup({ cache : true });
-           
     $('.thumb').click(function() {
         var $this = $(this);
         var title = $this.find('.thumb-text').text();
@@ -86,27 +79,19 @@ function projectLoad(){
         $('.project-title').text(title);
     });
 }
-
-
 $(window).load(function(){
+    //jump to top of window on refresh
+    $(this).scrollTop(0);
     $('.arrow-box-right').height($('.block-left').height());
     $('.arrow-box-left').height($('.block-right').height());
 });
 
-
-
 //code within this block will only execute when the DOM is ready
-
-$(document).ready(function(){
-    
-
-    //jump to top of window on refresh
-    $(this).scrollTop(0); 
+$(document).ready(function(){ 
     counter = 0; 
     checkWidth();
     //call the checkWidth function when the window gets resized
     $(window).resize(checkWidth);
-
     projectSlider();
     projectLoad();
        
@@ -160,7 +145,6 @@ $(document).ready(function(){
     ---------------------------------------------
     */
      
-    
     $('#primary-nav-trigger').on('click', function(){
 		$('#menu-icon').toggleClass('is-clicked'); 	
 		//in firefox transitions break when parent overflow is changed, so we need to wait for the end of the trasition to give the body an overflow hidden

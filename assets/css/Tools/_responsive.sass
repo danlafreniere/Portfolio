@@ -150,7 +150,26 @@
         
     .blog-container
         max-width: 85%
+        
+    .arrow-box-left
+        border-left: none
+        
+    .arrow-box-right
+        border-right: none
 
+@media (max-width: 780px)
+    #proj-5 .col-left       
+        float: none
+        width: 80%
+        margin: 0 auto
+
+    #proj-5 .col-right
+        width: 80%
+        margin: 0 auto
+        float: none
+        padding-bottom: 30px
+        
+        
 @media (max-width: 736px)
     .blog-container
         min-width: 368px
@@ -176,6 +195,35 @@
     form textarea
         max-width: 430px
 
+@media (max-width: 542px)
+    .blog-coming-soon
+        display: table
+        border-radius: 0%
+        height: 10px
+        width: 120px
+        margin-left: 5%
+        margin-top: 10px
+        
+    .blog-clicker
+        display: none
+
+    .blog-coming-soon
+        background-color: white
+        
+    .blog-coming-soon span
+        display: table-cell
+        vertical-align: middle
+        text-align: center
+        height: 10px
+        width: 120px
+        font-size: 16
+        color: #e36767
+        text-transform: uppercase
+        font-weight: 700
+
+    .blog-clicker span
+        display: none
+        
 @media (max-width:490px)
     #selfPortrait
         position: absolute
@@ -235,6 +283,6 @@
     
     form input.name, form input.email
         max-width: 180px
-
+        
     form textarea
         max-width: 280px
