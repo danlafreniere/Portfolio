@@ -23,11 +23,60 @@
         <p class="topPadding" style="text-align: center; font-size: 16pt">|&nbsp; <a href="../nutshell_MERN_p1/index.html">PART 1</a> &nbsp;|&nbsp; PART 2 &nbsp;|&nbsp; <a href="../nutshell_MERN_p3/index.html">PART 3</a> &nbsp;| </p>
         
         <div class="container floatClear"> 
-            <h1></h1>
-
-            <p style="margin-top: 30px;"></p>
+            <h1>EXPRESS.JS AND CONTROLLERS</h1>
             
-            <p class="bigBottom"></p> 
+            <h2 style="margin-top: 30px;">APP JS</h2>
+
+            <p style="margin-top: 30px;">Alright, let's jump right in with the App.js file - this will serve as the entry point for our Team Whipper application and can be thought of as the file that keeps everything together. We are going to start with a relatively simple file and work up as we go.</p>
+            
+            <p>The first thing we need to do is require Express which will ultimately open up a lot of amazing functionality for us (middleware, routing, etc):</p>
+            
+            <pre class="codeBlockSmall" style="max-width: 420px; max-height: 110px;">
+                <code class="language-javascript">
+    var express = require('express');
+                </code>
+            </pre> 
+            
+            
+            <p>Now let's create an express application object by calling the express method:</p> 
+            
+            <pre class="codeBlockSmall" style="max-width: 300px; max-height: 110px;">
+                <code class="language-javascript">
+    var app = express(); 
+                </code>
+            </pre>
+            
+            <p>The express application provides us methods for routing HTTP requests, configuring middleware, rendering HTML views, registering template engines, and affecting application behavior. All things we are going to cover as we build our app.</p>
+            
+            <p>Now let's set up our template/view engine using express. Template engines allow us to easily design HTML pages. We are going to be using EJS (Effective Javascript templating) that will allow us to generate HTML markup with plain javascript using the "&lt;%" &amp; "%&gt;" tags.</p>
+            
+            <pre class="codeBlockSmall" style="max-width: 400px; max-height: 110px;">
+                <code class="language-javascript">
+    app.set('view engine', 'ejs'); 
+                </code>
+            </pre>
+            
+            <p>Since we are going to be using CSS and other assets to develop our web application, we also need a way to serve static files to all routes in our app. Express actually has built in middleware that allows us to do this (if no route is specified in the first argument it will apply globally to all routes):</p>
+            
+            <pre class="codeBlockSmall" style="max-width: 450px; max-height: 110px;">
+                <code class="language-javascript">
+    app.use(express.static('./public'));
+                </code>
+            </pre>
+            
+            <p>Finally we are going to set up the server itself by defining a port and then listening for it:</p>
+            <pre class="codeBlockSmall bigBottom" style="max-width: 530px; max-height: 160px;">
+                <code class="language-javascript">
+    var port = 3000;
+    app.listen(port);
+    console.log(`Now listening to port ${port}`);
+                </code>
+            </pre>
+            
+            <h2 style="margin-top: 50px;">Controllers</h2>
+            
+            
+            
         </div>
 
         <div class="container floatClear"> 
