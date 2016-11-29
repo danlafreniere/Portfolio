@@ -1,0 +1,96 @@
+---
+---
+
+<html>
+    <head>
+
+   	 	<title>Dan LaFreniere Portfolio</title>
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../assets/css/all.css"/>
+        <link href='http://fonts.googleapis.com/css?family=Advent+Pro:100,200,300,400,500,600,700' rel='stylesheet' type='text/css'>     
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <link rel="icon" type="image/png" href="../../assets/images/SiteLogo_AshTree.png" sizes="32x32">
+        <link rel="stylesheet" href="../../assets/css/prism.css"/>
+    </head>
+    
+    <body>
+        {% include header-blogPost.html %}
+        <div id="blogHeader">
+            <p>MERN in a Nutshell - Part 1</p>
+            <img id="featuredImage" alt="Feature image for the blog - MERN text in a literal nutshell" src="../../assets/images/Feature.png"/>
+        </div>
+        
+        <p class="topPadding" style="text-align: center; font-size: 16pt">|&nbsp; PART 1 &nbsp;|&nbsp; <a href="../nutshell_MERN_p2/index.html">PART 2</a> &nbsp;|&nbsp; <a href="../nutshell_MERN_p3/index.html">PART 3</a> &nbsp;| </p>
+        
+        <div class="container floatClear"> 
+            <h1>PREREQUISITES AND MOTIVATION</h1>
+
+            <p style="margin-top: 30px;"><b>Before starting, there's a killer series on YouTube by the <a href="https://www.youtube.com/channel/UCW5YeuERMmlnqo4oq8vwUpg">NetNinja</a> that covers a lot of Node basics.<a href="https://goo.gl/HgnGeX"> Check it out</a> before diving in here!</b></p>
+            
+            <p>I decided to make this tutorial as I learned the MERN stack myself. I love to teach and I've always found that the best way to learn is to help others. It's even better to learn in the context of a project so we will do just that.</p>
+            
+            <p>We are going to be building a team management application that I call "Team Whipper". The idea behind this came after working on some gnarly group projects during my time at school. I've found myself in situations in the past where it was difficult to set realistic goals while keeping everyone on track and motivated.</p>
+            
+          
+            <p>This application will primarily be designed with University students in mind. It will serve as a central hub for setting goals, tracking progress, sticking to roles, and evaluating performance throughout the lifespan of a project.</p>
+            
+            <p><i>Please note: with all of this in mind, this post will be a continuous work in progress as features are added to the application and it evolves. This is just as much a learning process for me.</i></p>
+            
+            <p>&nbsp;</p>
+        </div>
+
+        <div class="container floatClear"> 
+            <h1>THE MERN STACK</h1>
+
+            <p style="margin-top: 30px;">MERN stands for MongoDB/Express/React/Node.js and is a slight alternative to the commonly used MEAN stack (which uses Angular instead of React). These four tools are essential when it comes to building any web based application.</p>
+            
+            <ul class="bigBottom">
+                <li><b>MongoDB:</b> a NoSQL database that uses JSON-like documents. This kicks some serious ass with javascript since it goes so well with JSON. There are a ton of awesome advantages to using a NoSQL database and you can read more about them on the <a href="https://www.mongodb.com/nosql-explained">MongoDB website</a>.</li>
+
+                <li><b>Express:</b> a popular Node package that makes things easy - used for flexible routing. Comes with loads of features such as middleware frameworks and templating engines. Don't worry - we will cover this in more detail later. Read more on the <a href="http://expressjs.com/">Express website</a>.</li>
+
+                <li><b>React:</b> TBD. Read more on the <a href="https://facebook.github.io/react/">React website</a>.</li>
+
+                <li><b>Node.js:</b> the heart and soul of our web application. It uses Google's V8 engine and this essentially allows us to run Javascript on a computer (outside of a web browser). We can do things like create a server, read/update/delete files, and easily communicate with a database. POWER OVERWHELMING. Read more on the <a href="https://nodejs.org/en/">Node.js website</a>.</li>
+                
+            </ul>
+            
+        </div>
+
+    
+        <div class="container floatClear"> 
+            <h1>MODEL-VIEW-CONTROLLER</h1>
+            <p style="margin-top: 30px;">The final thing to know before building a web application is the model-view-controller (MVC) design pattern.  As the name suggests, it consists of three interconnected parts:</p>
+            <ul class="bigBottom">
+                <li><b>Model:</b> the data manager; handles data, rules, and logic of the app.</li>
+                <li><b>View:</b> the output; a display of information for the user.</li>
+                <li><b>Controller:</b> the bridge; links the model and view (e.g.: pulls data and decides how data is passed to the view).</li>
+            </ul>
+        </div>
+           
+
+
+        <div class="container"> 
+            <h1>CONCLUSION</h1>
+            <p style="margin-bottom: 80px;">Now that we know some fundamentals, we can start building the app from scratch. <a href="../nutshell_MERN_p2/index.html">Check out part 2 here.</a></p>
+        </div>
+        
+        
+        <!--
+            <pre class="codeBlockSmall">
+                <code class="language-java">
+        
+                </code>
+            </pre> 
+-->
+        
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="../../assets/js/functions.js"></script>
+        <script src="../../assets/js/prism.js"></script>
+    </body>
+    
+    {% include footer.html %}
+    
+</html>
+
+
