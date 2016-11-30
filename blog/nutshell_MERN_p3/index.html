@@ -23,33 +23,49 @@
         <p class="topPadding" style="text-align: center; font-size: 16pt">|&nbsp; <a href="../nutshell_MERN_p1/index.html">PART 1</a> &nbsp;|&nbsp; <a href="../nutshell_MERN_p2/index.html">PART 2</a> &nbsp;|&nbsp; PART 3 &nbsp;| </p>
         
         <div class="container floatClear"> 
-            <h1></h1>
+            <h1>SO WHAT ARE WE EVEN DOING AT THIS POINT?</h1>
 
-            <p style="margin-top: 30px;"></p>
+            <p style="margin-top: 30px;">Right now all you really know is that we are building some vague application called TeamWhipper without much idea of what it will actually do. That kinda sucks, I know, but I've intentionally kept it vague so that we can focus more on the fine details of the project and really dive into what each line of code is doing. Parts of the project will be revealed as we progress - I figure it's the best way to focus on small pieces at a time and avoid information overload.</p>
             
-            <p class="bigBottom"></p> 
+            <p class="bigBottom">Alright, air cleared? Everyone chill? Solid.</p>
+                
+            <p>So now that we're on the same page and the App.js file is set up, we're going to create a basic landing page with a welcome message and a get started button. This will involve creating a very basic view and controller. Nothing special, but it will introduce some new concepts and better familiarize you with the MVC framework. The <a href="https://github.com/danlafreniere/BlogPosts/tree/master/MERN">github template</a> I linked to in the last part already has a "getStarted.ejs" view and corresponding css styling pre-packaged. <b>Please note that I won't be covering any HTML or css styling so it's essential to download these files if you want to code along.</b></p> 
         </div>
 
         <div class="container floatClear"> 
-            <h1></h1>
+            <h1>A LITTLE SELF CONTROL</h1>
 
-            <p style="margin-top: 30px;"></p>
+            <p style="margin-top: 30px;">In the previous episode, we had a few lines in our App.js file regarding controllers. This part in particular is important: "require('./controllers/initialize')". This means that we are going to need a controller called "initialize.js" in the controllers folder of our project. And since we required this file and called it as a method with an application object argument in our App.js file ("initializationController(app)"), we need to explicitly export it so nothing breaks:</p>
             
-            <p class="bigBottom"></p>            
+            <pre class="codeBlockSmall" style="max-width: 410px; max-height: 160px;">
+                <code class="language-java">
+    module.exports = function(app){
+    
+    };
+                </code>
+            </pre> 
+            
+            
+            <p>Within this little block of code, we can start setting up routes. The first route we are going to create is one that will render our getStarted.ejs view when the home path is visited ("/"). To do this, we make use of the passed in application object and make a get() call with a callback function that takes request and response objects as parameters. Like so:</p>
+            
+             <pre class="codeBlockSmall" style="max-width: 450px; max-height: 200px;">
+                <code class="language-java">
+    module.exports = function(app){
+        app.get('/', function(req, res){
+            res.render('getStarted');
+        });
+    };
+                </code>
+            </pre>
+            
+            <p>Now, run your server by navigating to the location of your app.js file on your hard drive using a linux shell, type "nodemon app" and hit enter. Navigate to "localhost:3000" in your browser and you should see a happy little welcome lander page. <a href="https://www.youtube.com/watch?v=YLO7tCdBVrA" target="_blank">Bob Ross would be proud</a>.</p>
         </div>
 
         <div class="container"> 
             <h1>CONCLUSION</h1>
             <p style="margin-bottom: 80px;"></p>
         </div>
-        
-        <!--
-            <pre class="codeBlockSmall">
-                <code class="language-java">
-        
-                </code>
-            </pre> 
-        -->     
+           
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script src="../../assets/js/functions.js"></script>
         <script src="../../assets/js/prism.js"></script>
