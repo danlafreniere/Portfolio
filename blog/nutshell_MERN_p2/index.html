@@ -23,7 +23,9 @@
         <p class="topPadding" style="text-align: center; font-size: 16pt">|&nbsp; <a href="../nutshell_MERN_p1/index.html">PART 1</a> &nbsp;|&nbsp; PART 2 &nbsp;|&nbsp; <a href="../nutshell_MERN_p3/index.html">PART 3</a> &nbsp;| </p>
         
         <div class="container floatClear"> 
-            <h1>EXPRESS.JS AND CONTROLLERS</h1>
+            <h1>APP JS AND CONTROLLERS</h1>
+            
+            <p><b>Before starting be sure to download the TeamWhipper template file from my <a href="https://github.com/danlafreniere/BlogPosts/tree/master/MERN">github repository</a>. All modules you will need for now are currently installed and you can change the author in the "config" file to your name. With these files you can follow along as we go.</b></p>
             
             <h2 style="margin-top: 30px;">APP JS</h2>
 
@@ -46,9 +48,11 @@
                 </code>
             </pre>
             
-            <p>The express application provides us methods for routing HTTP requests, configuring middleware, rendering HTML views, registering template engines, and affecting application behavior. All things we are going to cover as we build our app.</p>
+            <p>The express application provides us methods for routing HTTP requests, configuring middleware, rendering HTML views, registering template engines, and affecting application behavior. If these topics are new don't sweat because we are actually going to start covering them now.</p>
             
-            <p>Now let's set up our template/view engine using express. Template engines allow us to easily design HTML pages. We are going to be using EJS (Effective Javascript templating) that will allow us to generate HTML markup with plain javascript using the "&lt;%" &amp; "%&gt;" tags.</p>
+            <h2>OUR TEMPLATE ENGINE</h2>
+            
+            <p>Let's set up our template/view engine using express. Template engines allow us to easily design HTML pages and bring in some added functionality. For example, we are going to be using EJS (Effective Javascript templating) that will allow us to generate HTML markup with plain javascript using the "&lt;%" &amp; "%&gt;" tags. Setting our view engine to ejs is as easy as this:</p>
             
             <pre class="codeBlockSmall" style="max-width: 400px; max-height: 110px;">
                 <code class="language-javascript">
@@ -56,13 +60,19 @@
                 </code>
             </pre>
             
-            <p>Since we are going to be using CSS and other assets to develop our web application, we also need a way to serve static files to all routes in our app. Express actually has built in middleware that allows us to do this (if no route is specified in the first argument it will apply globally to all routes):</p>
+            <h2>FIRST MIDDLEWARE EXAMPLE</h2>
+            
+            <p>Since we are going to be using CSS and other assets to develop our web application, we also need a way to serve static files to all pages in our app. Express actually has built in middleware that allows us to do this. Middleware is essentially any code that runs between a request to a server and a response from that server (again, we will be covering this stuff very soon so no sweat).</p>
             
             <pre class="codeBlockSmall" style="max-width: 450px; max-height: 110px;">
                 <code class="language-javascript">
     app.use(express.static('./public'));
                 </code>
             </pre>
+            
+            <p>Since we didn't define any particular route in the first arguement of the above call, it will actually apply to all pages/routes of our app. This is handy because now all assets found in the "public" folder will be served automatically.</p>
+            
+            <h2>THE SERVER</h2>
             
             <p>Finally we are going to set up the server itself by defining a port and then listening for it:</p>
             <pre class="codeBlockSmall bigBottom" style="max-width: 530px; max-height: 160px;">
@@ -73,32 +83,46 @@
                 </code>
             </pre>
             
-            <h2 style="margin-top: 50px;">Controllers</h2>
+            <p>It's as easy as that... Pretty unreal.</p>
             
+            <h2 style="margin-top: 50px;">CONTROLLERS</h2>   
             
+            <p>The last thing we really need in our App.js file is regarding controllers. First we need to read in the controller using the require function, and then we need to actually fire that controller and pass in our app object. Passing in our app object will allow us to set up routes within our controller in the next tutorial. So let's do this all now so we can actually go ahead and build our controller in the next part! We are going to call this the initializationController because it will basically handle the functionality for the team-setup portion of our application (you can't manage a team until the team exists, amiright?).</p>
             
-        </div>
-
-        <div class="container floatClear"> 
-            <h1></h1>
-
-            <p style="margin-top: 30px;"></p>
+            <pre class="codeBlockSmall bigBottom" style="max-width: 750px; max-height: 130px;">
+                <code class="language-javascript">
+    var initializationController = require('./controllers/initialize');
+    initializationController(app);
+                </code>
+            </pre>
             
-            <p class="bigBottom"></p>            
         </div>
 
         <div class="container"> 
             <h1>CONCLUSION</h1>
-            <p style="margin-bottom: 80px;"><a href="#">Check out part 3 here.</a></p>
-        </div>
-        
-        <!--
-            <pre class="codeBlockSmall">
-                <code class="language-java">
-        
+            
+            <p>So our App.js file is now set for the first part of our application. It should look something like this:</p>
+            
+            <pre class="codeBlockSmall bigBottom" style="max-width: 750px; max-height: 350px;">
+                <code class="language-javascript">
+    var express = require('express');
+    var app = express();
+    var initializationController = require('./controllers/initialize');
+
+    initializationController(app);
+
+    app.set('view engine', 'ejs');
+    app.use(express.static('./public'));
+
+    var port = 3000;
+    app.listen(port);
+    console.log(`Now listening to port ${port}`);
                 </code>
-            </pre> 
-        -->     
+            </pre>
+            
+            <p style="margin-bottom: 80px;"><a href="../nutshell_MERN_p3/index.html">Check out part 3 here</a> to learn more about controllers.</p>
+        </div>
+           
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script src="../../assets/js/functions.js"></script>
         <script src="../../assets/js/prism.js"></script>
