@@ -32,7 +32,7 @@
             <p>So now that we're on the same page and the App.js file is set up, we're going to create a basic landing page with a welcome message and a get started button. This will involve creating a very basic view and controller. Nothing special, but it will introduce some new concepts and better familiarize you with the MVC framework. The <a href="https://github.com/danlafreniere/BlogPosts/tree/master/MERN">github template</a> I linked to in the last part already has a "getStarted.ejs" view and corresponding css styling pre-packaged. <b>Please note that I won't be covering any HTML or css styling so it's essential to download these files if you want to code along.</b></p> 
         </div>
 
-        <div class="container floatClear"> 
+        <div class="container floatClear bigBottom"> 
             <h1>A LITTLE SELF CONTROL</h1>
 
             <p style="margin-top: 30px;">In the previous episode, we had a few lines in our App.js file regarding controllers. This part in particular is important: "require('./controllers/initialize')". This means that we are going to need a controller called "initialize.js" in the controllers folder of our project. And since we required this file and called it as a method with an application object argument in our App.js file ("initializationController(app)"), we need to explicitly export it so nothing breaks:</p>
@@ -58,12 +58,31 @@
                 </code>
             </pre>
             
-            <p>Now, run your server by navigating to the location of your app.js file on your hard drive using a linux shell, type "nodemon app" and hit enter. Navigate to "localhost:3000" in your browser and you should see a happy little welcome lander page. <a href="https://www.youtube.com/watch?v=YLO7tCdBVrA" target="_blank">Bob Ross would be proud</a>.</p>
+            <p>Now, run your server by navigating to the location of your app.js file on your hard drive using a linux shell, type "nodemon app" and hit enter. Navigate to "localhost:3000" in your browser and you should see a happy little lander page (<a href="https://www.youtube.com/watch?v=YLO7tCdBVrA" target="_blank">Bob Ross would be proud</a>):</p>
+            
+            <img style="margin: 40px auto" alt="Screenshot of landing page saying: let's get your team up to shape. Includes a button saying: get started" class="img-responsive" src="../../assets/images/Post_MERN/Happy_Little_Lander.png"/>
+            
+            <h2>BUTTON FUNCTIONALITY</h2>
+            
+            <p>It doesn't do us much good if we have a "Get Started" button that leads nowhere though so let's redirect to a new page when clicked using this same controller and routes.</p>
+            
+             <pre class="codeBlockSmall" style="max-width: 500px; max-height: 170px;">
+                <code class="language-java">
+    app.get('/createTeam', function(req, res){
+      res.render('createTeam');
+    });
+                </code>
+            </pre>
+            
+            <p>Alright, so now should be redirected to this view when the Get Started button is clicked:</p>
+            
+            <img style="margin: 40px auto" alt="Screenshot of the create team page - includes fields for name, email, mobile, and team role" class="img-responsive" src="../../assets/images/Post_MERN/Team_Builder.png"/>
+            
         </div>
 
         <div class="container"> 
             <h1>CONCLUSION</h1>
-            <p style="margin-bottom: 80px;"></p>
+            <p style="margin-bottom: 80px;">In the next tutorial, we are going to cover basic data management using MongoDB and tease out our application a little more.</p>
         </div>
            
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
