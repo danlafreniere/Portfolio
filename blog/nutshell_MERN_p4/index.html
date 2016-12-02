@@ -59,7 +59,7 @@
       mobile: String,
       role: String
     });
-    //'Member' -> for 'members' collection in our database
+    //'Member' stored as a 'members' collection in our database
     var Member = mongoose.model('Member', memberSchema);
                 </code>
             </pre>
@@ -91,14 +91,17 @@
                 </code>
             </pre>
             
-            <p>So now we are going to link this up with the app.post route and save the data to the database with the mongoose model.save() method:</p>
+            <p>So now we are going to link this up with the app.post route and save the data to the database with the mongoose model.save() method. What we are essentially doing here is creating a new Member document using the req.body urlencoded data and saving it within our collection.</p>
             
-            <pre class="codeBlockSmall" style="max-width: 700px; max-height: 260px;">
-                <code class="language-java"> 
+            <pre class="codeBlockSmall" style="max-width: 1000px; max-height: 340px;">
+                <code class="language-java">
+    //note the inclusion of the "urlencodedParser" middleware which will handle data in req.body
     app.post('/createTeam', urlencodedParser, function(req, res){
+        //create the new member document:
         var newItem = Member(req.body).save(function(err, data){
           if (err) throw err;
           console.log(req.body);
+          //pass updated data back to the view:
           res.json(data);
         });
       });
@@ -108,16 +111,10 @@
             
         </div>
 
-        <div class="container floatClear bigBottom"> 
-            <h1></h1>
-
-            <p style="margin-top: 30px;"></p>
-          
-        </div>
 
         <div class="container"> 
             <h1>CONCLUSION</h1>
-            <p style="margin-bottom: 80px;"></p>
+            <p style="margin-bottom: 80px;">We now have some data saved in a database!</p>
         </div>
            
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
