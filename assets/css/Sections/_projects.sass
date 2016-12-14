@@ -153,23 +153,36 @@
     font-size: 14pt
     font-weight: 300
     
-.col-left-40 
+.col-left-50 
     width: 50%
     float: left
     margin: 0
     display: block
 
-.col-right-60
+.col-right-50
     float: right
     width: 50%
+    margin: 0
+    display: block
+    
+    
+.col-left-70
+    width: 70%
+    float: left
+    margin: 0
+    display: block
+
+.col-right-30
+    float: right
+    width: 30%
     margin: 0
     display: block
     
 .bar-top, .bar-bottom
     width: 200px
     border: none
-    border-top: medium double #333
-    color: #333
+    border-top: medium double white
+    color: white
     padding: 0
     
 .bar-top
@@ -177,6 +190,30 @@
    
 .bar-bottom
     margin-top: 50px
+    
+.software-logos
+    display: block
+    margin: 0 auto
+    max-width: 900px
+    padding-left: 100px
+    padding-right: 100px
+    
+.software-logos .logo
+    float: left
+    
+.software-logos .logo img
+    max-height: 150px
+    margin: 40px 40px 0 40px
+    
+.software-logos .logo h3
+    text-align: center
+    text-transform: uppercase
+    letter-spacing: 2px
+    
+.software-logos .logo h3 span
+    letter-spacing: 0
+    font-size: 11pt
+    font-weight: 800
     
 /* --------------------------------------------------------- */    
 /* --------------------------------------------------------- */    
@@ -282,11 +319,16 @@
 #proj-3 .project-details-black
     background-color: #10131A
     width: 100%
+    padding: 40px 0 100px 0
 
 #proj-3 .project-details-black p
     color: white
     
 #proj-3 .project-details-black h2
+    color: white
+    
+    
+#proj-3 .project-details-black h3
     color: white
     
 #proj-3 .project-details-white
