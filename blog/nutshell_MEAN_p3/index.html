@@ -30,10 +30,55 @@
             
             <p class="bigBottom">Alright, air cleared? Everyone chill? Solid.</p>
                 
-            <p>So now that we're on the same page and the App.js file is set up, we're going to create a basic landing page with a welcome message and a get started button. This will involve creating a very basic view and controller. Nothing special, but it will introduce some new concepts and better familiarize you with the MVC framework. The <a href="https://github.com/danlafreniere/BlogPosts/tree/master/MEAN">github template</a> I linked to in the last part already has a "getStarted.ejs" view and corresponding css styling pre-packaged. <b>Please note that I won't be covering any HTML or css styling so it's essential to download these files if you want to code along.</b></p> 
+            <p>So now that we're on the same page and the App.js file is set up, we're going to create a basic landing page with a welcome message and a get started button. This will involve creating a very basic view and controller. Nothing special, but it will introduce some new concepts and better familiarize you with the MVC framework. The <a href="https://github.com/danlafreniere/BlogPosts/tree/master/MEAN">github template</a> I linked to in the last part already has a "getStarted.ejs" view and corresponding css styling pre-packaged. <b>Please note that I won't be covering any HTML (outside of what's needed for Angular) or css styling so it's essential to download these files if you want to code along.</b></p> 
         </div>
 
         <div class="container floatClear bigBottom"> 
+            
+            <p>We are going to jump ahead a bit in the app and create a simple page that allows us to add team members to our database and list these members' names underneath as they are added:</p>
+            
+            <img style="margin: 40px auto" alt="Screenshot of the create team page - includes fields for name, email, mobile, and team role" class="img-responsive" src="../../assets/images/Post_MEAN/Team_Builder.png"/>
+            
+            <p>It's a lot like the to-do app example in the <a href="https://www.youtube.com/watch?v=w-7RQ46RgxU&list=PL4cUxeGkcC9gcy9lrvMJ75z9maRw4byYp">NetNinja tutorial series</a> that I linked to in Part 1. The only difference is that we will be implementing our Team Member list using Angular while making our app RESTful (among some other things).</p>
+            
+            <p>So first things first...</p>
+        </div>
+        
+        <div class="container floatClear bigBottom">     
+            <h1>WHAT ARE RESTful API'S?</h1>
+            
+            <p>So I personally found a lot of this stuff to be pretty convoluted but I'll try and break it down as best as I can. An API stands for "Application Programming Interface" and what it really does is allow one piece of software to talk to another.</p>
+            
+            <p>Here are some examples of popular API's:</p>
+            <ul>
+                <li><a href="https://console.developers.google.com/apis/library?project=fit-asset-115001">Google</a>
+                </li>
+                <li><a href="https://dev.twitter.com/rest/public">Twitter</a></li>
+                <li><a href="https://developers.facebook.com/docs/javascript">Facebook</a></li>
+            </ul>
+            
+            <p>Or just check out this <a href="http://www.programmableweb.com/category/all/apis">massive API directory</a>.</p>
+            
+            <p>To be a little more specific, these are RESTful API's. REST stands for <strong>RE</strong>presentational <strong>S</strong>tate <strong>T</strong>ransfer. So what the hell does that even mean? It's basically an architectural style/abstraction for designing network applications. More specifically it's a generally agreed upon set of principles or constraints. In virtually all RESTful web applications, HTTP is used to make calls between machines - HTTP requests are made to post data (POST), read data (GET), and delete data (DELETE). This is all you really need to know right now but if you want to read more, check out <a href="http://rest.elkstein.org/">this resource</a>.</p>
+            
+            <p>In order to make this member list page work, we are going to need to POST data that the client enters in the form to the server. We also need to GET member data from the server in order to display the list of added team members back to the client.</p>
+        </div>
+        
+        <div class="container floatClear bigBottom">     
+            <h1>MongoDB</h1>
+            
+            <p>Before we make any of the HTTP calls, we need to get our database ready. In order to save a little time with MongoDB logistics. Check out <a href="https://www.youtube.com/watch?v=L4OP8JGKbQU&list=PL4cUxeGkcC9gcy9lrvMJ75z9maRw4byYp&index=35">this video</a> which will show you how to set up your MongoDB server using <a href="https://mlab.com/">mLab</a>. Once you are finished, you should have a couple lines in your server.js file that look something like this:</p>
+            
+            <pre class="codeBlockSmall" style="max-width: 840px; max-height: 140px;">
+                <code class="language-java">
+    var mongoose = require('mongoose');
+    mongoose.connect('mongodb://test:test@ds031213.mlab.com:31213/team-whipper');
+                </code>
+            </pre> 
+            
+             <p>Let's start by making a file called "apiRoutes.js" within the included "app" folder. This is where we will make GET/POST/DELETE HTTP calls to the server side.</p>
+            
+<!--
             <h1>A LITTLE SELF CONTROL</h1>
 
             <p style="margin-top: 30px;">In the previous episode, we had a few lines in our App.js file regarding controllers. This part in particular is important: "require('./controllers/initialize')". This means that we are going to need a controller called "initialize.js" in the controllers folder of our project. And since we required this file and called it as a method with an application object argument in our App.js file ("initializationController(app)"), we need to explicitly export it so nothing breaks:</p>
@@ -77,7 +122,8 @@
             
             <p>Alright, so now should be redirected to a new view when the Get Started button is clicked:</p>
             
-            <img style="margin: 40px auto" alt="Screenshot of the create team page - includes fields for name, email, mobile, and team role" class="img-responsive" src="../../assets/images/Post_MEAN/Team_Builder.png"/>
+-->
+            
         </div>
 
         <div class="container"> 

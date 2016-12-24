@@ -26,7 +26,7 @@
         <div class="container floatClear"> 
             <h1>APP JS AND CONTROLLERS</h1>
             
-            <p><b>Before starting be sure to download the TeamWhipper template file from my <a href="https://github.com/danlafreniere/BlogPosts/tree/master/MEAN">github repository</a>. All modules you will need for now are currently installed and you can change the author in the package.json file to your name (line 22 or so). With these files you can follow along as we go.</b></p>
+            <p><b>Before starting be sure to download the TeamWhipper template file from my <a href="https://github.com/danlafreniere/BlogPosts/tree/master/MEAN">github repository</a>. All modules you will need for now are currently installed and you can change the author in the package.json file to your name. With these files you can follow along as we go.</b></p>
             
             <h2 style="margin-top: 30px;">APP JS</h2>
 
@@ -49,15 +49,18 @@
                 </code>
             </pre>
             
-            <p>The express application provides us methods for routing HTTP requests, configuring middleware, rendering HTML views, registering template engines, and affecting application behavior. If these topics are new don't sweat because we are actually going to start covering them now.</p>
+            <p>The express application provides us methods for routing HTTP requests, configuring middleware, rendering HTML views, registering template engines, and affecting application behavior. If these topics are new don't sweat because we are actually going to start covering some of them right now.</p>
             
             <h2>OUR TEMPLATE ENGINE</h2>
             
-            <p>Let's set up our template/view engine using express. Template engines allow us to easily design HTML pages and bring in some added functionality. For example, we are going to be using EJS (Effective Javascript templating) that will allow us to generate HTML markup with plain javascript using the "&lt;%" &amp; "%&gt;" tags. Setting our view engine to ejs is as easy as this:</p>
+            <p>Let's set up our template/view engine using express. Template engines allow us to easily design HTML pages and bring in some added functionality. For example, we are going to be using EJS (Effective Javascript templating). Some would argue that it's a bit redundant to use EJS and AngularJS but I'm going to leave it for now for the sake of learning both. We will use EJS primarily for partial view rendering (a wee bit easier) but take it with a grain of salt.</p>
             
-            <pre class="codeBlockSmall" style="max-width: 400px; max-height: 110px;">
+            <p>After defining our view engine, we also need to specify where our views can be found:</p>
+            
+            <pre class="codeBlockSmall" style="max-width: 650px; max-height: 140px;">
                 <code class="language-javascript">
     app.set('view engine', 'ejs'); 
+    app.set('views', path.join(__dirname + '/public/views'));
                 </code>
             </pre>
             
@@ -75,7 +78,7 @@
             
             <h2>THE SERVER</h2>
             
-            <p>Finally we are going to set up the server itself by defining a port and then listening for it:</p>
+            <p>Now we are going to set up the server itself by defining a port and then listening for it:</p>
             <pre class="codeBlockSmall bigBottom" style="max-width: 530px; max-height: 160px;">
                 <code class="language-javascript">
     var port = 3000;
@@ -84,33 +87,19 @@
                 </code>
             </pre>
             
-            <p>It's as easy as that... Pretty unreal.</p>
-            
-            <h2 style="margin-top: 50px;">CONTROLLERS</h2>   
-            
-            <p>The last thing we really need in our App.js file is regarding controllers. First we need to read in the controller using the require function, and then we need to actually fire that controller and pass in our app object. Passing in our app object will allow us to set up routes within our controller in the next tutorial. So let's do this all now so we can actually go ahead and build our controller in the next part! We are going to call this the initializationController because it will basically handle the functionality for the team-setup portion of our application (you can't manage a team until the team exists, amiright?).</p>
-            
-            <pre class="codeBlockSmall bigBottom" style="max-width: 750px; max-height: 130px;">
-                <code class="language-javascript">
-    var initializationController = require('./controllers/initialize');
-    initializationController(app);
-                </code>
-            </pre>
+            <p>It's as easy as that...</p>
             
         </div>
 
         <div class="container"> 
             <h1>CONCLUSION</h1>
             
-            <p>So our App.js file is now set for the first part of our application. It should look something like this:</p>
+            <p>So our App.js file is now set for the first part of our application - it really doesn't do much of anything right now but it's a start. Your file should look something like this:</p>
             
             <pre class="codeBlockSmall bigBottom" style="max-width: 750px; max-height: 350px;">
                 <code class="language-javascript">
     var express = require('express');
     var app = express();
-    var initializationController = require('./controllers/initialize');
-
-    initializationController(app);
 
     app.set('view engine', 'ejs');
     app.use(express.static('./public'));
@@ -121,7 +110,7 @@
                 </code>
             </pre>
             
-            <p style="margin-bottom: 80px;"><a href="../nutshell_MEAN_p3/index.html">Check out part 3 here</a> to learn more about controllers.</p>
+            <p style="margin-bottom: 80px;"><a href="../nutshell_MEAN_p3/index.html">Check out part 3 here</a> to learn about RESTful API's and controllers.</p>
         </div>
            
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -134,3 +123,16 @@
 </html>
 
 
+
+<!--
+            <h2 style="margin-top: 50px;">CONTROLLERS</h2>   
+            
+            <p>The last thing we really need in our App.js file is regarding controllers. First we need to read in the controller using the require function, and then we need to actually fire that controller and pass in our app object. Passing in our app object will allow us to set up routes within our controller in the next tutorial. So let's do this all now so we can actually go ahead and build our controller in the next part! We are going to call this the initializationController because it will basically handle the functionality for the team-setup portion of our application (you can't manage a team until the team exists, amiright?).</p>
+            
+            <pre class="codeBlockSmall bigBottom" style="max-width: 750px; max-height: 130px;">
+                <code class="language-javascript">
+    var initializationController = require('./controllers/initialize');
+    initializationController(app);
+                </code>
+            </pre>
+-->
