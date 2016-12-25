@@ -23,100 +23,33 @@
         <p class="topPadding" style="text-align: center; font-size: 16pt">|&nbsp; <a href="../nutshell_MEAN_p1/index.html">PART 01</a> &nbsp;|&nbsp; <a href="../nutshell_MEAN_p2/index.html">PART 02</a> &nbsp;|&nbsp; <a href="../nutshell_MEAN_p3/index.html">PART 03</a> &nbsp;|<br/>
             |&nbsp; PART 04 &nbsp;|&nbsp; <a href="../nutshell_MEAN_p5/index.html">PART 05</a> &nbsp;|&nbsp; <a href="../nutshell_MEAN_p6/index.html">PART 06</a> &nbsp;|</p>
         
-        <div class="container floatClear"> 
-            <h1>HANDLING DATA</h1>
+        
+        <div class="container floatClear bigBottom"> 
+            <h1>COMING SOON!</h1>
 
-            <p style="margin-top: 30px;">We have successfully set up navigation to a new page. This page has fields for name, email, phone number, and team role. This page will allow the user to add members to their team. The entered data will then be stored in a MongoDB database for later use when the user clicks the "Add Member" button. Once again, here is the page for reference:</p>
-                
-            <img style="margin: 40px auto" alt="Screenshot of the create team page - includes fields for name, email, mobile, and team role" class="img-responsive" src="../../assets/images/Post_MEAN/Team_Builder.png"/>
+            <p style="margin-top: 30px;">&nbsp;</p>
+            <p>&nbsp;</p>
             
-            <p>The first thing we need to do is set up our connection to MongoDB. If you don't already have a database set up, check out <a href="https://www.youtube.com/watch?v=L4OP8JGKbQU&t=51s">this video</a>.</p>
-            <pre class="codeBlockSmall" style="max-width: 840px; max-height: 180px;">
-                <code class="language-java"> 
-    var mongoose = require('mongoose');
-    mongoose.Promise = global.Promise;
-    //User: test, Pass: test; this line will be different for you: 
-    mongoose.connect('mongodb://test:test@ds031213.mlab.com:31213/team-whipper');
-                </code>
-            </pre>
             
-            <p>Since we will be dealing we data, we are going to want to make use of the <a href="https://www.npmjs.com/package/body-parser" target="_blank">node.js body-parser</a> middleware. This serves to populate req.body with key-value pairs of data submitted in the request body. We will be making use of the urlencoded method which serves to populate the req.body with urlencoded bodies. The values can be strings/arrays when the extended option is false, and any other type when the extended option is true. Typically extended is set to false for querystring libraries and dealing with flat data structures; extended is true for qs libraries and dealing with rich data (great for ajax, json, 2D arrays, etc). Here is the code (put this in your <b>initialize.js</b> file):</p>
-            
-            <pre class="codeBlockSmall" style="max-width: 720px; max-height: 140px;">
-                <code class="language-java"> 
-    var bodyParser = require('body-parser');
-    var urlencodedParser = bodyParser.urlencoded({extended: false});
-                </code>
-            </pre>
-            
-            <p>We also need to make use of our <a href="http://mongoosejs.com/docs/models.html" target="_blank">first model</a>. Instances of these models are called "documents" which can be saved and retrieved from our database. So let's set that all up in the <b>initialize.js</b> file as well:</p>
-            
-            <pre class="codeBlockSmall" style="max-width: 600px; max-height: 260px;">
-                <code class="language-java"> 
-    var memberSchema = new mongoose.Schema({
-      name: String,
-      email: String,
-      mobile: String,
-      role: String
-    });
-    //'Member' stored as a 'members' collection in our database
-    var Member = mongoose.model('Member', memberSchema);
-                </code>
-            </pre>
-           
-            <p>Now there are a few things we are going to need to do before we can adequately save documents (instances of this model) to our database when we click the "Add Member" button.</p>
-            
-            <p>We are gonna need a weeee bit of Ajax. I won't really cover this code in much detail but there are a couple lines in the code below that I want to draw your attention to. The first is the initiation of the member object (var member = {...}) and the second is the fact that we post this data with ajax (data: member) - this is urlencoded by default. The name, email, mobile, and role variables correspond to the input fields within the createTeam.ejs view.</p>
-            
-            <pre class="codeBlockSmall" style="max-width: 1020px; max-height: 300px;">
-                <code class="language-java"> 
-    $(document).ready(function(){
-      $('form').on('submit', function(){
-        var name = $('input[name=full_name]');
-        var email = $('input[name=email]');
-        var mobile = $('input[name=mobile]');
-        var role = $('input[name=role]');
-        var member = {name: name.val(), email: email.val(), mobile: mobile.val(), role: role.val()};
-        $.ajax({
-          type: 'POST',
-          url: '/createTeam',
-          data: member,
-          success: function(data){
-            location.reload();
-          }
-        });
-        return false;
-      });
-    });
-                </code>
-            </pre>
-            
-            <p>So now we are going to link this up with the app.post route and save the data to the database with the mongoose model.save() method. What we are essentially doing here is creating a new Member document using the req.body urlencoded data and saving it within our collection.</p>
-            
-            <pre class="codeBlockSmall" style="max-width: 1000px; max-height: 340px;">
+<!--
+            <pre class="codeBlockSmall" style="max-width: 410px; max-height: 160px;">
                 <code class="language-java">
-    //note the inclusion of the "urlencodedParser" middleware which will handle data in req.body
-    app.post('/createTeam', urlencodedParser, function(req, res){
-        //create the new member document:
-        var newItem = Member(req.body).save(function(err, data){
-          if (err) throw err;
-          console.log(req.body);
-          //pass updated data back to the view:
-          res.json(data);
-        });
-      });
+ 
                 </code>
-            </pre>
+            </pre> 
+-->
             
-            
+          
         </div>
 
 
+<!--
         <div class="container"> 
             <h1>CONCLUSION</h1>
-            <p style="margin-bottom: 80px;">We now have some data saved in a database!</p>
+            <p style="margin-bottom: 80px;"></p>
         </div>
-           
+-->
+      
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script src="../../assets/js/functions.js"></script>
         <script src="../../assets/js/prism.js"></script>
