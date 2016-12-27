@@ -60,7 +60,7 @@
             <div class="container">
                 <h1>Add a Team Member</h1>
 
-                <div id="member-list">
+                <div id="member-form">
                     <form>
                         <input type="text" placeholder="Name" name="full_name" required ng-model="formData.name"/>
                         <input type="text" placeholder="Email" name="email" required ng-model="formData.email"/>
@@ -70,12 +70,13 @@
                     </form>
                 </div>
 
-                <div>
-                    <div ng-repeat="member in members">
-                        <label>
-                            <input type="checkbox"> {{ member.name }}
-                        </label>
-                    </div>
+                <div id="member-list">
+                    <h2>Your Team Members</h2>
+                    <ul>
+                        <div ng-repeat="member in members">
+                            <li>{ { member.name }}</li> <!-- IMPORTANT: remove the space between the first set of curly braces (had to include due to glitch) -->
+                        </div>
+                    </ul>
                 </div>
             </div>
         </body>
@@ -142,7 +143,8 @@
     <button id="add-member-button" type="submit" ng-click="createMember()">Add Member</button>
 
     <div ng-repeat="member in members">
-    <input type="checkbox"> {{ member.name }}
+        <li> { { member.name }} </li>   <!-- IMPORTANT: remove the space between the first set of curly braces (had to include due to glitch) -->
+    </div>
                     </xmp>
                 </code>
               </pre>
