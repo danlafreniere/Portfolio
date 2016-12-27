@@ -177,7 +177,7 @@
                   </code>
               </pre>
 
-              <p>The code above is actually quite straightforward. $scope.createMember corresponds to the HTML form button's ng-click="createMember()" function. Angular's $scope allows for <a href="https://docs.angularjs.org/guide/databinding">two-way binding</a> which is super handy (as you can see); it allows us to automatically synchronize data between our model and view components. This means changes made in the view are reflected in the model and vice-versa.</p>
+              <p>The code above is actually quite straightforward. $scope.createMember corresponds to the HTML form button's ng-click="createMember()" function. Angular's $scope allows for <a href="https://docs.angularjs.org/guide/databinding">two-way binding</a> which is super handy (as you can see); it allows us to automatically synchronize data between our model and view components. This means changes made in the view are reflected in the model and vice-versa. The data we are binding here is "formData" which is specified in the ng-model directives within our HTML.</p>
               <p>Our post function takes two parameters - the first is a URL that specifies the destination of the request and the second is our request content. This passes data to our apiRoutes.js file where express will handle our routing. The post function also allows us to specify success and error callbacks.</p>
 
               <p>Now let's add a little more code (above the $scope.createMember function):</p>
@@ -196,24 +196,49 @@
                   </code>
               </pre>
 
-              <p>You might notice that this function is set up a little differently than the last. It's actually a function that we will be defining in our MemberAPIService next. I will explain the function a little more once I have fully explained services.
+              <p>You might notice that this function is set up a little differently than the last. It's actually a function that we will be defining in our MemberAPIService next. I will explain the function a little more once I have explained services a little more.
         </div>
 
         <div class="container floatClear bigBottom">
 
             <h2>SERVICES</h2>
+            <p>The final piece of our puzzle is the MemberAPIService. Services in general can be a little confusing - there are factory services as well as service services. The former gives us a little more flexibility. If you want to better understand the difference, I recommend <a href="https://www.youtube.com/watch?v=0ybzZ3zZus0" target="_blank">this YouTube video</a>.</p>
 
-            <p>The final piece of our puzzle is the MemberAPIService. </p>
+            <p>What you really need to know is that services are useful because they allow us to quickly grant pass data into multiple controllers from one place. It doesn't really make sense to make http calls from each controller and this can quickly become redundant. So services give us a place to store data and then access this data in multiple areas.</p>
 
+            <p>Our MemberAPIService will give us a means of retrieving our member list for a particular team and display it on any other page that we want. Here is the code (we will be using the factory service in this case):</p>
+
+            <pre>
+                <code class="language-javascript">
+    angular.module('MemberAPI', []).factory('MemberAPIService', function ($q, $http) {
+        return {
+            getMember: function () {
+                var deferred = $q.defer(),
+                    httpPromise = $http.get('/api/members');
+
+                httpPromise.success(function (components) {
+                    deferred.resolve(components);
+                }).error(function (error) {
+                    console.error('Error: ' + error);
+                });
+
+                return deferred.promise;
+            }
+        };
+    });
+                </code>
+            </pre>
+
+            <p>The main differences here are that we use http promises. There is an amazing write up on these in <a href="http://andyshora.com/promises-angularjs-explained-as-cartoon.html">Andy Shora's blog</a>. Seriously, go here instead because he does a great job. I hope after reading it that the above code makes sense!</p>
 
         </div>
 
-<!--
+
         <div class="container">
             <h1>CONCLUSION</h1>
-            <p style="margin-bottom: 80px;"></p>
+            <p style="margin-bottom: 80px;">That's all there is to it! If you run your app again (remember, by typing "nodemon server" from the server.js directory in terminal) and enter data into the form, it should post to your database! I know this was a lot to cover but knowing these basics will give you a lot of power when it comes to creating your own web application. <a href="../nutshell_MEAN_p5/index.html"><br/>Part 5</a> is coming soon!</p>
         </div>
--->
+
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script src="../../assets/js/functions.js"></script>
         <script src="../../assets/js/prism.js"></script>
