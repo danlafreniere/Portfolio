@@ -1,4 +1,4 @@
-/* http://prismjs.com/download.html?themes=prism-okaidia&languages=markup+css+clike+javascript+basic+c+cpp+java+json+matlab+php+sql */
+/* http://prismjs.com/download.html?themes=prism-okaidia&languages=markup+css+clike+javascript+ruby+git+java+json+matlab+php+prolog+python+jsx+sass+sql+typescript&plugins=unescaped-markup */
 /**
  * okaidia theme for JavaScript, CSS and HTML
  * Loosely based on Monokai textmate theme by http://www.monokai.nl/
@@ -8,9 +8,9 @@
 code[class*="language-"],
 pre[class*="language-"] {
 	color: #f8f8f2;
+	background: none;
 	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
 	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-	direction: ltr;
 	text-align: left;
 	white-space: pre;
 	word-spacing: normal;
@@ -119,5 +119,16 @@ pre[class*="language-"] {
 
 .token.entity {
 	cursor: help;
+}
+
+/* Fallback, in case JS does not run, to ensure the code is at least visible */
+.lang-markup script[type='text/plain'],
+.language-markup script[type='text/plain'],
+script[type='text/plain'].lang-markup,
+script[type='text/plain'].language-markup {
+	display: block;
+	font: 100% Consolas, Monaco, monospace;
+	white-space: pre;
+	overflow: auto;
 }
 

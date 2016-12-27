@@ -7,48 +7,48 @@
    	 	<title>Dan LaFreniere Portfolio</title>
     	<meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../../assets/css/all.css"/>
-        <link href='http://fonts.googleapis.com/css?family=Advent+Pro:100,200,300,400,500,600,700' rel='stylesheet' type='text/css'>     
+        <link href='http://fonts.googleapis.com/css?family=Advent+Pro:100,200,300,400,500,600,700' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <link rel="icon" type="image/png" href="../../assets/images/SiteLogo_AshTree.png" sizes="32x32">
         <link rel="stylesheet" href="../../assets/css/prism.css"/>
     </head>
-    
+
     <body>
         {% include header-blogPost.html %}
         <div id="blogHeader" style="background-color: white">
             <p>MEAN in a Nutshell - Part 3</p>
             <img style="margin-left: -50px; margin-top: 50px" id="featuredImage" alt="Feature image for the blog - MEAN logo" src="../../assets/images/Post_MEAN/MEAN.png"/>
         </div>
-        
+
         <p class="topPadding" style="text-align: center; font-size: 16pt">|&nbsp; <a href="../nutshell_MEAN_p1/index.html">PART 01</a> &nbsp;|&nbsp; <a href="../nutshell_MEAN_p2/index.html">PART 02</a> &nbsp;|&nbsp; PART 03 &nbsp;|<br/>
             |&nbsp; <a href="../nutshell_MEAN_p4/index.html">PART 04</a> &nbsp;|&nbsp; <a href="../nutshell_MEAN_p5/index.html">PART 05</a> &nbsp;|&nbsp; <a href="../nutshell_MEAN_p6/index.html">PART 06</a> &nbsp;|</p>
-        
-        <div class="container floatClear"> 
+
+        <div class="container floatClear">
             <h1>SO WHAT ARE WE EVEN DOING AT THIS POINT?</h1>
 
             <p style="margin-top: 30px;">Right now all you really know is that we are building some vague application called TeamWhipper without much idea of what it will actually do. That kinda sucks, I know, but I've intentionally kept it vague so that we can focus more on the fine details of the project and really dive into what each line of code is doing. Parts of the project will be revealed as we progress - I figure it's the best way to focus on small pieces at a time and avoid information overload.</p>
-            
+
             <p class="bigBottom">Alright, air cleared? Everyone chill? Solid.</p>
-                
-            <p>So now that we're on the same page and the App.js file is set up, we're going to jump ahead a bit in the app and start with a basic but useful example that introduces a lot of concepts we will be using in the future. The <a href="https://github.com/danlafreniere/BlogPosts/tree/master/MEAN">github template</a> I linked to in the last part already has a "index.ejs" view and corresponding css styling pre-packaged. <b>Please note that I won't be covering any HTML (outside of what's needed for Angular) or css styling so it's essential to download these files if you want to code along.</b></p> 
+
+            <p>So now that we're on the same page and the App.js file is set up, we're going to jump ahead a bit in the app and start with a basic but useful example that introduces a lot of concepts we will be using in the future. The <a href="https://github.com/danlafreniere/BlogPosts/tree/master/MEAN">github template</a> I linked to in the last part already has a "addMembers.ejs" view and corresponding css styling pre-packaged. <b>Please note that I won't be covering any HTML (outside of what's needed for Angular) or css styling so it's essential to download these files if you want to code along.</b></p>
         </div>
 
-        <div class="container floatClear bigBottom"> 
-            
+        <div class="container floatClear bigBottom">
+
             <p>The page we will be creating allows us to add team members to our database and list these members' names underneath as they are added:</p>
-            
+
             <img style="margin: 40px auto" alt="Screenshot of the create team page - includes fields for name, email, mobile, and team role" class="img-responsive" src="../../assets/images/Post_MEAN/Team_Builder.png"/>
-            
+
             <p>It's a lot like the to-do app example in the <a href="https://www.youtube.com/watch?v=w-7RQ46RgxU&list=PL4cUxeGkcC9gcy9lrvMJ75z9maRw4byYp">NetNinja tutorial series</a> that I linked to in Part 1. The only difference is that we will be implementing our Team Member list using Angular while making our app RESTful (among some other things).</p>
-            
+
             <p>So first things first...</p>
         </div>
-        
-        <div class="container floatClear bigBottom">     
+
+        <div class="container floatClear bigBottom">
             <h1>WHAT ARE RESTful API'S?</h1>
-            
+
             <p>So I personally found a lot of this stuff to be pretty convoluted but I'll try and break it down as best as I can. An API stands for "Application Programming Interface" and what it really does is allow one piece of software to talk to another.</p>
-            
+
             <p>Here are some examples of popular API's:</p>
             <ul>
                 <li><a href="https://console.developers.google.com/apis/library?project=fit-asset-115001">Google</a>
@@ -56,43 +56,46 @@
                 <li><a href="https://dev.twitter.com/rest/public">Twitter</a></li>
                 <li><a href="https://developers.facebook.com/docs/javascript">Facebook</a></li>
             </ul>
-            
+
             <p>Or just check out this <a href="http://www.programmableweb.com/category/all/apis">massive API directory</a>.</p>
-            
+
             <p>To be a little more specific, these are RESTful API's. REST stands for <strong>RE</strong>presentational <strong>S</strong>tate <strong>T</strong>ransfer. So what the hell does that even mean? It's basically an architectural style/abstraction for designing network applications. More specifically it's a generally agreed upon set of principles or constraints. In virtually all RESTful web applications, HTTP is used to make calls between machines - HTTP requests are made to post data (POST), read data (GET), and delete data (DELETE). This is all you really need to know right now but if you want to read more, check out <a href="http://rest.elkstein.org/">this resource</a>.</p>
-            
+
             <p>In order to make this member list page work, we are going to need to POST data that the client enters in the form to the server. We also need to GET member data from the server in order to display the list of added team members back to the client.</p>
-            
+
         </div>
-        
-        <div class="container floatClear bigBottom">     
+
+        <div class="container floatClear bigBottom">
             <h1>MongoDB</h1>
-            
+
             <p>Before we make any of the HTTP calls, we need to get our database ready. In order to save a little time with MongoDB logistics. Check out <a href="https://www.youtube.com/watch?v=L4OP8JGKbQU&list=PL4cUxeGkcC9gcy9lrvMJ75z9maRw4byYp&index=35">this video</a> which will show you how to set up your MongoDB server using <a href="https://mlab.com/">mLab</a>. Once you are finished, you should have a couple lines in your server.js file that look something like this:</p>
-            
-            <pre class="codeBlockSmall" style="max-width: 840px; max-height: 160px;">
+
+            <pre>
                 <code class="language-java">
     var mongoose = require('mongoose');
+    //include this line to avoid deprication warnings:
+    mongoose.Promise = global.Promise;
     //User: test, Pass: test; this line will be different for you:
     mongoose.connect('mongodb://test:test@ds031213.mlab.com:31213/team-whipper');
                 </code>
-            </pre> 
-            
+            </pre>
+
             <p>Since we will be dealing we data, we are going to want to make use of the <a href="https://www.npmjs.com/package/body-parser" target="_blank">node.js body-parser</a> middleware. This serves to populate req.body with key-value pairs of data submitted in the request body. We will be making use of the urlencoded method which serves to populate the req.body with urlencoded bodies. The values can be strings/arrays when the extended option is false, and any other type when the extended option is true. Typically extended is set to false for querystring libraries and dealing with flat data structures; extended is true for qs libraries and dealing with rich data (great for ajax, json, 2D arrays, etc). Here is the code (put it in your <strong>server.js</strong> file):</p>
-            
-            <pre class="codeBlockSmall" style="max-width: 600px; max-height: 180px;">
-                <code class="language-java"> 
+
+            <pre>
+                <code class="language-java">
     var bodyParser = require('body-parser');
+    var methodOverride = require('method-override');
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({extended: false}));
     app.use(methodOverride('X-HTTP-Method-Override'));
                 </code>
             </pre>
-            
+
             <p>We also need to make use of our <a href="http://mongoosejs.com/docs/models.html" target="_blank">first model</a>. Instances of these models are called "documents" which can be saved and retrieved from our database. So let's set that all up in <strong>app/models/members.js</strong>:</p>
-            
-            <pre class="codeBlockSmall" style="max-width: 800px; max-height: 360px;">
-                <code class="language-java"> 
+
+            <pre>
+                <code class="language-java">
     var mongoose = require('mongoose');
 
     var memberSchema = new mongoose.Schema({
@@ -105,32 +108,32 @@
     module.exports = mongoose.model('Member', memberSchema);
                 </code>
             </pre>
-           
+
             <p>Now there are a few things we are going to need to do before we can adequately save documents (instances of this model) to our database when we click the "Add Member" button.</p>
-            
-            
+
+
             <p>Let's start by opening the included file called "apiRoutes.js" within the "app" folder. This is where we will make those RESTful GET/POST/DELETE calls to the server. We are going to first need to pull in the Member model that we created earlier and we also need to export these calls so that we can import them into the server.js file and use them.</p>
-            
-            <pre class="codeBlockSmall" style="max-width: 520px; max-height: 160px;">
+
+            <pre>
                 <code class="language-java">
     var Member = require('./models/members.js');
     module.exports = function(app){
     }
                 </code>
             </pre>
-            
-            
+
+
             <p>Let's import this anonymous function now so that we don't forget. Add this to your server.js file:</p>
-            
-            <pre class="codeBlockSmall" style="max-width: 420px; max-height: 100px;">
+
+            <pre>
                 <code class="language-java">
     require('./app/apiRoutes')(app);
                 </code>
             </pre>
-            
+
             <p>Great. The two files are now linked and we are ready to make our first API calls to the server. Let's start with the POST request that is made when the user clicks the "Add Member" button. First, I'll give you the code and then I'll walk through it as completely as I can.</p>
-            
-            <pre class="codeBlockSmall" style="max-width: 800px; max-height: 500px;">
+
+            <pre>
                 <code class="language-java">
     module.exports = function(app){
     //code to add:
@@ -143,20 +146,20 @@
                 });
                 console.log(req.body);
             });
-        });  
+        });
     }
                 </code>
             </pre>
-            
+
             <p>The first thing you should be seeing is <strong>app.post('api/members', function(req, res){...});</strong> App.post is actually a routing function provided to us by the very handy express module (remember it's the 'E' in 'MEAN'). The first argument is the URL for with the middleware function is invoked. The second argument is a callback function - in this case a single middleware function that we created ourselves.</p>
-            
+
             <p>Within the <strong>callback function body</strong> we are effectively creating a new member using the "Member" model we created earlier and passing it data from req.body (remember this is where our bodyparsing comes into play). The .save() method invoked is provided by mongoose and simply saves the model we created using the req.body data to the database. Within .save() is another callback function that we are providing two arguments (err = an error, members = the model data we are saving).</p>
-            
+
             <p>Since we just saved a new member and because we are displaying all members in a list to the user, we want to return the updated list - this is where <strong>Member.find(...);</strong> comes into play. The callback simply returns data retrieved by the "find" function and sends it as a response back to the client as json data (<strong>res.json(data)</strong>);</p>
-            
+
             <p>Given all of this information, I hope that the GET function for our member data is intuitive and simple to understand. Here it is:</p>
-            
-            <pre class="codeBlockSmall" style="max-width: 540px; max-height: 260px;">
+
+            <pre>
                 <code class="language-java">
     app.get('/api/members', function(req, res) {
         Member.find(function(err, members) {
@@ -167,84 +170,19 @@
     });
                 </code>
             </pre>
-<!--
 
-
-
- app.get('/api/members', function(req, res) {
-        Member.find(function(err, members) {
-            if (err) throw(err)
-            res.json(members);
-        });
-    });
-
-
-
-
-
-
-
-
-
-            <h1>A LITTLE SELF CONTROL</h1>
-
-            <p style="margin-top: 30px;">In the previous episode, we had a few lines in our App.js file regarding controllers. This part in particular is important: "require('./controllers/initialize')". This means that we are going to need a controller called "initialize.js" in the controllers folder of our project. And since we required this file and called it as a method with an application object argument in our App.js file ("initializationController(app)"), we need to explicitly export it so nothing breaks:</p>
-            
-            <pre class="codeBlockSmall" style="max-width: 410px; max-height: 160px;">
-                <code class="language-java">
-    module.exports = function(app){
-    
-    };
-                </code>
-            </pre> 
-            
-            
-            <p>Within this little block of code, we can start setting up routes. The first route we are going to create is one that will render our getStarted.ejs view when the home path is visited ("/"). To do this, we make use of the passed in application object and make a get() call with a callback function that takes request and response objects as parameters. Like so:</p>
-            
-             <pre class="codeBlockSmall" style="max-width: 450px; max-height: 200px;">
-                <code class="language-java">
-    module.exports = function(app){
-        app.get('/', function(req, res){
-            res.render('getStarted');
-        });
-    };
-                </code>
-            </pre>
-            
-            <p>Now, run your server by navigating to the location of your app.js file on your hard drive using a linux shell, type "nodemon app" and hit enter. Navigate to "localhost:3000" in your browser and you should see a happy little lander page (<a href="https://www.youtube.com/watch?v=YLO7tCdBVrA" target="_blank">Bob Ross would be proud</a>):</p>
-            
-            <img style="margin: 40px auto" alt="Screenshot of landing page saying: let's get your team up to shape. Includes a button saying: get started" class="img-responsive" src="../../assets/images/Post_MEAN/Happy_Little_Lander.png"/>
-            
-            <h2>BUTTON FUNCTIONALITY</h2>
-            
-            <p>It doesn't do us much good if we have a "Get Started" button that leads nowhere though so let's redirect to a new page when clicked using this same controller and routes.</p>
-            
-             <pre class="codeBlockSmall" style="max-width: 500px; max-height: 170px;">
-                <code class="language-java">
-    app.get('/createTeam', function(req, res){
-      res.render('createTeam');
-    });
-                </code>
-            </pre>
-            
-            <p>Alright, so now should be redirected to a new view when the Get Started button is clicked:</p>
-            
--->
-            
         </div>
 
-        <div class="container"> 
+        <div class="container">
             <h1>CONCLUSION</h1>
-            <p style="margin-bottom: 80px;">I think that's enough for today - in the next tutorial we are going to create both a controller, view, and service for linking all of this together into a RESTful application. <br/><a href="../nutshell_MEAN_p4/index.html">Check out part 4!</a></p>
+            <p style="margin-bottom: 80px;">I think that's enough for today - in the next tutorial we are going to create a view, controller, and service for linking all of this together into a RESTful application. <br/><a href="../nutshell_MEAN_p4/index.html">Check out part 4!</a></p>
         </div>
-           
+
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script src="../../assets/js/functions.js"></script>
         <script src="../../assets/js/prism.js"></script>
     </body>
-    
+
     {% include footer.html %}
-    
+
 </html>
-
-

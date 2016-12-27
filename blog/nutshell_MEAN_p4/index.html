@@ -3,60 +3,222 @@
 
 <html>
     <head>
-
    	 	<title>Dan LaFreniere Portfolio</title>
     	<meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../../assets/css/all.css"/>
-        <link href='http://fonts.googleapis.com/css?family=Advent+Pro:100,200,300,400,500,600,700' rel='stylesheet' type='text/css'>     
+        <link href='http://fonts.googleapis.com/css?family=Advent+Pro:100,200,300,400,500,600,700' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <link rel="icon" type="image/png" href="../../assets/images/SiteLogo_AshTree.png" sizes="32x32">
         <link rel="stylesheet" href="../../assets/css/prism.css"/>
     </head>
-    
+
     <body>
         {% include header-blogPost.html %}
         <div id="blogHeader" style="background-color: white">
             <p>MEAN in a Nutshell - Part 4</p>
             <img style="margin-left: -50px; margin-top: 50px" id="featuredImage" alt="Feature image for the blog - MEAN logo" src="../../assets/images/Post_MEAN/MEAN.png"/>
         </div>
-        
+
         <p class="topPadding" style="text-align: center; font-size: 16pt">|&nbsp; <a href="../nutshell_MEAN_p1/index.html">PART 01</a> &nbsp;|&nbsp; <a href="../nutshell_MEAN_p2/index.html">PART 02</a> &nbsp;|&nbsp; <a href="../nutshell_MEAN_p3/index.html">PART 03</a> &nbsp;|<br/>
             |&nbsp; PART 04 &nbsp;|&nbsp; <a href="../nutshell_MEAN_p5/index.html">PART 05</a> &nbsp;|&nbsp; <a href="../nutshell_MEAN_p6/index.html">PART 06</a> &nbsp;|</p>
-        
-        
-        <div class="container floatClear bigBottom"> 
-            <h1>COMING SOON!</h1>
 
-            <p style="margin-top: 30px;">&nbsp;</p>
-            <p>&nbsp;</p>
-            
-            
-<!--
-            <pre class="codeBlockSmall" style="max-width: 410px; max-height: 160px;">
-                <code class="language-java">
- 
+        <div class="container floatClear bigBottom">
+            <h1>VIEWS, CONTROLLERS, AND SERVICES</h1>
+
+            <p>Our MongoDB functionality is all set and we're ready to start setting up our views, controllers, and services.</p>
+
+            <h2 style="margin-top: 60px">VIEWS</h2>
+            <p>We are going to start with the addMembers.ejs file (note the ejs file extension as opposed to html - this is due to the template engine we are using). I won't be covering HTML basics but will be discussing the Angular parts - Angular builds on HTML and adds some extra functionality for us. First, here is the complete view file code (<strong>public/views/addMembers.ejs</strong>):</p>
+
+
+            <pre class="line-numbers" style="margin-bottom: 50px">
+                <code class="language-markup">
+                    <xmp>
+    <html ng-app="team-whipper">
+        <head>
+          <meta charset="UTF-8">
+          <base href="/">
+
+          <title>Team Whipper App</title>
+
+          <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+          <script src="libs/angular/angular.min.js"></script>
+          <script src="libs/angular-route/angular-route.min.js"></script>
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+          <link href="libs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+          <link href="css/styles.css" rel="stylesheet" type="text/css"/>
+          <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+          <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+
+          <script src="js/app.js"></script>
+          <script src="js/routes.js"></script>
+          <script src="js/controllers/addmember-controller.js"></script>
+          <script src="js/services/getmembers-service.js"></script>
+        </head>
+
+        <body ng-controller="MemberController">
+            <div class="container">
+                <h1>Add a Team Member</h1>
+
+                <div id="member-list">
+                    <form>
+                        <input type="text" placeholder="Name" name="full_name" required ng-model="formData.name"/>
+                        <input type="text" placeholder="Email" name="email" required ng-model="formData.email"/>
+                        <input type="text" placeholder="Mobile" name="mobile" required ng-model="formData.mobile"/>
+                        <input type="text" placeholder="Team Role" name="role" required ng-model="formData.role"/>
+                        <button id="add-member-button" type="submit" ng-click="createMember()">Add Member</button>
+                    </form>
+                </div>
+
+                <div>
+                    <div ng-repeat="member in members">
+                        <label>
+                            <input type="checkbox"> {{ member.name }}
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </body>
+    </html>
+                    </xmp>
                 </code>
-            </pre> 
--->
-            
-          
+            </pre>
+
+
+            <p>You may have noticed some new directives within the HTML. The first we will be discussing is the ng-app directive found on the html tag. TeamWhipper is designed to be a single-page application and as a result, we only specify one root element (ng-app="team-whipper").</p>
+
+            <pre style="margin-bottom: 50px">
+                <code class="language-markup">
+                    <xmp>
+    <html ng-app="team-whipper">
+                    </xmp>
+                </code>
+            </pre>
+
+            <p>This doesn't do much on its own so now we are going to create a module which will serve as the <strong>root module</strong> for our application. Within <strong>public/js/</strong> directory is the <strong>app.js</strong> file. Add this line to it:</p>
+
+            <pre>
+                <code class="language-javascript">
+    angular.module('team-whipper', ['ngRoute', 'routes', 'AddMembers', 'MemberAPI']);
+                </code>
+            </pre>
+
+            <p>Note that the first argument is the "team-whipper" module that we passed to the ng-app directive. The second argument is an array of dependencies - ngRoute is a library that I provided in the TeamWhipper file package (<strong>public/libs/angular-route</strong>). I also linked to this library in the HTML code above (within one of the script tags). The other three dependencies correspond to three files that we will be creating next.</p>
+
+            <p>The first of these files is routes.js (<strong>public/js/routes.js</strong>):</p>
+
+            <pre>
+                <code class="language-javascript">
+    angular.module('routes', []).config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+    $routeProvider
+        .when('/', {
+          templateUrl: 'views/addMembers.ejs'
+        });
+    $locationProvider.html5Mode(true);
+    }]);
+                </code>
+            </pre>
+
+            <p>Angular provides us with an awesome routing service provider right out of the box. This file doesn't look like much now but it will be incredibly handy when we start building up our single page application. It allows us to specify views to load when the client navigates to particular URL's. This way, we logically break our app up into manageable and well-organized chunks.</p>
+
+            <p>For now, this file is simply saying when you encounter the base URL of "/" load our addMembers.ejs file. Later on, we will be making changes to this file but for now, it serves our purposes.
+
         </div>
 
+        <div class="container floatClear bigBottom">
+            <h2>CONTROLLERS</h2>
+
+            <p>It's finally time to bring controllers into the mix and get some functionality going. These are the HTML lines that correspond to our controller and I'll refer to them occasionally as we go:</p>
+
+            <pre style="margin-bottom: 50px">
+                <code class="language-markup">
+                    <xmp>
+    <body ng-controller="MemberController">
+
+    <input type="text" placeholder="Name" name="full_name" required ng-model="formData.name"/>
+    <input type="text" placeholder="Email" name="email" required ng-model="formData.email"/>
+    <input type="text" placeholder="Mobile" name="mobile" required ng-model="formData.mobile"/>
+    <input type="text" placeholder="Team Role" name="role" required ng-model="formData.role"/>
+    <button id="add-member-button" type="submit" ng-click="createMember()">Add Member</button>
+
+    <div ng-repeat="member in members">
+    <input type="checkbox"> {{ member.name }}
+                    </xmp>
+                </code>
+              </pre>
+
+              <p>The ng-controller directive works just like the ng-app directive - right now the MemberController is going to serve as our root controller but we will eventually change it. Let's start building this controller - you can find the file here: <strong>public/js/controllers/addmember-controller.js</strong>.</p>
+              <p>Within this file, we are going to start with the following: </p>
+
+              <pre>
+                  <code class="language-javascript">
+    var addMembers = angular.module('AddMembers', []);
+    addMembers.controller('MemberController', ['$scope', '$http', 'MemberAPIService', function($scope, $http, MemberAPIService) {
+
+    }]);
+                  </code>
+              </pre>
+              <p>The module "AddMembers" corresponds to what we used as a dependency in the app.js file. "MemberController" corresponds to our ng-controller specification. Our controller also needs some dependencies to work properly, these are: $scope, $http, and MemberAPIService; $scope and $http are provided by Angular whereas we will be creating the MemberAPIService in the next section. <strong>NOTE:</strong> make sure that the dependency order matches the function arguments or you will encounter an error.</p>
+              <p>Within the function body, add the following code:</p>
+
+              <pre>
+                  <code class="language-javascript">
+    $scope.createMember = function() {
+        $http.post('/api/members', $scope.formData)
+            .success(function(data) {
+                $scope.formData = {};       //clear formdata in view
+                $scope.members = data;      //update member list in view with new member
+                console.log(data);
+            })
+            .error(function(err) {
+                console.log('Error: ' + err);
+            });
+    };
+                  </code>
+              </pre>
+
+              <p>The code above is actually quite straightforward. $scope.createMember corresponds to the HTML form button's ng-click="createMember()" function. Angular's $scope allows for <a href="https://docs.angularjs.org/guide/databinding">two-way binding</a> which is super handy (as you can see); it allows us to automatically synchronize data between our model and view components. This means changes made in the view are reflected in the model and vice-versa.</p>
+              <p>Our post function takes two parameters - the first is a URL that specifies the destination of the request and the second is our request content. This passes data to our apiRoutes.js file where express will handle our routing. The post function also allows us to specify success and error callbacks.</p>
+
+              <p>Now let's add a little more code (above the $scope.createMember function):</p>
+              <pre>
+                  <code class="language-javascript">
+    $scope.formData = {};
+    $scope.members = [];
+
+    MemberAPIService.getMember()
+        .then(function (components) {
+            $scope.formData = {};
+            $scope.members = components;      //populate list
+        }, function (err) {
+            console.error(err);
+        });
+                  </code>
+              </pre>
+
+              <p>You might notice that this function is set up a little differently than the last. It's actually a function that we will be defining in our MemberAPIService next. I will explain the function a little more once I have fully explained services.
+        </div>
+
+        <div class="container floatClear bigBottom">
+
+            <h2>SERVICES</h2>
+
+            <p>The final piece of our puzzle is the MemberAPIService. </p>
+
+
+        </div>
 
 <!--
-        <div class="container"> 
+        <div class="container">
             <h1>CONCLUSION</h1>
             <p style="margin-bottom: 80px;"></p>
         </div>
 -->
-      
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script src="../../assets/js/functions.js"></script>
         <script src="../../assets/js/prism.js"></script>
     </body>
-    
+
     {% include footer.html %}
-    
+
 </html>
-
-
