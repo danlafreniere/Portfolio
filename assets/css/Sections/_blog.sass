@@ -6,7 +6,7 @@
 .blog-container
     margin: 0px auto
     overflow: auto
-    max-width: 1200px
+    max-width: 1280px
     
 .flip-to-right
     float: right
@@ -54,7 +54,8 @@
     
 #blogHeader
     > h1
-        padding-top: 100px
+        padding-bottom: 20px
+        margin-top: -10px
         font-size: 24pt
         font-weight: 500
         text-transform: uppercase
@@ -148,22 +149,22 @@
     border-left-color: #bce6dc
     
 .blog-clicker, .blog-coming-soon
-    display: table
+    display: table-cell
     border-radius: 50%
     height: 100px
     width: 100px
-    margin: 7% 5%
+    text-align: center
+    vertical-align: middle
+    color: white
 
 .blog-clicker
-    background-color: #7accc8
+    background-color: #2c3e50
+    
+.blog-clicker:hover
+    opacity: 0.7
+    transition: opacity .25s ease-in-out
+    -moz-transition: opacity .25s ease-in-out
+    -webkit-transition: opacity .25s ease-in-out
     
 .blog-coming-soon
-    background-color: #e36767
-    
-.blog-clicker span, .blog-coming-soon span
-    display: table-cell
-    vertical-align: middle
-    text-align: center
-    height: 80px
-    width: 80px
-    color: white
+    background-color: #c0392b

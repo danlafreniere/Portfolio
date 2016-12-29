@@ -1,0 +1,116 @@
+<html>
+    <head>
+
+   	 	<title>Dan LaFreniere Portfolio</title>
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../assets/css/all.css"/>
+        <link href='http://fonts.googleapis.com/css?family=Advent+Pro:100,200,300,400,500,600,700' rel='stylesheet' type='text/css'>     
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <link rel="icon" type="image/png" href="../../assets/images/SiteLogo_AshTree.png" sizes="32x32">
+        <link rel="stylesheet" href="../../assets/css/prism.css"/>
+    </head>
+    
+    <body>
+        <header id="header">
+
+    <div>
+        <a href="../../index.html"><img alt="Site logo icon - an ash tree" id="treeLogo" src="../../assets/images/SiteLogo_AshTree.png"/></a>
+        <a href="../../index.html"><img alt="Dan LaFreniere. Programmer. Designer. Researcher." id="nameLogo" src="../../assets/images/SiteLogo_Name.png"/></a>
+    </div>
+    
+    <nav id="menu">
+        <a id="primary-nav-trigger"><span id="menu-text">Menu</span><span id="menu-icon"></span></a>
+    </nav>
+    
+</header>
+
+<nav>
+    <ul id="primary-nav">
+        <li id="firstItem"><a href="../index.html">Back to Blog Home</a></li>
+        <li><a href="../../index.html">Back to Portfolio</a></li>
+        <li id="primary-nav-title"><strong>Follow Me</strong></li>
+        <li>
+            <a href="https://ca.linkedin.com/pub/daniel-lafreniere/72/403/469"><i style="font-size: 35px;" class="fa fa-linkedin-square"></i></a>&nbsp;<a href="https://www.facebook.com/dan.lafreniere.56"><i style="font-size: 35px;" class="fa fa-facebook-square"></i></a>&nbsp;<a href="https://twitter.com/JustLacksZazz"><i style="font-size: 35px;" class="fa fa-twitter-square"></i></a>&nbsp;<a href="https://plus.google.com/+DanLaFreniere/posts"><i style="font-size: 35px;" class="fa fa-google-plus-square"></i>
+</a>&nbsp;<a href="https://github.com/danlafreniere"><i style="font-size: 35px;" class="fa fa-github-square"></i></a>
+        </li>
+   </ul>
+</nav>
+        <div id="blogHeader" style="background-color: white">
+            <p>MEAN in a Nutshell - Part 2</p>
+            <img style="margin-left: -50px; margin-top: 50px" id="featuredImage" alt="Feature image for the blog - MEAN logo" src="../../assets/images/Post_MEAN/MEAN.png"/>
+        </div>
+        
+        <p class="topPadding" style="text-align: center; font-size: 16pt">|&nbsp; PART 01 &nbsp;|&nbsp; <a href="../nutshell_MEAN_p2/index.html">PART 02</a> &nbsp;|&nbsp; <a href="../nutshell_MEAN_p3/index.html">PART 03</a> &nbsp;|<br/>
+            |&nbsp; <a href="../nutshell_MEAN_p4/index.html">PART 04</a> &nbsp;|&nbsp; <a href="../nutshell_MEAN_p5/index.html">PART 05</a> &nbsp;|&nbsp; <a href="../nutshell_MEAN_p6/index.html">PART 06</a> &nbsp;|</p>
+        
+        <div class="container floatClear"> 
+            <h1>PREREQUISITES AND MOTIVATION</h1>
+
+            <p style="margin-top: 30px;"><b>Before starting, there's a killer series on YouTube by the <a href="https://www.youtube.com/channel/UCW5YeuERMmlnqo4oq8vwUpg">NetNinja</a> that covers a lot of Node basics.<a href="https://goo.gl/HgnGeX"> Check it out</a> before diving in here!</b></p>
+            
+            <p>Also, if you're one of those impatient types or dig the whole self-learning style, the <a href="https://github.com/danlafreniere/TeamWhipper-Web">final TeamWhipper project</a> can be found on my github account. Otherwise you can download a <a href="https://github.com/danlafreniere/BlogPosts/tree/master/MEAN">barebones template</a> if you want to code along.</p>
+            
+            <p>So at this point, you may be wondering what this post is all about... Well I decided to make this tutorial as I learned the MEAN stack myself. At the end of the day, there are a lot of amazing tools out there but sometimes they make it easy to avoid understanding what's going on under the hood. I love to teach and I've always found that the best way to learn is to help others so I wanted to explain the app building process step by step. It's even better to learn in the context of a project so I tied one of those in too.</p>
+            
+            <p>&nbsp;</p>
+        </div>
+            
+        <div class="container floatClear"> 
+            <h1>THE PROJECT IDEA</h1>
+            
+            <p>We are going to be building a team management application that I call "Team Whipper". The idea behind this came after working on some gnarly group projects during my time at school. I've found myself in situations in the past where it was difficult to set realistic goals while keeping everyone on track and motivated.</p>
+            
+            <p>This application will primarily be designed with University students in mind and try to ease the interpersonal hell that is the school group project. It will serve as a central hub for setting goals, tracking progress, sticking to roles, and evaluating team member performance throughout the lifespan of a project.</p>
+            
+            <img style="margin: 40px auto" alt="Quote: when I die, I want the people I did group projects with to lower me into my grave so they can let me down one last time." class="img-responsive" src="../../assets/images/Post_MEAN/Group_Projects_Suck.png"/>
+            
+            <p><i>Please note: with all of this in mind, this post will be a continuous work in progress as features are added to the application and it evolves. This is just as much a learning process for me.</i></p>
+            
+            <p>&nbsp;</p>
+        </div>
+
+        <div class="container floatClear"> 
+            <h1>THE MEAN STACK</h1>
+
+            <p style="margin-top: 30px;">MEAN stands for MongoDB/Express/React/Node.js and is a slight alternative to the commonly used MEAN stack (which uses Angular instead of React). These four tools are essential when it comes to building any web based application.</p>
+            
+            <ul class="bigBottom">
+                <li><b>MongoDB:</b> a NoSQL database that uses JSON-like documents. This kicks some serious ass with javascript since it goes so well with JSON. There are a ton of awesome advantages to using a NoSQL database and you can read more about them on the <a href="https://www.mongodb.com/nosql-explained">MongoDB website</a>.</li>
+
+                <li><b>Express:</b> a popular Node package that makes things easy - used for flexible routing. Comes with loads of features such as middleware frameworks and templating engines. Don't worry - we will cover this in more detail later. Read more on the <a href="http://expressjs.com/">Express website</a>.</li>
+
+                <li><b>Angular:</b> a Javascript framework packed with some really awesome features for dynamic applications. It allows us to easily build on the HTML syntax using directives, bind data, manipulate the DOM, and inject dependancies among other things. Even though Angular 2 is out in beta and has a lot of cool features, we are going to stick to AngularJS. Angular 2 is more similar to React than AngularJS and since I plan on learning React instead, I figure that this will make my background knowledge more robust. Read more on the <a href="https://angularjs.org/">Angular website</a>.</li>
+
+                <li><b>Node.js:</b> the heart and soul of our web application. It uses Google's V8 engine and this essentially allows us to run Javascript on a computer (outside of a web browser). We can do things like create a server, read/update/delete files, and easily communicate with a database. POWER OVERWHELMING. Read more on the <a href="https://nodejs.org/en/">Node.js website</a>.</li> 
+            </ul>
+        </div>
+    
+        <div class="container floatClear"> 
+            <h1>MODEL-VIEW-CONTROLLER</h1>
+            <p style="margin-top: 30px;">The final thing to know before building a web application is the model-view-controller (MVC) design pattern.  As the name suggests, it consists of three interconnected parts:</p>
+            <ul class="bigBottom">
+                <li><b>Model:</b> the data manager; define data structures/methods to handle our stored data</li>
+                <li><b>View:</b> the output; display/organize information for the user.</li>
+                <li><b>Controller:</b> the bridge; links the model and view by getting requests, pulling data from model, and passing it all back to the view for the user.</li>
+            </ul>
+        </div>
+           
+
+        <div class="container"> 
+            <h1>CONCLUSION</h1>
+            <p style="margin-bottom: 80px;">Now that we know some fundamentals, we can start building the app from scratch. <a href="../nutshell_MEAN_p2/index.html">Check out part 2 here.</a></p>
+        </div>
+        
+        
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="../../assets/js/functions.js"></script>
+        <script src="../../assets/js/prism.js"></script>
+    </body>
+    
+    <footer class="clear floatClear">
+    <p id="footerText">&copy; Dan LaFreniere 2016</p>
+</footer>
+    
+</html>
+
+

@@ -15,18 +15,60 @@
 
     <body>
         {% include header-blogPost.html %}
-        <div id="blogHeader" style="background-color: white">
-            <p>MEAN in a Nutshell - Part 1</p>
-            <img style="margin-left: -50px; margin-top: 50px" id="featuredImage" alt="Feature image for the blog - MEAN logo" src="../../assets/images/Post_MEAN/MEAN.png"/>
+        <div id="blogHeader" style="background-color: #0A1824;">
+            <img style="margin-left: -50px; max-height: 300px;" id="featuredImage" alt="Feature image for the blog - MEAN logo" src="../../assets/images/Post_MEAN/MEAN.png"/>
+            <h1>MEAN in a Nutshell - Part 2</h1>
         </div>
 
         <p class="topPadding" style="text-align: center; font-size: 16pt">|&nbsp; <a href="../nutshell_MEAN_p1/index.html">PART 01</a> &nbsp;|&nbsp; PART 02 &nbsp;|&nbsp; <a href="../nutshell_MEAN_p3/index.html">PART 03</a> &nbsp;|<br/>
             |&nbsp; <a href="../nutshell_MEAN_p4/index.html">PART 04</a> &nbsp;|&nbsp; <a href="../nutshell_MEAN_p5/index.html">PART 05</a> &nbsp;|&nbsp; <a href="../nutshell_MEAN_p6/index.html">PART 06</a> &nbsp;|</p>
+        
+        <div class="container floatClear bigBottom">
+            <h1>GETTING SET UP</h1>
+            
+            <p><b>Before starting be sure to download the TeamWhipper template file from my <a href="https://github.com/danlafreniere/BlogPosts/tree/master/MEAN">github repository</a>. All modules you will need for now are currently installed and you can change the author in the package.json file to your name. With these files you can follow along as we go.</b></p>
+            
+            <h2 class="topPadding">APP TEMPLATE STRUCTURE</h2>
+            
+            <pre>
+                <code class="language-markup">
+    - app
+    ----- models
+    ----------- members.js
+    ----- apiRoutes.js
+    - node_modules
+    - public
+    ----- css
+    ----------- styles.css
+    ----- images
+    ----- js
+    ----------- controllers
+    ----------------- addmember-controller.js
+    ----------- services
+    ----------------- getmembers-service.js
+    ----------- app.js
+    ----------- routes.js
+    ----- libs
+    ----------- angular
+    ----------- angular-route
+    ----------- animate.css
+    ----------- bootstrap
+    ----------- font-awesome
+    ----------- jquery
+    ----------- ng-file-upload
+    ----- views
+    ----------- partials
+    ----------- addMembers.ejs
+    - server.js
+    - package.json
+    - bower.json
+    - .bowerrc
+                </code>
+            </pre>
+        </div>
 
         <div class="container floatClear">
             <h1>SERVER.JS</h1>
-
-            <p><b>Before starting be sure to download the TeamWhipper template file from my <a href="https://github.com/danlafreniere/BlogPosts/tree/master/MEAN">github repository</a>. All modules you will need for now are currently installed and you can change the author in the package.json file to your name. With these files you can follow along as we go.</b></p>
 
             <p style="margin-top: 30px;">Alright, let's jump right in with the server.js file - this will serve as the entry point for our Team Whipper application and can be thought of as the file that keeps everything together. We are going to start with a relatively simple file and work up as we go.</p>
 

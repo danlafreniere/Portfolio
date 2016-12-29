@@ -1,0 +1,193 @@
+<html>
+    <head>
+
+   	 	<title>Dan LaFreniere Portfolio</title>
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../assets/css/all.css"/>
+        <link href='http://fonts.googleapis.com/css?family=Advent+Pro:100,200,300,400,500,600,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <link rel="icon" type="image/png" href="../../assets/images/SiteLogo_AshTree.png" sizes="32x32">
+        <link rel="stylesheet" href="../../assets/css/prism.css"/>
+    </head>
+
+    <body>
+        <header id="header">
+
+    <div>
+        <a href="../../index.html"><img alt="Site logo icon - an ash tree" id="treeLogo" src="../../assets/images/SiteLogo_AshTree.png"/></a>
+        <a href="../../index.html"><img alt="Dan LaFreniere. Programmer. Designer. Researcher." id="nameLogo" src="../../assets/images/SiteLogo_Name.png"/></a>
+    </div>
+    
+    <nav id="menu">
+        <a id="primary-nav-trigger"><span id="menu-text">Menu</span><span id="menu-icon"></span></a>
+    </nav>
+    
+</header>
+
+<nav>
+    <ul id="primary-nav">
+        <li id="firstItem"><a href="../index.html">Back to Blog Home</a></li>
+        <li><a href="../../index.html">Back to Portfolio</a></li>
+        <li id="primary-nav-title"><strong>Follow Me</strong></li>
+        <li>
+            <a href="https://ca.linkedin.com/pub/daniel-lafreniere/72/403/469"><i style="font-size: 35px;" class="fa fa-linkedin-square"></i></a>&nbsp;<a href="https://www.facebook.com/dan.lafreniere.56"><i style="font-size: 35px;" class="fa fa-facebook-square"></i></a>&nbsp;<a href="https://twitter.com/JustLacksZazz"><i style="font-size: 35px;" class="fa fa-twitter-square"></i></a>&nbsp;<a href="https://plus.google.com/+DanLaFreniere/posts"><i style="font-size: 35px;" class="fa fa-google-plus-square"></i>
+</a>&nbsp;<a href="https://github.com/danlafreniere"><i style="font-size: 35px;" class="fa fa-github-square"></i></a>
+        </li>
+   </ul>
+</nav>
+        <div id="blogHeader" style="background-color: white">
+            <p>MEAN in a Nutshell - Part 1</p>
+            <img style="margin-left: -50px; margin-top: 50px" id="featuredImage" alt="Feature image for the blog - MEAN logo" src="../../assets/images/Post_MEAN/MEAN.png"/>
+        </div>
+
+        <p class="topPadding" style="text-align: center; font-size: 16pt">|&nbsp; <a href="../nutshell_MEAN_p1/index.html">PART 01</a> &nbsp;|&nbsp; PART 02 &nbsp;|&nbsp; <a href="../nutshell_MEAN_p3/index.html">PART 03</a> &nbsp;|<br/>
+            |&nbsp; <a href="../nutshell_MEAN_p4/index.html">PART 04</a> &nbsp;|&nbsp; <a href="../nutshell_MEAN_p5/index.html">PART 05</a> &nbsp;|&nbsp; <a href="../nutshell_MEAN_p6/index.html">PART 06</a> &nbsp;|</p>
+        
+        <div class="container floatClear bigBottom">
+            <h1>GETTING SET UP</h1>
+            
+            <p><b>Before starting be sure to download the TeamWhipper template file from my <a href="https://github.com/danlafreniere/BlogPosts/tree/master/MEAN">github repository</a>. All modules you will need for now are currently installed and you can change the author in the package.json file to your name. With these files you can follow along as we go.</b></p>
+            
+            <h2 class="topPadding">APP TEMPLATE STRUCTURE</h2>
+            
+            <pre>
+                <code class="language-markup">
+    - app
+    ----- models
+    ----------- members.js
+    ----- apiRoutes.js
+    - node_modules
+    - public
+    ----- css
+    ----------- styles.css
+    ----- images
+    ----- js
+    ----------- controllers
+    ----------------- addmember-controller.js
+    ----------- services
+    ----------------- getmembers-service.js
+    ----------- app.js
+    ----------- routes.js
+    ----- libs
+    ----------- angular
+    ----------- angular-route
+    ----------- animate.css
+    ----------- bootstrap
+    ----------- font-awesome
+    ----------- jquery
+    ----------- ng-file-upload
+    ----- views
+    ----------- partials
+    ----------- addMembers.ejs
+    - server.js
+    - package.json
+    - bower.json
+    - .bowerrc
+                </code>
+            </pre>
+        </div>
+
+        <div class="container floatClear">
+            <h1>SERVER.JS</h1>
+
+            <p style="margin-top: 30px;">Alright, let's jump right in with the server.js file - this will serve as the entry point for our Team Whipper application and can be thought of as the file that keeps everything together. We are going to start with a relatively simple file and work up as we go.</p>
+
+            <p>The first thing we need to do is require Express which will ultimately open up a lot of amazing functionality for us (middleware, routing, etc):</p>
+
+            <pre>
+                <code class="language-javascript">
+    var express = require('express');
+                </code>
+            </pre>
+
+
+            <p>Now let's create an express application object by calling the express method (we also need to export it for later use):</p>
+
+            <pre>
+                <code class="language-javascript">
+    var app = express();
+    exports = module.exports = app;
+                </code>
+            </pre>
+
+            <p>The express application provides us methods for routing HTTP requests, configuring middleware, rendering HTML views, registering template engines, and affecting application behavior. If these topics are new don't sweat because we are actually going to start covering some of them right now.</p>
+
+            <h2>OUR TEMPLATE ENGINE</h2>
+
+            <p>Let's set up our template/view engine using express. Template engines allow us to easily design HTML pages and bring in some added functionality. For example, we are going to be using EJS (Effective Javascript templating). Some would argue that it's a bit redundant to use EJS and AngularJS but I'm going to leave it for now for the sake of learning both. We will use EJS primarily for partial view rendering (a wee bit easier) but take it with a grain of salt.</p>
+
+            <p>After defining our view engine, we also need to specify where our views can be found:</p>
+
+            <pre>
+                <code class="language-javascript">
+    app.set('view engine', 'ejs');
+    var path = require('path');
+    app.set('views', path.join(__dirname + '/public/views'));
+                </code>
+            </pre>
+
+            <h2>FIRST MIDDLEWARE EXAMPLE</h2>
+
+            <p>Since we are going to be using CSS and other assets to develop our web application, we also need a way to serve static files to all pages in our app. Express actually has built in middleware that allows us to do this. Middleware is essentially any code that runs between a request to a server and a response from that server (again, we will be covering this stuff very soon so no sweat).</p>
+
+            <pre>
+                <code class="language-javascript">
+    app.use(express.static('./public'));
+                </code>
+            </pre>
+
+            <p>Since we didn't define any particular path in the first arguement of the above call, it will actually apply to all pages of our app. This is handy because now all assets found in the "public" folder will be served automatically.</p>
+
+            <h2>THE SERVER</h2>
+
+            <p>Now we are going to set up the server itself by defining a port and then listening for it:</p>
+            <pre>
+                <code class="language-javascript">
+    var port = 3000;
+    app.listen(port);
+    console.log(`Now listening to port ${port}`);
+                </code>
+            </pre>
+
+            <p>It's as easy as that...</p>
+
+        </div>
+
+        <div class="container">
+            <h1>CONCLUSION</h1>
+
+            <p>So our server.js file is now set for the first part of our application - it really doesn't do much of anything right now but it's a start. After some clean up and organization, your file should look something like this:</p>
+
+            <pre class="bigBottom">
+                <code class="language-javascript">
+    var express = require('express');
+    var path = require('path');
+    var app = express();
+
+    app.set('view engine', 'ejs');
+    app.set('views', path.join(__dirname + '/public/views'));
+    app.use(express.static('./public'));
+
+    var port = 3000;
+    app.listen(port);
+    console.log(`Now listening to port ${port}`);
+
+    exports = module.exports = app;
+                </code>
+            </pre>
+
+            <p>If you want to try and run your server, navigate to the folder where your server.js file is located in terminal. Install nodemon globally with npm (npm install -g nodemon) and type "nodemon server". You will simply get a message saying "Cannot GET /" - this is okay since we don't yet have any views set up.</p>
+
+            <p style="margin-bottom: 80px;"><a href="../nutshell_MEAN_p3/index.html">Check out part 3 here</a> to learn about RESTful API's and mongoDB.</p>
+        </div>
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="../../assets/js/functions.js"></script>
+        <script src="../../assets/js/prism.js"></script>
+    </body>
+
+    <footer class="clear floatClear">
+    <p id="footerText">&copy; Dan LaFreniere 2016</p>
+</footer>
+
+</html>

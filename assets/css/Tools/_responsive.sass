@@ -25,17 +25,6 @@
         font-size: 15
     
     
-    .blog-clicker, .blog-coming-soon
-        height: 80px
-        width: 80px
-        margin-top: 4%
-
-    .blog-clicker span, .blog-coming-soon span
-        font-size: 14
-        height: 60px
-        width: 60px
-    
-    
 @media only screen and (max-width: 1005px)
     .thumb
         width: 33.333%
@@ -78,6 +67,16 @@
     
     .blog-container
         margin: 0 auto
+        
+    .blog-clicker, .blog-coming-soon
+        height: 80px
+        width: 80px
+        margin-top: 4%
+
+    .blog-clicker span, .blog-coming-soon span
+        font-size: 14
+        height: 60px
+        width: 60px
 
 @media only screen and (max-width: 961px)
     #treeLogo
@@ -175,18 +174,25 @@
         width: 40%
         
 @media (max-width: 894px)
-    .arrow-box-left, .arrow-box-right, .block-left, .block-right
-        width: 100%
+    
         
-    .blog-container
-        max-width: 85%
-        
-    .arrow-box-left
-        border-left: none
-        
-    .arrow-box-right
-        border-right: none
-        
+    .blog-clicker, .blog-coming-soon
+        display: table
+        border-radius: 0%
+        height: 10px
+        width: 120px
+        margin-left: 0
+        background-color: white
+        text-transform: uppercase
+        font-weight: 700
+        font-size: 16
+    
+    .blog-coming-soon
+        color: #c0392b
+    
+    .blog-clicker
+        color: #2c3e50
+    
     #proj-3 .col-left-50
         width: 100%
         
@@ -238,6 +244,34 @@
         
         
 @media (max-width: 736px)
+    
+    .blog-clicker, .blog-coming-soon
+        display: table-cell
+        border-radius: 50%
+        height: 100px
+        width: 100px
+        text-align: center
+        vertical-align: middle
+        color: white
+
+    .blog-clicker
+        background-color: #2c3e50
+        
+    .blog-coming-soon
+        background-color: #c0392b
+    
+    .arrow-box-left, .arrow-box-right, .block-left, .block-right
+        width: 100%
+        
+    .blog-container
+        max-width: 85%
+        
+    .arrow-box-left
+        border-left: none
+        
+    .arrow-box-right
+        border-right: none
+        
     .blog-container
         min-width: 368px
         
@@ -277,33 +311,23 @@
         max-width: 100% !important
 
 @media (max-width: 542px)
-    .blog-coming-soon
+    .blog-clicker, .blog-coming-soon
         display: table
         border-radius: 0%
         height: 10px
         width: 120px
-        margin-left: 5%
-        margin-top: 10px
-        
-    .blog-clicker
-        display: none
-
-    .blog-coming-soon
+        margin-left: 0
         background-color: white
-        
-    .blog-coming-soon span
-        display: table-cell
-        vertical-align: middle
-        text-align: center
-        height: 10px
-        width: 120px
-        font-size: 16
-        color: #e36767
         text-transform: uppercase
         font-weight: 700
+        font-size: 16
+    
+    .blog-coming-soon
+        color: #c0392b
+    
+    .blog-clicker
+        color: #2c3e50
 
-    .blog-clicker span
-        display: none
         
 @media (max-width:490px)
     #selfPortrait
