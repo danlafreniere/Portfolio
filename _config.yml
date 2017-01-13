@@ -4,7 +4,6 @@
 markdown: kramdown
 theme: minima
 
-
 port: 3000
 
 sass:

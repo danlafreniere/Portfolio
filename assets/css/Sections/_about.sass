@@ -10,21 +10,22 @@
     color: white
 
 #shortDescription
-    padding: 0 0 116px 0
+    padding-bottom: 100px
     font-family: 'Advent Pro', sans-serif
     background-color: #7accc8
     margin-top: 150px
-    color: white  
+    color: white
     width: 100%
-    height: 65vh
     text-align: center
     position: relative
 
 #selfPortrait
     position: absolute
-    left: 50%
-    margin-top: 34px
-    margin-left: -82.5px
+    bottom: -82px
+    left: calc(50% - 82px)
+    left: -o-calc(50% - 82px)
+    left: -webkit-calc(50% - 82px)
+    left: -moz-calc(50% - 82px)
     
 .aboutme p
     font-size: 14pt !important
@@ -47,3 +48,24 @@
     
 .color-swatch span
     line-height: 160px
+    
+    
+.left-test
+    height: calc(100vh - 100px)
+    height: -o-calc(100vh - 100px)
+    height: -webkit-calc(100vh - 100px)
+    height: -moz-calc(100vh - 100px)
+    background-color: red
+    width: 50%
+    position: absolute
+
+    
+.right-test
+    width: 50%
+    left: 50%
+    background-color: blue
+    position: relative
+    
+.fixed
+    position: fixed !important
+    
