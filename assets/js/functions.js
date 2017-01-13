@@ -18,8 +18,7 @@ function projectSlider(){
     $('.thumb').click(function(){
         $('.project-slider').css('left','-100%');
         $('.project-container').show();
-        $('#projects-head').css('font-size', '20');
-        $('#projects-head').text("BACK TO PROJECTS");
+        $('.projects-back').css({'display': 'inline-block'});
         $('#projects-head').wrap(function() {
             return "<a href='#jumpto-Projects'/>";
         });
@@ -28,8 +27,7 @@ function projectSlider(){
     $('.thumb-50').click(function(){
         $('.project-slider').css('left','-100%');
         $('.project-container').show();
-        $('#projects-head').css('font-size', '20');
-        $('#projects-head').text("BACK TO PROJECTS");
+        $('.projects-back').css({'display': 'inline-block'});
         $('#projects-head').wrap(function() {
             return "<a href='#jumpto-Projects'/>";
         });
@@ -38,8 +36,7 @@ function projectSlider(){
     $('#return').click(function(){
         $('.project-slider').css('left','0%');
         $('.project-container').hide();
-        $('#projects-head').css('font-size', '30');
-        $('#projects-head').text("PROJECTS");
+        $('.projects-back').css({'display': 'none'});
         $("#projects-head").unwrap();
         $('#project-return').hide();
         $('#return').css('opacity', '1');
