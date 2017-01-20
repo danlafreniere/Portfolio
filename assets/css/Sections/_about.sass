@@ -1,5 +1,8 @@
+.intro
+    font-size: 32pt !important
+
 .intro, #featuredBlog-title
-    padding: 80px 32px 0
+    padding: 10% 32px 0
     margin-top: 20px
     font-size: 24pt 
     font-weight: 300
@@ -18,6 +21,8 @@
     width: 100%
     text-align: center
     position: relative
+    min-height: 400px
+    height: 67vh
 
 #selfPortrait
     position: absolute
@@ -26,6 +31,80 @@
     left: -o-calc(50% - 82px)
     left: -webkit-calc(50% - 82px)
     left: -moz-calc(50% - 82px)
+    z-index: 9999
+    
+#about
+    overflow-x: hidden
+    
+.master-container
+    width: 200%
+    position: relative
+    left: -50%
+
+.about-panel-left
+    left: 0
+    float: left
+    width: 25%
+    position: relative
+    background-color: yellow
+    height: 100vh
+    z-index: 999
+    -webkit-transition: left 0.5s
+    -moz-transition: left 0.5s
+    -o-transition: left 0.5s
+    transition: left 0.5s
+
+.about-panel-right
+    right: 0
+    width: 25%
+    position: relative
+    background-color: red
+    float: right
+    height: 100vh
+    z-index: 999
+    -webkit-transition: right 0.5s
+    -moz-transition: right 0.5s
+    -o-transition: right 0.5s
+    transition: right 0.5s
+
+.about-kicker
+    width: 50%
+    height: 100vh
+    display: block
+    margin: 0 auto
+
+#aboutme-btn
+    position: absolute
+    left: 50%
+    right: 50%
+    top: 50%
+    margin: -50px 0 0 -150px
+    height: 100px
+    width: 300px
+    font-size: 18pt
+    font-weight: 600
+    border: 5px solid #34495e
+    color: #34495e
+    border-radius: 5px
+    text-transform: uppercase
+    cursor: pointer
+
+#back-btn
+    height: 100px
+    width: 300px
+    font-size: 18pt
+    font-weight: 600
+    border: 5px solid #34495e
+    color: #34495e
+    border-radius: 5px
+    text-transform: uppercase
+    cursor: pointer
+
+#aboutme-btn:hover
+    opacity: 0.5
+
+#back-btn:hover
+    opacity: 0.5
     
 .aboutme p
     font-size: 14pt !important

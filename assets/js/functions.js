@@ -76,6 +76,19 @@ function projectLoad(){
         $('.project-title').text(title);
     });
 }
+
+
+function aboutSlider() {
+    $('#aboutme-btn').click(function(){
+        $('.about-panel-right').css('right','25%');
+        $('.about-panel-left').css('left','25%');
+    });
+    $('#back-btn').click(function(){
+        $('.about-panel-right').css('right','0');
+        $('.about-panel-left').css('left','0');
+    });
+}
+
 $(window).load(function(){
     //jump to top of window on refresh
     $(this).scrollTop(0);
@@ -91,6 +104,7 @@ $(document).ready(function(){
     $(window).resize(checkWidth);
     projectSlider();
     projectLoad();
+    aboutSlider();
        
     /*
     ---------------------------------------------
@@ -169,8 +183,9 @@ $(document).ready(function(){
 		}
 	});
     
+    
     $('a[href^=#]').on('click', function(event){     
         event.preventDefault();
-        $('html,body').animate({scrollTop:$(this.hash).offset().top}, 500);
+        $('html,body').animate({scrollTop: $(this.hash).offset().top}, 500);
     });
 });
