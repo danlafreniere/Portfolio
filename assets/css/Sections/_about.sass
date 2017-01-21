@@ -23,7 +23,6 @@
     position: relative
     min-height: 400px
     height: 67vh
-    border-top: 2px solid white
     border-bottom: 2px solid white
 
 #selfPortrait
@@ -33,37 +32,47 @@
     left: -o-calc(50% - 82px)
     left: -webkit-calc(50% - 82px)
     left: -moz-calc(50% - 82px)
-    z-index: 9999
+    z-index: 100
     border: 2px solid white
     border-radius: 50%
     
 #about
     overflow-x: hidden
-    background-color: #7accc8
+    background-color: white
+    background: url('../images/about-background.jpg') no-repeat center center fixed
+    -webkit-background-size: cover
+    -moz-background-size: cover
+    -o-background-size: cover
+    background-size: cover
     
 .master-container
     width: 200%
     position: relative
     left: -50%
 
+.about-content
+    margin: 100px 50px 0 50px
+    display: block
+    
 .about-panel-left
     overflow-y: scroll
     left: 0
     float: left
     width: 25%
     position: relative
-    background-color: #e36767
+    background-color: #10131A
+    color: white
     height: 80vh
-    z-index: 999
+    z-index: 99
     -webkit-transition: left 0.5s
     -moz-transition: left 0.5s
     -o-transition: left 0.5s
     transition: left 0.5s
-
-.about-content
-    margin: 100px 50px 0 50px
-    display: block
     
+.about-panel-left p
+    font-size: 12pt !important
+    font-weight: 300
+
 .about-panel-right
     overflow-y: scroll
     right: 0
@@ -72,7 +81,7 @@
     background-color: white
     float: right
     height: 80vh
-    z-index: 999
+    z-index: 99
     -webkit-transition: right 0.5s
     -moz-transition: right 0.5s
     -o-transition: right 0.5s
@@ -90,7 +99,7 @@
     position: absolute
     left: 50%
     right: 50%
-    top: 45%
+    top: 50%
     margin: -50px 0 0 -150px
     height: 100px
     width: 300px
@@ -116,10 +125,10 @@
     left: -o-calc(50% - 230px)
     left: -webkit-calc(50% - 230px)
     left: -moz-calc(50% - 230px)
-    top: 60%
+    top: 65%
 
 #resume:hover
-    opacity: 0.5
+    opacity: 0.7
     transition: all 0.5s ease
     -webkit-transition: all 0.5s ease
     -o-transition: all 0.5s ease
@@ -139,7 +148,7 @@
     margin-top: 20px
 
 #aboutme-btn:hover
-    opacity: 0.5
+    opacity: 0.7
     transition: all 0.5s ease
     -webkit-transition: all 0.5s ease
     -o-transition: all 0.5s ease
@@ -147,9 +156,6 @@
 
 #back-btn:hover
     opacity: 0.5
-    
-.about-panel-left p
-    font-size: 14pt !important
     
 .color-palette
     max-width: 700px
