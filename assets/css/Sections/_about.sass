@@ -47,25 +47,31 @@
     left: -50%
 
 .about-panel-left
+    overflow-y: scroll
     left: 0
     float: left
     width: 25%
     position: relative
-    background-color: yellow
-    height: 70vh
+    background-color: #e36767
+    height: 80vh
     z-index: 999
     -webkit-transition: left 0.5s
     -moz-transition: left 0.5s
     -o-transition: left 0.5s
     transition: left 0.5s
 
+.about-content
+    margin: 100px 50px 0 50px
+    display: block
+    
 .about-panel-right
+    overflow-y: scroll
     right: 0
     width: 25%
     position: relative
-    background-color: red
+    background-color: white
     float: right
-    height: 70vh
+    height: 80vh
     z-index: 999
     -webkit-transition: right 0.5s
     -moz-transition: right 0.5s
@@ -84,13 +90,13 @@
     position: absolute
     left: 50%
     right: 50%
-    top: 40%
+    top: 45%
     margin: -50px 0 0 -150px
     height: 100px
     width: 300px
     font-size: 24pt
     font-weight: 400
-    border: 5px solid white
+    border: 3px solid white
     color: white
     border-radius: 15px
     text-transform: uppercase
@@ -98,18 +104,18 @@
     background-color: #7accc8
     
 #resume
-    height: 60px
+    height: 50px
     margin: 20px
     opacity: 1
-    border: 5px solid white
+    border: 2px solid white
     border-radius: 20px
     
 #resume-container
     position: absolute
-    left: calc(50% - 250px)
-    left: -o-calc(50% - 250px)
-    left: -webkit-calc(50% - 250px)
-    left: -moz-calc(50% - 250px)
+    left: calc(50% - 230px)
+    left: -o-calc(50% - 230px)
+    left: -webkit-calc(50% - 230px)
+    left: -moz-calc(50% - 230px)
     top: 60%
 
 #resume:hover
@@ -120,15 +126,17 @@
     -moz-transition: all 0.5s ease
 
 #back-btn
-    height: 100px
-    width: 300px
-    font-size: 18pt
-    font-weight: 600
-    border: 5px solid #34495e
-    color: #34495e
+    height: 50px
+    width: 200px
+    font-size: 14pt
+    font-weight: 400
+    border: 2px solid white
+    color: white
+    background-color: #e36767
     border-radius: 5px
     text-transform: uppercase
     cursor: pointer
+    margin-top: 20px
 
 #aboutme-btn:hover
     opacity: 0.5
@@ -140,7 +148,7 @@
 #back-btn:hover
     opacity: 0.5
     
-.aboutme p
+.about-panel-left p
     font-size: 14pt !important
     
 .color-palette
@@ -162,7 +170,6 @@
 .color-swatch span
     line-height: 160px
     
-    
 .left-test
     height: calc(100vh - 100px)
     height: -o-calc(100vh - 100px)
@@ -172,13 +179,13 @@
     width: 50%
     position: absolute
 
-    
 .right-test
     width: 50%
     left: 50%
     background-color: blue
     position: relative
     
-.fixed
-    position: fixed !important
-    
+.skill
+    float: left
+    max-width: 250px
+    margin: 10px
