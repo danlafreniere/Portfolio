@@ -7,11 +7,6 @@
         
     .topPadding
         padding-top: 40px
-
-@media only screen and (max-width: 1200px)
-    .skill
-        width: 300px
-        
         
 @media only screen and (max-width: 1086px)
     
@@ -30,17 +25,16 @@
     
     
 @media only screen and (max-width: 1005px)
+    
+    .about-content p
+        font-size: 11pt !important
+    
     .thumb
         width: 33.333%
         height: 215px
         
     .thumb-50
         height: 290px
-        
-    .skill
-        width: 50%
-        float: left
-        margin: auto
         
     #proj-2 .col-left-70
         width: 100%
@@ -171,9 +165,31 @@
     #proj-3 .col-right-30
         width: 40%
         
-@media (max-width: 894px)
-    
         
+@media (max-width: 915px)
+    .about-panel-left
+        float: none
+        left: -25%
+        width: 50%
+        height: 80vh
+        
+    .about-panel-right
+        float: none
+        width: 50%
+        right: -25%
+        height: 80vh
+        
+    #about
+        overflow: hidden
+        
+    .master-container
+        height: 70vh
+      
+    .about-kicker
+        height: 70vh
+        
+        
+@media (max-width: 894px)
     .blog-clicker, .blog-coming-soon
         display: table
         border-radius: 0%
@@ -377,12 +393,6 @@
     
     form input.name, form input.email, form textarea
         max-width: 320px
-
-    .skill
-        width: 100%
-        max-width: 300px
-        float: left
-        margin: auto
         
     #proj-3 .col-right-30 img
         max-width: 100% !important

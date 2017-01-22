@@ -12,9 +12,10 @@
     position: relative
     overflow: hidden
     background-color: #262626
-    background-image: url(/assets/images/Space.png)
-    background-repeat: no-repeat
-    background-position: center center
+    background: url(/assets/images/SpaceBackground.png) no-repeat center center fixed
+    -webkit-background-size: cover
+    -moz-background-size: cover
+    -o-background-size: cover
     background-size: cover
     
 .photoContainer_content
@@ -47,10 +48,10 @@
     z-index: 998
 
 .photoContainer:hover h1
-    color: #e36767
+    color: #7accc8
 
 .photoContainer:hover h3
-    color: #e36767
+    color: #7accc8
 
 .sliding-underline
     display: inline-block
@@ -68,7 +69,7 @@
     
 .photoContainer:hover .sliding-underline:after
     width: 120px
-    background: #e36767
+    background: #7accc8
     
 #planet
     float: left

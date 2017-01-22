@@ -1,10 +1,14 @@
 var currentScroll = 0; 
 var triggerHeight = 100; 
 var counter = 0; 
+var windowSize;
+
+$('#aboutme-btn').click(function(){
+    projectSlider();
+});
 
 function checkWidth(){
-    var windowSize = $(window).width();
-
+    windowSize = $(window).width();
     if (windowSize < 961){
         counter = 0;
         $('#treeLogo').removeClass('grow');
@@ -53,7 +57,6 @@ function projectSlider(){
 }
 
 function projectLoad(){
-    
     //Not a big deal if we are caching the few projects that currently exist on the site. 
     $.ajaxSetup({ cache : true });
     $('.thumb').click(function() {
@@ -77,16 +80,30 @@ function projectLoad(){
     });
 }
 
-
 function aboutSlider() {
     $('#aboutme-btn').click(function(){
-        $('.about-panel-right').css('right','25%');
-        $('.about-panel-left').css('left','25%');
+        if (windowSize >= 916){
+            $('.about-panel-right').css('right','25%');
+            $('.about-panel-left').css('left','25%');
+        } else {
+            $('.master-container').css('height', '160vh');
+            $('.about-kicker').css('display', 'none');
+            $('.about-panel-right').css({right: '-25%'});
+            $('.about-panel-left').css({left: '25%'});
+        }
     });
     $('#back-btn').click(function(){
-        $('.about-panel-right').css('right','0');
-        $('.about-panel-left').css('left','0');
+        if (windowSize >= 916){
+            $('.about-panel-right').css('right','0');
+            $('.about-panel-left').css('left','-25%');
+        } else {
+            $('.master-container').css('height', '80vh');
+            $('.about-kicker').css('display', 'block');
+            $('.about-panel-right').css({right: '0'});
+            $('.about-panel-left').css({left: '-25%'});
+        }
     });
+    
 }
 
 $(window).load(function(){
