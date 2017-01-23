@@ -2,6 +2,7 @@ var currentScroll = 0;
 var triggerHeight = 100; 
 var counter = 0; 
 var windowSize;
+var aboutOpen;
 
 $('#aboutme-btn').click(function(){
     projectSlider();
@@ -9,6 +10,18 @@ $('#aboutme-btn').click(function(){
 
 function checkWidth(){
     windowSize = $(window).width();
+    
+    if (aboutOpen === true && windowSize < 916) {
+        $('.master-container').css('height', '160vh');
+        $('.about-panel-right').css('right', '-25%');
+    } else if (aboutOpen === true && windowSize >= 916) {
+        $('.master-container').css('height', '90vh');
+        $('.about-panel-right').css('right', '25%');
+        $('.about-kicker').css('display', 'block');
+    }
+    
+    
+    
     if (windowSize < 961){
         counter = 0;
         $('#treeLogo').removeClass('grow');
@@ -82,6 +95,7 @@ function projectLoad(){
 
 function aboutSlider() {
     $('#aboutme-btn').click(function(){
+        aboutOpen = true;
         if (windowSize >= 916){
             $('.about-panel-right').css('right','25%');
             $('.about-panel-left').css('left','25%');
@@ -93,6 +107,7 @@ function aboutSlider() {
         }
     });
     $('#back-btn').click(function(){
+        aboutOpen = false;
         if (windowSize >= 916){
             $('.about-panel-right').css('right','0');
             $('.about-panel-left').css('left','-25%');
@@ -115,6 +130,7 @@ $(window).load(function(){
 
 //code within this block will only execute when the DOM is ready
 $(document).ready(function(){ 
+    aboutOpen = false;
     counter = 0; 
     checkWidth();
     //call the checkWidth function when the window gets resized
