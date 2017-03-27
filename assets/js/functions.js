@@ -10,7 +10,6 @@ $('#aboutme-btn').click(function(){
 
 function checkWidth(){
     windowSize = $(window).width();
-    
     if (aboutOpen === true && windowSize < 916) {
         $('.master-container').css('height', '160vh');
         $('.about-panel-right').css('right', '-25%');
@@ -19,9 +18,6 @@ function checkWidth(){
         $('.about-panel-right').css('right', '25%');
         $('.about-kicker').css('display', 'block');
     }
-    
-    
-    
     if (windowSize < 961){
         counter = 0;
         $('#treeLogo').removeClass('grow');
@@ -81,7 +77,6 @@ function projectLoad(){
         $('.project-load').html(spinner).load(newHTML);
         $('.project-title').text(title);
     });
-    
     $('.thumb-50').click(function() {
         var $this = $(this);
         var title = $this.find('.thumb-text').text();
@@ -117,8 +112,7 @@ function aboutSlider() {
             $('.about-panel-right').css({right: '0'});
             $('.about-panel-left').css({left: '-25%'});
         }
-    });
-    
+    });   
 }
 
 $(window).load(function(){
@@ -138,7 +132,6 @@ $(document).ready(function(){
     projectSlider();
     projectLoad();
     aboutSlider();
-       
     /*
     ---------------------------------------------
     ---------------------------------------------
@@ -148,7 +141,6 @@ $(document).ready(function(){
     ---------------------------------------------
     ---------------------------------------------
     */
-    
     $(window).scroll(function() {
         currentScroll = $(this).scrollTop();
         if ( currentScroll >= triggerHeight ) {
@@ -178,7 +170,6 @@ $(document).ready(function(){
             }
         }
     });  
-    
      /*
     ---------------------------------------------
     ---------------------------------------------
@@ -188,7 +179,6 @@ $(document).ready(function(){
     ---------------------------------------------
     ---------------------------------------------
     */
-     
     $('#primary-nav-trigger').on('click', function(){
 		$('#menu-icon').toggleClass('is-clicked'); 	
 		//in firefox transitions break when parent overflow is changed, so we need to wait for the end of the trasition to give the body an overflow hidden
@@ -200,12 +190,10 @@ $(document).ready(function(){
 			});	
 		}
 	});
-    
     $('#primary-nav a[href^=#]').on('click', function(event){     
         event.preventDefault();
         $('html,body').animate({scrollTop:$(this.hash).offset().top}, 500);
 		$('#menu-icon').toggleClass('is-clicked'); 
-        
 		//in firefox transitions break when parent overflow is changed, so we need to wait for the end of the trasition to give the body an overflow hidden
 		if( $('#primary-nav').hasClass('is-visible') ) {
 			$('#primary-nav').removeClass('is-visible').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend',function(){
@@ -215,8 +203,6 @@ $(document).ready(function(){
 			});	
 		}
 	});
-    
-    
     $('a[href^=#]').on('click', function(event){     
         event.preventDefault();
         $('html,body').animate({scrollTop: $(this.hash).offset().top}, 500);

@@ -1,0 +1,134 @@
+@import 'Sections/-sections-dir';
+@import 'Tools/-tools-dir';
+
+$font-stack-main:   "Source Sans Pro", sans-serif;
+$font-stack-title:  'Advent Pro', sans-serif;
+$site-red:          #e36767;
+$site-grey:         #3d3d3b;
+$site-teal:         #7accc8;
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.center {
+  margin: 0px auto;
+}
+
+.floatClear {
+  overflow: hidden;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+.container p {
+  padding: 0 10px 0 10px;
+  font-size: 12pt;
+  text-align: justify;
+  color: black;
+}
+
+html, body {
+  font-family: "Source Sans Pro", sans-serif;
+  line-height: 150%;
+  margin: 0;
+  max-height: 100%;
+}
+
+a {
+  color: #e36767;
+}
+
+.fixed {
+  position: fixed !important;
+}
+
+img {
+  border: 0;
+  page-break-inside: avoid;
+  max-width: 100% !important;
+  vertical-align: middle;
+}
+
+.img-responsive {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.bigBottom {
+  padding-bottom: 40px;
+}
+
+.whiteBackground {
+  background-color: white;
+}
+
+.tealBackground {
+  background-color: #7accc8;
+  background-size: 100% 100%;
+}
+
+.greyBackground {
+  background-color: #3d3d3b;
+  background-size: 100% 100%;
+}
+
+.whiteText {
+  color: white;
+}
+
+.bodyText {
+  padding: 10px;
+  font-size: 12pt;
+  text-align: justify;
+  color: black;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.clear {
+  clear: both;
+}
+
+.noMargin {
+  margin: 0;
+}
+
+h1 {
+  font-family: "Advent Pro", sans-serif;
+  font-weight: 700;
+  margin-left: 10px;
+  letter-spacing: 2px;
+}
+
+h2 {
+  font-family: "Advent Pro", sans-serif;
+  font-weight: 600;
+  font-size: 20pt;
+  margin-left: 10px;
+  letter-spacing: 2px;
+}
+
+h4 {
+  font-size: 18px;
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.1;
+  color: inherit;
+}
+
+.bigFont {
+  font-size: 24pt;
+  font-weight: 300;
+}
+
+.topPadding {
+  padding-top: 40px;
+}
