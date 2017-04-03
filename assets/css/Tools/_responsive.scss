@@ -1,14 +1,9 @@
 @media only screen and (min-width: 961px) {
-  .introKicker {
-    padding-top: 10px;
-    font-size: 18pt;
-    font-weight: 300;
-  }
-
   .topPadding {
     padding-top: 40px;
   }
 }
+
 @media only screen and (max-width: 1086px) {
   #firstItem {
     padding-top: 20%;
@@ -89,6 +84,7 @@
     width: 60px;
   }
 }
+
 @media only screen and (max-width: 961px) {
   #treeLogo {
     float: left;
@@ -156,15 +152,6 @@
       opacity: 0;
       margin: 20px 0 0 10px;
     }
-  }
-  .intro, #featuredBlog {
-    padding: 80px 32px 0;
-    font-size: 26pt;
-  }
-
-  .introKicker {
-    padding-top: 5px;
-    font-size: 14pt;
   }
 
   .topPadding {
@@ -480,7 +467,7 @@
   }
 
   #proj-3 .col-right-30 img {
-    max-width: 100% !important;
+    max-width: $whole !important;
   }
 }
 @media (max-width: 340px) {

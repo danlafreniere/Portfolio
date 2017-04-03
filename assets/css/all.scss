@@ -1,12 +1,6 @@
 @import 'Sections/-sections-dir';
 @import 'Tools/-tools-dir';
 
-$font-stack-main:   "Source Sans Pro", sans-serif;
-$font-stack-title:  'Advent Pro', sans-serif;
-$site-red:          #e36767;
-$site-grey:         #3d3d3b;
-$site-teal:         #7accc8;
-
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -106,6 +100,7 @@ h1 {
   font-weight: 700;
   margin-left: 10px;
   letter-spacing: 2px;
+  font-size: $h1-font;
 }
 
 h2 {
@@ -114,6 +109,10 @@ h2 {
   font-size: 20pt;
   margin-left: 10px;
   letter-spacing: 2px;
+}
+
+h3 {
+  font-size: $h3-font;
 }
 
 h4 {
